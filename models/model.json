@@ -1,0 +1,43 @@
+{
+  "feature_names": [
+    "name_similarity",
+    "surname_exact",
+    "landed_in_their_account",
+    "amount_exact",
+    "amount_closeness",
+    "underpaid",
+    "overpaid",
+    "covers_several_invoices",
+    "recency",
+    "inside_the_usual_window",
+    "paid_by_card",
+    "paid_by_dedicated_account",
+    "paid_by_transfer",
+    "paid_in_cash",
+    "their_only_open_invoice",
+    "few_other_candidates",
+    "we_have_seen_this_payer_before",
+    "round_number_payment"
+  ],
+  "weights": [
+    1.2154073680684094,
+    0.6245147244154953,
+    0.3917935463253778,
+    0.8655569847478041,
+    2.678118643524587,
+    -0.7814189091147588,
+    -1.8282702112899163,
+    0.20943143655183918,
+    1.6128012017939046,
+    0.32543607852565887,
+    0.0,
+    -0.6660898014015703,
+    -1.078042334255302,
+    0.0,
+    0.0967319116391753,
+    0.48869708288133196,
+    -0.4807630646633623,
+    0.24550658965041605
+  ],
+  "bias": -2.0727532647669897
+}

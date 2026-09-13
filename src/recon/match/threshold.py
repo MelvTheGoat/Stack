@@ -155,13 +155,13 @@ def choose_threshold(
     )
 
 
-def precision_at_k(ranked: list[tuple[float, int]], k: int) -> float:
+def precision_at_k(ranked: list[tuple[Money, int]], k: int) -> float:
     """Of the top k cases in the queue, how many were worth a person's time.
 
-    `ranked` is (money at risk, was the queued case genuinely unresolved) sorted
-    however the queue sorts. The question this answers is the one a bookkeeper
-    asks at 7pm: if I only get through 40 of these tonight, am I working on the
-    right 40?
+    `ranked` is (money at risk, was this case genuinely worth queueing), already
+    in the order the queue shows them. The question it answers is the one a
+    bookkeeper asks at 7pm: if I only get through 40 of these tonight, am I
+    working on the right 40?
     """
     if k <= 0 or not ranked:
         return 0.0

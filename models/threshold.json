@@ -1,0 +1,18 @@
+{
+  "threshold": 0.85,
+  "chosen_on_payments": 87,
+  "cost_matrix": {
+    "a review costs": "₦60.00",
+    "a wrong auto-clear costs": "₦5,000.00",
+    "ratio": "83:1",
+    "assumption": "3 minutes to check one match, 120 minutes to unpick a wrong one, at ₦1,200.00 an hour, plus ₦2,600.00 for the customer being annoyed"
+  },
+  "expected_cost_a_night_kobo": 396000,
+  "brier_by_calibration_method": {
+    "identity": 0.0934151765966221,
+    "platt": 0.05161974458124467,
+    "isotonic": 0.05330333772521603
+  },
+  "training_rows": 547,
+  "training_positives": 84
+}

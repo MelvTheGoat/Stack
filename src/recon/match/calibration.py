@@ -127,10 +127,22 @@ class IsotonicCalibrator:
         if not scores:
             return cls()
 
-        paired = sorted(zip(scores, labels, strict=True))
+        # Pool identical scores first. Without this, sorting (score, label)
+        # puts every 0 before every 1 inside a tied group, which already looks
+        # non-decreasing, so PAVA leaves it alone and the last block at that
+        # score reads 100%. Two hundred cases scored 0.9 of which half were
+        # right would come back as "0.9 means certain", which is the exact
+        # error calibration exists to catch.
+        pooled: dict[float, list[float]] = {}
+        for score, label in zip(scores, labels, strict=True):
+            bucket = pooled.setdefault(score, [0.0, 0.0])
+            bucket[0] += label
+            bucket[1] += 1
+
         blocks: list[list[float]] = []  # [start_score, sum_of_labels, count]
-        for score, label in paired:
-            blocks.append([score, float(label), 1.0])
+        for score in sorted(pooled):
+            total, count = pooled[score]
+            blocks.append([score, total, count])
             while len(blocks) > 1:
                 previous, current = blocks[-2], blocks[-1]
                 if previous[1] / previous[2] <= current[1] / current[2]:
