@@ -1,186 +1,186 @@
 [
   {
-    "fees_kobo": 30000,
-    "gross_kobo": 9790000,
+    "fees_kobo": 95962,
+    "gross_kobo": 12187499,
     "id": "STL_20240502",
-    "net_kobo": 9760000,
+    "net_kobo": 12091537,
     "settled_at": "2024-05-02T14:00:00+00:00",
-    "transaction_count": 1
-  },
-  {
-    "fees_kobo": 161125,
-    "gross_kobo": 13575025,
-    "id": "STL_20240503",
-    "net_kobo": 13413900,
-    "settled_at": "2024-05-03T14:00:00+00:00",
-    "transaction_count": 2
-  },
-  {
-    "fees_kobo": 549904,
-    "gross_kobo": 32911124,
-    "id": "STL_20240506",
-    "net_kobo": 32361220,
-    "settled_at": "2024-05-06T14:00:00+00:00",
-    "transaction_count": 9
-  },
-  {
-    "fees_kobo": 105495,
-    "gross_kobo": 6366300,
-    "id": "STL_20240507",
-    "net_kobo": -105495,
-    "settled_at": "2024-05-07T14:00:00+00:00",
-    "transaction_count": 1
-  },
-  {
-    "fees_kobo": 92050,
-    "gross_kobo": 3470000,
-    "id": "STL_20240508",
-    "net_kobo": 1352950,
-    "settled_at": "2024-05-08T14:00:00+00:00",
     "transaction_count": 4
   },
   {
-    "fees_kobo": 175125,
-    "gross_kobo": 17430000,
+    "fees_kobo": 147876,
+    "gross_kobo": 9158400,
+    "id": "STL_20240503",
+    "net_kobo": 9010524,
+    "settled_at": "2024-05-03T14:00:00+00:00",
+    "transaction_count": 3
+  },
+  {
+    "fees_kobo": 1064716,
+    "gross_kobo": 159207399,
+    "id": "STL_20240506",
+    "net_kobo": 96422683,
+    "settled_at": "2024-05-06T14:00:00+00:00",
+    "transaction_count": 11
+  },
+  {
+    "fees_kobo": 559167,
+    "gross_kobo": 103191100,
+    "id": "STL_20240507",
+    "net_kobo": 102631933,
+    "settled_at": "2024-05-07T14:00:00+00:00",
+    "transaction_count": 5
+  },
+  {
+    "fees_kobo": 256444,
+    "gross_kobo": 14081250,
+    "id": "STL_20240508",
+    "net_kobo": 13824806,
+    "settled_at": "2024-05-08T14:00:00+00:00",
+    "transaction_count": 6
+  },
+  {
+    "fees_kobo": 155400,
+    "gross_kobo": 16115000,
     "id": "STL_20240509",
-    "net_kobo": 17254875,
+    "net_kobo": 15959600,
     "settled_at": "2024-05-09T14:00:00+00:00",
     "transaction_count": 4
   },
   {
-    "fees_kobo": 259775,
-    "gross_kobo": 15985000,
+    "fees_kobo": 580761,
+    "gross_kobo": 81447400,
     "id": "STL_20240510",
-    "net_kobo": 15725225,
+    "net_kobo": 80866639,
     "settled_at": "2024-05-10T14:00:00+00:00",
-    "transaction_count": 2
+    "transaction_count": 5
   },
   {
-    "fees_kobo": 1344414,
-    "gross_kobo": 158084949,
+    "fees_kobo": 1420661,
+    "gross_kobo": 260627199,
     "id": "STL_20240513",
-    "net_kobo": 155880535,
+    "net_kobo": 259206538,
     "settled_at": "2024-05-13T14:00:00+00:00",
     "transaction_count": 18
   },
   {
-    "fees_kobo": 548646,
-    "gross_kobo": 51811349,
+    "fees_kobo": 214833,
+    "gross_kobo": 12445549,
     "id": "STL_20240514",
-    "net_kobo": 46818603,
+    "net_kobo": 12230716,
     "settled_at": "2024-05-14T14:00:00+00:00",
-    "transaction_count": 7
-  },
-  {
-    "fees_kobo": 83550,
-    "gross_kobo": 8577500,
-    "id": "STL_20240515",
-    "net_kobo": 8493950,
-    "settled_at": "2024-05-15T14:00:00+00:00",
-    "transaction_count": 3
-  },
-  {
-    "fees_kobo": 199375,
-    "gross_kobo": 14533000,
-    "id": "STL_20240516",
-    "net_kobo": 14333625,
-    "settled_at": "2024-05-16T14:00:00+00:00",
-    "transaction_count": 2
-  },
-  {
-    "fees_kobo": 116900,
-    "gross_kobo": 11070000,
-    "id": "STL_20240517",
-    "net_kobo": 8743100,
-    "settled_at": "2024-05-17T14:00:00+00:00",
     "transaction_count": 4
   },
   {
-    "fees_kobo": 1509473,
-    "gross_kobo": 219701350,
+    "fees_kobo": 360275,
+    "gross_kobo": 48920100,
+    "id": "STL_20240515",
+    "net_kobo": 48559825,
+    "settled_at": "2024-05-15T14:00:00+00:00",
+    "transaction_count": 6
+  },
+  {
+    "fees_kobo": 87651,
+    "gross_kobo": 6418050,
+    "id": "STL_20240516",
+    "net_kobo": 6330399,
+    "settled_at": "2024-05-16T14:00:00+00:00",
+    "transaction_count": 3
+  },
+  {
+    "fees_kobo": 67450,
+    "gross_kobo": 5775000,
+    "id": "STL_20240517",
+    "net_kobo": 5707550,
+    "settled_at": "2024-05-17T14:00:00+00:00",
+    "transaction_count": 2
+  },
+  {
+    "fees_kobo": 1538424,
+    "gross_kobo": 208390975,
     "id": "STL_20240520",
-    "net_kobo": 218191877,
+    "net_kobo": 195602526,
     "settled_at": "2024-05-20T14:00:00+00:00",
     "transaction_count": 17
   },
   {
-    "fees_kobo": 115575,
-    "gross_kobo": 5705000,
+    "fees_kobo": 104750,
+    "gross_kobo": 63690000,
     "id": "STL_20240521",
-    "net_kobo": 5589425,
+    "net_kobo": 63585250,
     "settled_at": "2024-05-21T14:00:00+00:00",
     "transaction_count": 3
   },
   {
-    "fees_kobo": 219675,
-    "gross_kobo": 60685000,
+    "fees_kobo": 46276,
+    "gross_kobo": 2815099,
     "id": "STL_20240522",
-    "net_kobo": 60465325,
+    "net_kobo": 2768823,
     "settled_at": "2024-05-22T14:00:00+00:00",
     "transaction_count": 2
   },
   {
-    "fees_kobo": 197876,
-    "gross_kobo": 15650050,
+    "fees_kobo": 405675,
+    "gross_kobo": 36405000,
     "id": "STL_20240523",
-    "net_kobo": 15452174,
+    "net_kobo": 35424325,
     "settled_at": "2024-05-23T14:00:00+00:00",
     "transaction_count": 5
   },
   {
-    "fees_kobo": 291050,
-    "gross_kobo": 25133250,
+    "fees_kobo": 137783,
+    "gross_kobo": 15417200,
     "id": "STL_20240524",
-    "net_kobo": 24842200,
+    "net_kobo": 15279417,
     "settled_at": "2024-05-24T14:00:00+00:00",
-    "transaction_count": 7
+    "transaction_count": 6
   },
   {
-    "fees_kobo": 769941,
-    "gross_kobo": 72467700,
+    "fees_kobo": 391875,
+    "gross_kobo": 65022500,
     "id": "STL_20240527",
-    "net_kobo": 71697759,
+    "net_kobo": 64630625,
     "settled_at": "2024-05-27T14:00:00+00:00",
-    "transaction_count": 14
+    "transaction_count": 11
   },
   {
-    "fees_kobo": 601440,
-    "gross_kobo": 71799299,
+    "fees_kobo": 342826,
+    "gross_kobo": 56313799,
     "id": "STL_20240528",
-    "net_kobo": 69377760,
+    "net_kobo": 54150874,
     "settled_at": "2024-05-28T14:00:00+00:00",
-    "transaction_count": 9
+    "transaction_count": 6
   },
   {
-    "fees_kobo": 533920,
-    "gross_kobo": 104209000,
+    "fees_kobo": 267936,
+    "gross_kobo": 24254600,
     "id": "STL_20240529",
-    "net_kobo": 103675080,
+    "net_kobo": 23986664,
     "settled_at": "2024-05-29T14:00:00+00:00",
-    "transaction_count": 5
+    "transaction_count": 6
   },
   {
-    "fees_kobo": 366289,
-    "gross_kobo": 30727600,
+    "fees_kobo": 15400,
+    "gross_kobo": 360000,
     "id": "STL_20240530",
-    "net_kobo": 30361311,
+    "net_kobo": 344600,
     "settled_at": "2024-05-30T14:00:00+00:00",
+    "transaction_count": 1
+  },
+  {
+    "fees_kobo": 133400,
+    "gross_kobo": 6893300,
+    "id": "STL_20240531",
+    "net_kobo": 6759900,
+    "settled_at": "2024-05-31T14:00:00+00:00",
     "transaction_count": 3
   },
   {
-    "fees_kobo": 160447,
-    "gross_kobo": 8801100,
-    "id": "STL_20240531",
-    "net_kobo": 8640653,
-    "settled_at": "2024-05-31T14:00:00+00:00",
-    "transaction_count": 4
-  },
-  {
-    "fees_kobo": 962351,
-    "gross_kobo": 58099125,
+    "fees_kobo": 847793,
+    "gross_kobo": 99622850,
     "id": "STL_20240603",
-    "net_kobo": 57136774,
+    "net_kobo": 97529657,
     "settled_at": "2024-06-03T14:00:00+00:00",
-    "transaction_count": 19
+    "transaction_count": 21
   }
 ]

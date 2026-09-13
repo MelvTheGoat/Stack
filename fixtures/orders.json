@@ -42,7 +42,7 @@
     "due_at": "2024-05-12T15:51:18+00:00",
     "issued_at": "2024-05-05T19:47:07+00:00",
     "reference": "INV-0005",
-    "status": "part_paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1545000,
@@ -60,7 +60,7 @@
     "due_at": "2024-06-04T09:14:04+00:00",
     "issued_at": "2024-05-28T15:28:55+00:00",
     "reference": "INV-0007",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1259000,
@@ -69,7 +69,7 @@
     "due_at": "2024-05-24T13:54:47+00:00",
     "issued_at": "2024-05-17T19:00:28+00:00",
     "reference": "INV-0008",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 5270000,
@@ -96,7 +96,7 @@
     "due_at": "2024-06-07T17:35:04+00:00",
     "issued_at": "2024-05-31T21:48:00+00:00",
     "reference": "INV-0011",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 80005000,
@@ -105,7 +105,7 @@
     "due_at": "2024-06-06T08:38:36+00:00",
     "issued_at": "2024-05-30T12:43:56+00:00",
     "reference": "INV-0012",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 405000,
@@ -114,7 +114,7 @@
     "due_at": "2024-06-07T21:03:59+00:00",
     "issued_at": "2024-05-31T09:48:18+00:00",
     "reference": "INV-0013",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 1940000,
@@ -168,7 +168,7 @@
     "due_at": "2024-05-20T10:22:33+00:00",
     "issued_at": "2024-05-13T17:54:07+00:00",
     "reference": "INV-0019",
-    "status": "part_paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1640000,
@@ -177,7 +177,7 @@
     "due_at": "2024-06-05T09:35:52+00:00",
     "issued_at": "2024-05-29T11:18:05+00:00",
     "reference": "INV-0020",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 5230000,
@@ -195,7 +195,7 @@
     "due_at": "2024-05-10T15:53:16+00:00",
     "issued_at": "2024-05-03T19:50:41+00:00",
     "reference": "INV-0022",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 1185000,
@@ -213,7 +213,7 @@
     "due_at": "2024-05-28T10:57:07+00:00",
     "issued_at": "2024-05-21T17:42:33+00:00",
     "reference": "INV-0024",
-    "status": "paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 2217000,
@@ -222,7 +222,7 @@
     "due_at": "2024-05-10T16:16:04+00:00",
     "issued_at": "2024-05-03T11:33:11+00:00",
     "reference": "INV-0025",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 18290000,
@@ -231,7 +231,7 @@
     "due_at": "2024-05-28T17:11:20+00:00",
     "issued_at": "2024-05-21T13:49:20+00:00",
     "reference": "INV-0026",
-    "status": "part_paid"
+    "status": "open"
   },
   {
     "amount_kobo": 345000,
@@ -240,7 +240,7 @@
     "due_at": "2024-05-21T13:32:01+00:00",
     "issued_at": "2024-05-14T12:33:46+00:00",
     "reference": "INV-0027",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 3995000,
@@ -267,7 +267,7 @@
     "due_at": "2024-05-21T19:51:37+00:00",
     "issued_at": "2024-05-14T15:54:21+00:00",
     "reference": "INV-0030",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 555000,
@@ -276,7 +276,7 @@
     "due_at": "2024-05-19T18:12:12+00:00",
     "issued_at": "2024-05-12T11:33:52+00:00",
     "reference": "INV-0031",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 2150000,
@@ -294,7 +294,7 @@
     "due_at": "2024-06-02T18:50:58+00:00",
     "issued_at": "2024-05-26T11:56:42+00:00",
     "reference": "INV-0033",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 6130050,
@@ -312,7 +312,7 @@
     "due_at": "2024-06-04T18:58:10+00:00",
     "issued_at": "2024-05-28T20:17:37+00:00",
     "reference": "INV-0035",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 440000,
@@ -420,7 +420,7 @@
     "due_at": "2024-05-21T17:10:47+00:00",
     "issued_at": "2024-05-14T15:44:59+00:00",
     "reference": "INV-0047",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 586000,
@@ -447,7 +447,7 @@
     "due_at": "2024-05-08T11:40:56+00:00",
     "issued_at": "2024-05-01T11:30:30+00:00",
     "reference": "INV-0050",
-    "status": "paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 38965000,
@@ -456,7 +456,7 @@
     "due_at": "2024-06-05T13:10:37+00:00",
     "issued_at": "2024-05-29T09:02:30+00:00",
     "reference": "INV-0051",
-    "status": "overpaid"
+    "status": "open"
   },
   {
     "amount_kobo": 7905000,
@@ -501,7 +501,7 @@
     "due_at": "2024-06-02T18:30:19+00:00",
     "issued_at": "2024-05-26T16:43:30+00:00",
     "reference": "INV-0056",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 5368100,
@@ -528,7 +528,7 @@
     "due_at": "2024-05-25T21:17:46+00:00",
     "issued_at": "2024-05-18T13:39:49+00:00",
     "reference": "INV-0059",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 530000,
@@ -555,7 +555,7 @@
     "due_at": "2024-05-13T12:47:41+00:00",
     "issued_at": "2024-05-06T13:04:44+00:00",
     "reference": "INV-0062",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 3295000,
@@ -564,7 +564,7 @@
     "due_at": "2024-05-17T12:32:57+00:00",
     "issued_at": "2024-05-10T11:50:05+00:00",
     "reference": "INV-0063",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 36040000,
@@ -600,7 +600,7 @@
     "due_at": "2024-05-20T17:17:24+00:00",
     "issued_at": "2024-05-13T10:56:43+00:00",
     "reference": "INV-0067",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 2295000,
@@ -609,7 +609,7 @@
     "due_at": "2024-06-04T16:11:47+00:00",
     "issued_at": "2024-05-28T10:52:28+00:00",
     "reference": "INV-0068",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 160000,
@@ -618,7 +618,7 @@
     "due_at": "2024-05-21T10:30:48+00:00",
     "issued_at": "2024-05-14T10:58:17+00:00",
     "reference": "INV-0069",
-    "status": "part_paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 1530000,
@@ -672,7 +672,7 @@
     "due_at": "2024-05-30T15:06:03+00:00",
     "issued_at": "2024-05-23T16:17:09+00:00",
     "reference": "INV-0075",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 6910300,
@@ -726,7 +726,7 @@
     "due_at": "2024-05-25T09:52:42+00:00",
     "issued_at": "2024-05-18T10:07:40+00:00",
     "reference": "INV-0081",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1830000,
@@ -762,7 +762,7 @@
     "due_at": "2024-05-21T12:44:43+00:00",
     "issued_at": "2024-05-14T17:57:12+00:00",
     "reference": "INV-0085",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 755000,
@@ -843,7 +843,7 @@
     "due_at": "2024-05-24T17:28:00+00:00",
     "issued_at": "2024-05-17T18:57:12+00:00",
     "reference": "INV-0094",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 2079600,
@@ -888,7 +888,7 @@
     "due_at": "2024-05-31T19:04:09+00:00",
     "issued_at": "2024-05-24T12:37:33+00:00",
     "reference": "INV-0099",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 2425000,
@@ -924,7 +924,7 @@
     "due_at": "2024-05-21T16:04:22+00:00",
     "issued_at": "2024-05-14T18:07:18+00:00",
     "reference": "INV-0103",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 770000,
@@ -933,7 +933,7 @@
     "due_at": "2024-05-25T10:39:52+00:00",
     "issued_at": "2024-05-18T17:13:16+00:00",
     "reference": "INV-0104",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1310000,
@@ -1005,7 +1005,7 @@
     "due_at": "2024-05-27T17:20:30+00:00",
     "issued_at": "2024-05-20T18:08:09+00:00",
     "reference": "INV-0112",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1645000,
@@ -1032,7 +1032,7 @@
     "due_at": "2024-06-03T08:35:26+00:00",
     "issued_at": "2024-05-27T16:24:18+00:00",
     "reference": "INV-0115",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 6795000,
@@ -1068,7 +1068,7 @@
     "due_at": "2024-05-19T15:26:50+00:00",
     "issued_at": "2024-05-12T15:38:01+00:00",
     "reference": "INV-0119",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 2155000,
@@ -1140,7 +1140,7 @@
     "due_at": "2024-05-21T12:04:40+00:00",
     "issued_at": "2024-05-14T12:37:40+00:00",
     "reference": "INV-0127",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 240000,
@@ -1158,7 +1158,7 @@
     "due_at": "2024-05-19T18:48:36+00:00",
     "issued_at": "2024-05-12T16:54:38+00:00",
     "reference": "INV-0129",
-    "status": "part_paid"
+    "status": "open"
   },
   {
     "amount_kobo": 4415000,
@@ -1257,7 +1257,7 @@
     "due_at": "2024-05-28T11:50:22+00:00",
     "issued_at": "2024-05-21T15:30:30+00:00",
     "reference": "INV-0140",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 5710599,
@@ -1320,7 +1320,7 @@
     "due_at": "2024-05-18T13:16:03+00:00",
     "issued_at": "2024-05-11T19:40:17+00:00",
     "reference": "INV-0147",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 4778700,
@@ -1338,7 +1338,7 @@
     "due_at": "2024-05-28T11:05:52+00:00",
     "issued_at": "2024-05-21T14:37:40+00:00",
     "reference": "INV-0149",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 7240000,
@@ -1392,7 +1392,7 @@
     "due_at": "2024-05-09T10:13:51+00:00",
     "issued_at": "2024-05-02T17:44:23+00:00",
     "reference": "INV-0155",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 8135025,
@@ -1419,7 +1419,7 @@
     "due_at": "2024-05-25T11:56:27+00:00",
     "issued_at": "2024-05-18T13:48:55+00:00",
     "reference": "INV-0158",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 915000,
@@ -1437,7 +1437,7 @@
     "due_at": "2024-05-08T16:11:59+00:00",
     "issued_at": "2024-05-01T11:34:48+00:00",
     "reference": "INV-0160",
-    "status": "open"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 1795050,
@@ -1446,7 +1446,7 @@
     "due_at": "2024-05-09T13:21:43+00:00",
     "issued_at": "2024-05-02T18:50:19+00:00",
     "reference": "INV-0161",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 8425000,
@@ -1455,7 +1455,7 @@
     "due_at": "2024-05-25T12:24:57+00:00",
     "issued_at": "2024-05-18T12:42:32+00:00",
     "reference": "INV-0162",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 2740000,
@@ -1482,7 +1482,7 @@
     "due_at": "2024-05-17T12:11:22+00:00",
     "issued_at": "2024-05-10T20:39:23+00:00",
     "reference": "INV-0165",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 9755000,
@@ -1518,7 +1518,7 @@
     "due_at": "2024-05-23T16:52:42+00:00",
     "issued_at": "2024-05-16T11:47:38+00:00",
     "reference": "INV-0169",
-    "status": "open"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 59680000,
@@ -1527,7 +1527,7 @@
     "due_at": "2024-05-20T19:53:37+00:00",
     "issued_at": "2024-05-13T11:37:04+00:00",
     "reference": "INV-0170",
-    "status": "part_paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 1675000,
@@ -1536,7 +1536,7 @@
     "due_at": "2024-05-22T17:41:43+00:00",
     "issued_at": "2024-05-15T15:59:58+00:00",
     "reference": "INV-0171",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 860000,
@@ -1545,7 +1545,7 @@
     "due_at": "2024-05-18T12:18:56+00:00",
     "issued_at": "2024-05-11T15:31:30+00:00",
     "reference": "INV-0172",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 8720000,
@@ -1599,7 +1599,7 @@
     "due_at": "2024-05-12T20:50:22+00:00",
     "issued_at": "2024-05-05T19:00:55+00:00",
     "reference": "INV-0178",
-    "status": "overpaid"
+    "status": "open"
   },
   {
     "amount_kobo": 11175000,
@@ -1626,7 +1626,7 @@
     "due_at": "2024-06-01T11:04:06+00:00",
     "issued_at": "2024-05-25T12:13:57+00:00",
     "reference": "INV-0181",
-    "status": "part_paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 1370000,
@@ -1635,7 +1635,7 @@
     "due_at": "2024-05-29T17:01:52+00:00",
     "issued_at": "2024-05-22T09:38:44+00:00",
     "reference": "INV-0182",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1190000,
@@ -1653,7 +1653,7 @@
     "due_at": "2024-05-27T17:57:26+00:00",
     "issued_at": "2024-05-20T17:25:37+00:00",
     "reference": "INV-0184",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1315000,
@@ -1689,7 +1689,7 @@
     "due_at": "2024-05-23T18:26:17+00:00",
     "issued_at": "2024-05-16T10:57:12+00:00",
     "reference": "INV-0188",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 2017150,
@@ -1698,7 +1698,7 @@
     "due_at": "2024-05-24T09:57:37+00:00",
     "issued_at": "2024-05-17T13:12:32+00:00",
     "reference": "INV-0189",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 80890000,
@@ -1716,7 +1716,7 @@
     "due_at": "2024-06-02T16:31:55+00:00",
     "issued_at": "2024-05-26T13:02:14+00:00",
     "reference": "INV-0191",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 61720000,
@@ -1725,7 +1725,7 @@
     "due_at": "2024-05-09T19:29:24+00:00",
     "issued_at": "2024-05-02T17:57:21+00:00",
     "reference": "INV-0192",
-    "status": "part_paid"
+    "status": "open"
   },
   {
     "amount_kobo": 3325000,
@@ -1734,7 +1734,7 @@
     "due_at": "2024-06-03T12:23:52+00:00",
     "issued_at": "2024-05-27T08:21:44+00:00",
     "reference": "INV-0193",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 3215000,
@@ -1770,7 +1770,7 @@
     "due_at": "2024-05-11T17:04:56+00:00",
     "issued_at": "2024-05-04T13:37:05+00:00",
     "reference": "INV-0197",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 3630000,
@@ -1779,7 +1779,7 @@
     "due_at": "2024-05-10T09:51:35+00:00",
     "issued_at": "2024-05-03T17:21:08+00:00",
     "reference": "INV-0198",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 8340000,
@@ -1788,7 +1788,7 @@
     "due_at": "2024-05-09T14:28:17+00:00",
     "issued_at": "2024-05-02T12:15:37+00:00",
     "reference": "INV-0199",
-    "status": "paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 9997500,
@@ -1797,7 +1797,7 @@
     "due_at": "2024-05-17T18:46:30+00:00",
     "issued_at": "2024-05-10T09:30:37+00:00",
     "reference": "INV-0200",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 3310000,
@@ -1806,7 +1806,7 @@
     "due_at": "2024-05-18T09:58:41+00:00",
     "issued_at": "2024-05-11T17:25:55+00:00",
     "reference": "INV-0201",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 2860000,
@@ -1815,7 +1815,7 @@
     "due_at": "2024-05-25T15:08:47+00:00",
     "issued_at": "2024-05-18T16:04:58+00:00",
     "reference": "INV-0202",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 845000,
@@ -1824,7 +1824,7 @@
     "due_at": "2024-05-12T10:09:15+00:00",
     "issued_at": "2024-05-05T16:23:21+00:00",
     "reference": "INV-0203",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 610000,
@@ -1833,7 +1833,7 @@
     "due_at": "2024-05-21T15:23:05+00:00",
     "issued_at": "2024-05-14T16:57:47+00:00",
     "reference": "INV-0204",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 2110000,
@@ -1860,7 +1860,7 @@
     "due_at": "2024-05-08T14:13:19+00:00",
     "issued_at": "2024-05-01T13:49:18+00:00",
     "reference": "INV-0207",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 11025000,
@@ -1887,7 +1887,7 @@
     "due_at": "2024-06-04T12:02:01+00:00",
     "issued_at": "2024-05-28T13:06:04+00:00",
     "reference": "INV-0210",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 723225,
@@ -1896,7 +1896,7 @@
     "due_at": "2024-06-07T20:32:40+00:00",
     "issued_at": "2024-05-31T18:22:07+00:00",
     "reference": "INV-0211",
-    "status": "paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 785000,
@@ -1905,7 +1905,7 @@
     "due_at": "2024-06-03T15:44:59+00:00",
     "issued_at": "2024-05-27T13:18:02+00:00",
     "reference": "INV-0212",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 1040000,
@@ -1932,7 +1932,7 @@
     "due_at": "2024-05-15T16:53:56+00:00",
     "issued_at": "2024-05-08T21:17:09+00:00",
     "reference": "INV-0215",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 38910025,
@@ -1959,7 +1959,7 @@
     "due_at": "2024-05-11T16:41:24+00:00",
     "issued_at": "2024-05-04T15:17:37+00:00",
     "reference": "INV-0218",
-    "status": "paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 9315000,
@@ -1968,7 +1968,7 @@
     "due_at": "2024-05-13T12:52:58+00:00",
     "issued_at": "2024-05-06T10:04:07+00:00",
     "reference": "INV-0219",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1475000,
@@ -1977,7 +1977,7 @@
     "due_at": "2024-05-20T09:48:23+00:00",
     "issued_at": "2024-05-13T09:06:57+00:00",
     "reference": "INV-0220",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 1625099,
@@ -1986,7 +1986,7 @@
     "due_at": "2024-05-26T12:26:13+00:00",
     "issued_at": "2024-05-19T18:19:58+00:00",
     "reference": "INV-0221",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 5025000,
@@ -2040,7 +2040,7 @@
     "due_at": "2024-05-30T19:32:09+00:00",
     "issued_at": "2024-05-23T21:43:29+00:00",
     "reference": "INV-0227",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 2250000,
@@ -2067,7 +2067,7 @@
     "due_at": "2024-06-03T17:28:24+00:00",
     "issued_at": "2024-05-27T17:28:00+00:00",
     "reference": "INV-0230",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 11492100,
@@ -2112,7 +2112,7 @@
     "due_at": "2024-05-14T16:23:48+00:00",
     "issued_at": "2024-05-07T09:41:11+00:00",
     "reference": "INV-0235",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1685000,
@@ -2121,7 +2121,7 @@
     "due_at": "2024-05-10T10:15:56+00:00",
     "issued_at": "2024-05-03T12:12:14+00:00",
     "reference": "INV-0236",
-    "status": "paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 5225000,
@@ -2148,7 +2148,7 @@
     "due_at": "2024-06-07T19:15:58+00:00",
     "issued_at": "2024-05-31T15:11:14+00:00",
     "reference": "INV-0239",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 265000,
@@ -2193,7 +2193,7 @@
     "due_at": "2024-05-15T16:57:26+00:00",
     "issued_at": "2024-05-08T19:17:46+00:00",
     "reference": "INV-0244",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 9178699,
@@ -2211,7 +2211,7 @@
     "due_at": "2024-05-20T09:27:55+00:00",
     "issued_at": "2024-05-13T17:53:35+00:00",
     "reference": "INV-0246",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 66175000,
@@ -2283,7 +2283,7 @@
     "due_at": "2024-05-14T08:26:34+00:00",
     "issued_at": "2024-05-07T16:25:36+00:00",
     "reference": "INV-0254",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 420000,
@@ -2301,7 +2301,7 @@
     "due_at": "2024-05-23T15:10:58+00:00",
     "issued_at": "2024-05-16T14:18:26+00:00",
     "reference": "INV-0256",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 60950025,
@@ -2319,7 +2319,7 @@
     "due_at": "2024-05-24T12:46:51+00:00",
     "issued_at": "2024-05-17T12:12:06+00:00",
     "reference": "INV-0258",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 19073700,
@@ -2337,7 +2337,7 @@
     "due_at": "2024-05-31T13:49:21+00:00",
     "issued_at": "2024-05-24T10:51:51+00:00",
     "reference": "INV-0260",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 27896100,
@@ -2382,7 +2382,7 @@
     "due_at": "2024-05-15T19:51:10+00:00",
     "issued_at": "2024-05-08T09:17:14+00:00",
     "reference": "INV-0265",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 11995000,
@@ -2418,7 +2418,7 @@
     "due_at": "2024-05-20T08:35:32+00:00",
     "issued_at": "2024-05-13T09:19:06+00:00",
     "reference": "INV-0269",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 8625025,
@@ -2436,7 +2436,7 @@
     "due_at": "2024-05-25T16:51:09+00:00",
     "issued_at": "2024-05-18T12:46:39+00:00",
     "reference": "INV-0271",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 1985000,
@@ -2445,7 +2445,7 @@
     "due_at": "2024-05-23T14:23:03+00:00",
     "issued_at": "2024-05-16T09:38:37+00:00",
     "reference": "INV-0272",
-    "status": "part_paid"
+    "status": "open"
   },
   {
     "amount_kobo": 2145000,
@@ -2472,7 +2472,7 @@
     "due_at": "2024-05-31T08:11:06+00:00",
     "issued_at": "2024-05-24T17:01:01+00:00",
     "reference": "INV-0275",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 265000,
@@ -2490,7 +2490,7 @@
     "due_at": "2024-05-10T17:39:11+00:00",
     "issued_at": "2024-05-03T08:22:53+00:00",
     "reference": "INV-0277",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 5605000,
@@ -2661,7 +2661,7 @@
     "due_at": "2024-06-04T14:19:10+00:00",
     "issued_at": "2024-05-28T10:25:52+00:00",
     "reference": "INV-0296",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 665000,
@@ -2688,7 +2688,7 @@
     "due_at": "2024-05-14T18:46:16+00:00",
     "issued_at": "2024-05-07T14:23:04+00:00",
     "reference": "INV-0299",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 61750000,
@@ -2715,7 +2715,7 @@
     "due_at": "2024-05-21T10:02:56+00:00",
     "issued_at": "2024-05-14T14:16:29+00:00",
     "reference": "INV-0302",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 785000,
@@ -2733,7 +2733,7 @@
     "due_at": "2024-05-08T11:08:42+00:00",
     "issued_at": "2024-05-01T19:33:50+00:00",
     "reference": "INV-0304",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 10035000,
@@ -2760,7 +2760,7 @@
     "due_at": "2024-06-02T13:37:05+00:00",
     "issued_at": "2024-05-26T09:48:54+00:00",
     "reference": "INV-0307",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 10990000,
@@ -2832,7 +2832,7 @@
     "due_at": "2024-06-07T19:17:41+00:00",
     "issued_at": "2024-05-31T15:37:52+00:00",
     "reference": "INV-0315",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 495000,
@@ -2841,7 +2841,7 @@
     "due_at": "2024-06-01T16:34:48+00:00",
     "issued_at": "2024-05-25T12:20:21+00:00",
     "reference": "INV-0316",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 2250000,
@@ -2859,7 +2859,7 @@
     "due_at": "2024-05-23T11:09:14+00:00",
     "issued_at": "2024-05-16T18:43:26+00:00",
     "reference": "INV-0318",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 555025,
@@ -2913,7 +2913,7 @@
     "due_at": "2024-06-05T10:07:28+00:00",
     "issued_at": "2024-05-29T13:43:22+00:00",
     "reference": "INV-0324",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 8495000,
@@ -2922,7 +2922,7 @@
     "due_at": "2024-05-16T10:35:21+00:00",
     "issued_at": "2024-05-09T12:01:15+00:00",
     "reference": "INV-0325",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 1740000,
@@ -2931,7 +2931,7 @@
     "due_at": "2024-05-31T17:08:29+00:00",
     "issued_at": "2024-05-24T09:26:51+00:00",
     "reference": "INV-0326",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 1460000,
@@ -2940,7 +2940,7 @@
     "due_at": "2024-06-03T20:14:16+00:00",
     "issued_at": "2024-05-27T10:38:24+00:00",
     "reference": "INV-0327",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1285000,
@@ -2967,7 +2967,7 @@
     "due_at": "2024-05-24T08:41:14+00:00",
     "issued_at": "2024-05-17T17:30:09+00:00",
     "reference": "INV-0330",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 2290000,
@@ -3003,7 +3003,7 @@
     "due_at": "2024-06-02T16:14:30+00:00",
     "issued_at": "2024-05-26T08:08:30+00:00",
     "reference": "INV-0334",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 7985000,
@@ -3021,7 +3021,7 @@
     "due_at": "2024-05-17T10:17:48+00:00",
     "issued_at": "2024-05-10T09:29:26+00:00",
     "reference": "INV-0336",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 835000,
@@ -3057,7 +3057,7 @@
     "due_at": "2024-05-12T10:11:41+00:00",
     "issued_at": "2024-05-05T14:41:04+00:00",
     "reference": "INV-0340",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 4616900,
@@ -3138,7 +3138,7 @@
     "due_at": "2024-05-15T10:30:48+00:00",
     "issued_at": "2024-05-08T15:57:54+00:00",
     "reference": "INV-0349",
-    "status": "open"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 500099,
@@ -3201,7 +3201,7 @@
     "due_at": "2024-05-13T10:36:33+00:00",
     "issued_at": "2024-05-06T16:55:19+00:00",
     "reference": "INV-0356",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 9988200,
@@ -3219,7 +3219,7 @@
     "due_at": "2024-05-18T16:40:49+00:00",
     "issued_at": "2024-05-11T08:08:04+00:00",
     "reference": "INV-0358",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 7240000,
@@ -3246,7 +3246,7 @@
     "due_at": "2024-05-15T15:56:07+00:00",
     "issued_at": "2024-05-08T10:05:37+00:00",
     "reference": "INV-0361",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 2406700,
@@ -3282,7 +3282,7 @@
     "due_at": "2024-05-11T17:07:57+00:00",
     "issued_at": "2024-05-04T19:18:13+00:00",
     "reference": "INV-0365",
-    "status": "open"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 430000,
@@ -3300,7 +3300,7 @@
     "due_at": "2024-05-15T12:39:34+00:00",
     "issued_at": "2024-05-08T12:00:01+00:00",
     "reference": "INV-0367",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 4675000,
@@ -3309,7 +3309,7 @@
     "due_at": "2024-05-30T16:39:07+00:00",
     "issued_at": "2024-05-23T17:27:45+00:00",
     "reference": "INV-0368",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 1785000,
@@ -3345,7 +3345,7 @@
     "due_at": "2024-05-12T13:53:28+00:00",
     "issued_at": "2024-05-05T13:43:43+00:00",
     "reference": "INV-0372",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 9135000,
@@ -3381,7 +3381,7 @@
     "due_at": "2024-06-07T10:59:21+00:00",
     "issued_at": "2024-05-31T16:19:02+00:00",
     "reference": "INV-0376",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 5300000,
@@ -3435,7 +3435,7 @@
     "due_at": "2024-05-23T10:29:40+00:00",
     "issued_at": "2024-05-16T20:42:36+00:00",
     "reference": "INV-0382",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1350050,
@@ -3444,7 +3444,7 @@
     "due_at": "2024-06-05T17:20:09+00:00",
     "issued_at": "2024-05-29T17:20:48+00:00",
     "reference": "INV-0383",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 2255000,
@@ -3453,7 +3453,7 @@
     "due_at": "2024-06-05T10:22:48+00:00",
     "issued_at": "2024-05-29T15:07:12+00:00",
     "reference": "INV-0384",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 465000,
@@ -3480,7 +3480,7 @@
     "due_at": "2024-05-27T14:41:06+00:00",
     "issued_at": "2024-05-20T16:23:34+00:00",
     "reference": "INV-0387",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 830000,
@@ -3498,7 +3498,7 @@
     "due_at": "2024-05-13T11:05:08+00:00",
     "issued_at": "2024-05-06T14:27:51+00:00",
     "reference": "INV-0389",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 2410000,
@@ -3516,7 +3516,7 @@
     "due_at": "2024-05-17T16:33:08+00:00",
     "issued_at": "2024-05-10T14:32:58+00:00",
     "reference": "INV-0391",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 1235000,
@@ -3597,7 +3597,7 @@
     "due_at": "2024-05-18T13:35:03+00:00",
     "issued_at": "2024-05-11T09:32:21+00:00",
     "reference": "INV-0400",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 23354800,
@@ -3606,7 +3606,7 @@
     "due_at": "2024-06-02T12:52:33+00:00",
     "issued_at": "2024-05-26T13:55:26+00:00",
     "reference": "INV-0401",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 11495050,
@@ -3687,7 +3687,7 @@
     "due_at": "2024-05-14T17:32:31+00:00",
     "issued_at": "2024-05-07T11:36:43+00:00",
     "reference": "INV-0410",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 310000,
@@ -3759,7 +3759,7 @@
     "due_at": "2024-05-12T11:44:40+00:00",
     "issued_at": "2024-05-05T19:16:00+00:00",
     "reference": "INV-0418",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 1450050,
@@ -3786,7 +3786,7 @@
     "due_at": "2024-05-27T18:00:57+00:00",
     "issued_at": "2024-05-20T21:50:53+00:00",
     "reference": "INV-0421",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 5294100,
@@ -3831,7 +3831,7 @@
     "due_at": "2024-06-05T14:35:19+00:00",
     "issued_at": "2024-05-29T16:25:30+00:00",
     "reference": "INV-0426",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 3255000,
@@ -3894,7 +3894,7 @@
     "due_at": "2024-06-04T17:37:16+00:00",
     "issued_at": "2024-05-28T12:02:50+00:00",
     "reference": "INV-0433",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 20975000,
@@ -3921,7 +3921,7 @@
     "due_at": "2024-05-29T17:21:52+00:00",
     "issued_at": "2024-05-22T11:56:12+00:00",
     "reference": "INV-0436",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 1155000,
@@ -3930,7 +3930,7 @@
     "due_at": "2024-05-26T19:54:42+00:00",
     "issued_at": "2024-05-19T16:59:58+00:00",
     "reference": "INV-0437",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 815000,
@@ -3948,7 +3948,7 @@
     "due_at": "2024-05-24T12:05:32+00:00",
     "issued_at": "2024-05-17T18:03:41+00:00",
     "reference": "INV-0439",
-    "status": "open"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 320000,
@@ -3957,7 +3957,7 @@
     "due_at": "2024-05-18T16:31:41+00:00",
     "issued_at": "2024-05-11T11:56:20+00:00",
     "reference": "INV-0440",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1825000,
@@ -3975,7 +3975,7 @@
     "due_at": "2024-05-19T18:33:42+00:00",
     "issued_at": "2024-05-12T12:04:34+00:00",
     "reference": "INV-0442",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 4820000,
@@ -3984,7 +3984,7 @@
     "due_at": "2024-05-15T11:51:00+00:00",
     "issued_at": "2024-05-08T17:47:44+00:00",
     "reference": "INV-0443",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 7140000,
@@ -3993,7 +3993,7 @@
     "due_at": "2024-05-12T17:23:50+00:00",
     "issued_at": "2024-05-05T18:13:08+00:00",
     "reference": "INV-0444",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 6955000,
@@ -4011,7 +4011,7 @@
     "due_at": "2024-06-06T12:01:55+00:00",
     "issued_at": "2024-05-30T11:45:22+00:00",
     "reference": "INV-0446",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 46325000,
@@ -4020,7 +4020,7 @@
     "due_at": "2024-05-15T19:28:15+00:00",
     "issued_at": "2024-05-08T20:09:38+00:00",
     "reference": "INV-0447",
-    "status": "open"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 665000,
@@ -4056,7 +4056,7 @@
     "due_at": "2024-06-07T18:33:53+00:00",
     "issued_at": "2024-05-31T21:30:38+00:00",
     "reference": "INV-0451",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 8880400,
@@ -4065,7 +4065,7 @@
     "due_at": "2024-05-18T13:53:22+00:00",
     "issued_at": "2024-05-11T10:25:39+00:00",
     "reference": "INV-0452",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 11045000,
@@ -4092,7 +4092,7 @@
     "due_at": "2024-05-14T12:50:33+00:00",
     "issued_at": "2024-05-07T11:25:45+00:00",
     "reference": "INV-0455",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 82315000,
@@ -4101,7 +4101,7 @@
     "due_at": "2024-06-04T16:21:39+00:00",
     "issued_at": "2024-05-28T18:00:41+00:00",
     "reference": "INV-0456",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 2365000,
@@ -4137,7 +4137,7 @@
     "due_at": "2024-05-23T17:40:38+00:00",
     "issued_at": "2024-05-16T18:40:08+00:00",
     "reference": "INV-0460",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 10225000,
@@ -4155,7 +4155,7 @@
     "due_at": "2024-05-26T16:01:28+00:00",
     "issued_at": "2024-05-19T15:33:26+00:00",
     "reference": "INV-0462",
-    "status": "overpaid"
+    "status": "paid"
   },
   {
     "amount_kobo": 7315000,
@@ -4173,7 +4173,7 @@
     "due_at": "2024-06-04T19:09:42+00:00",
     "issued_at": "2024-05-28T17:14:49+00:00",
     "reference": "INV-0464",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1790000,
@@ -4182,7 +4182,7 @@
     "due_at": "2024-05-29T18:26:02+00:00",
     "issued_at": "2024-05-22T14:20:17+00:00",
     "reference": "INV-0465",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 1201125,
@@ -4227,7 +4227,7 @@
     "due_at": "2024-05-26T11:24:44+00:00",
     "issued_at": "2024-05-19T16:56:36+00:00",
     "reference": "INV-0470",
-    "status": "open"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 1475000,
@@ -4236,7 +4236,7 @@
     "due_at": "2024-06-06T12:54:55+00:00",
     "issued_at": "2024-05-30T21:43:33+00:00",
     "reference": "INV-0471",
-    "status": "open"
+    "status": "paid"
   },
   {
     "amount_kobo": 196100,
@@ -4335,7 +4335,7 @@
     "due_at": "2024-05-12T09:53:19+00:00",
     "issued_at": "2024-05-05T08:51:07+00:00",
     "reference": "INV-0482",
-    "status": "part_paid"
+    "status": "open"
   },
   {
     "amount_kobo": 9356400,
@@ -4443,7 +4443,7 @@
     "due_at": "2024-05-26T17:47:08+00:00",
     "issued_at": "2024-05-19T16:58:18+00:00",
     "reference": "INV-0494",
-    "status": "paid"
+    "status": "overpaid"
   },
   {
     "amount_kobo": 2400000,
@@ -4452,7 +4452,7 @@
     "due_at": "2024-05-11T11:36:57+00:00",
     "issued_at": "2024-05-04T21:41:15+00:00",
     "reference": "INV-0495",
-    "status": "part_paid"
+    "status": "paid"
   },
   {
     "amount_kobo": 920000,
@@ -4470,7 +4470,7 @@
     "due_at": "2024-05-13T16:53:28+00:00",
     "issued_at": "2024-05-06T14:03:20+00:00",
     "reference": "INV-0497",
-    "status": "paid"
+    "status": "part_paid"
   },
   {
     "amount_kobo": 1030000,
@@ -4488,7 +4488,7 @@
     "due_at": "2024-05-24T13:37:01+00:00",
     "issued_at": "2024-05-17T08:45:43+00:00",
     "reference": "INV-0499",
-    "status": "paid"
+    "status": "open"
   },
   {
     "amount_kobo": 2380000,

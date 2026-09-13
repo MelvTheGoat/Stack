@@ -158,7 +158,7 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "reorder_and_typo",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0252"
@@ -182,7 +182,7 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0106"
@@ -492,7 +492,7 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0386"
@@ -679,7 +679,7 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0214"
@@ -693,7 +693,7 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0312"
+      "INV-0471"
     ],
     "transaction_reference": "STK-00063-66DD",
     "winnable_by": "exact_reference"
@@ -704,7 +704,7 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0010"
+      "INV-0312"
     ],
     "transaction_reference": "STK-00064-FF4B",
     "winnable_by": "exact_reference"
@@ -715,9 +715,9 @@
     "name_mangling": "clean",
     "note": "one payment, three invoices; only the total matches anything",
     "order_references": [
-      "INV-0345",
-      "INV-0187",
-      "INV-0479"
+      "INV-0010",
+      "INV-0060",
+      "INV-0264"
     ],
     "transaction_reference": "3487471999145",
     "winnable_by": "fuzzy"
@@ -728,21 +728,21 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0231"
+      "INV-0345"
     ],
     "transaction_reference": "STK-00066-B1F5",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0395"
+      "INV-0231"
     ],
     "transaction_reference": "2953213951322",
-    "winnable_by": "amount_window"
+    "winnable_by": "dva"
   },
   {
     "case": "transfer_with_reference",
@@ -750,7 +750,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0363"
+      "INV-0395"
     ],
     "transaction_reference": "8554954951682",
     "winnable_by": "exact_reference"
@@ -758,24 +758,13 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "alternative_spelling",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
-      "INV-0372"
+      "INV-0363"
     ],
     "transaction_reference": "cash-00069",
     "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "initials",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0460"
-    ],
-    "transaction_reference": "7873094496784",
-    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_name_exact",
@@ -783,32 +772,43 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0266"
+      "INV-0460"
     ],
-    "transaction_reference": "4212391823215",
+    "transaction_reference": "6529301723948",
     "winnable_by": "amount_window"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "card_with_reference",
     "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0201"
+    ],
+    "transaction_reference": "STK-00071-17CA",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0266"
+    ],
+    "transaction_reference": "STK-00072-E856",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
     "note": "",
     "order_references": [
       "INV-0396"
     ],
-    "transaction_reference": "4725211521286",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_over",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "paid more than the invoice; the rest is credit",
-    "order_references": [
-      "INV-0462"
-    ],
-    "transaction_reference": "1945455116105",
-    "winnable_by": "fuzzy"
+    "transaction_reference": "9007674900287",
+    "winnable_by": "exact_reference"
   },
   {
     "case": "transfer_name_exact",
@@ -816,29 +816,40 @@
     "name_mangling": "initials",
     "note": "",
     "order_references": [
+      "INV-0462"
+    ],
+    "transaction_reference": "3387556304259",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "dva_exact",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0207"
+    ],
+    "transaction_reference": "6203136299081",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
       "INV-0364"
     ],
-    "transaction_reference": "8710736321002",
+    "transaction_reference": "3618271535656",
     "winnable_by": "amount_window"
   },
   {
     "case": "transfer_name_partial",
     "duplicate_of": null,
-    "name_mangling": "initials",
+    "name_mangling": "reorder",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0047"
-    ],
-    "transaction_reference": "3610740136989",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0391"
+      "INV-0439"
     ],
     "transaction_reference": "4062594628064",
     "winnable_by": "fuzzy"
@@ -849,9 +860,9 @@
     "name_mangling": "clean",
     "note": "one payment, three invoices; only the total matches anything",
     "order_references": [
-      "INV-0338",
-      "INV-0424",
-      "INV-0197"
+      "INV-0047",
+      "INV-0121",
+      "INV-0104"
     ],
     "transaction_reference": "7828228706405",
     "winnable_by": "fuzzy"
@@ -862,7 +873,7 @@
     "name_mangling": "typo",
     "note": "",
     "order_references": [
-      "INV-0414"
+      "INV-0391"
     ],
     "transaction_reference": "7442214668497",
     "winnable_by": "amount_window"
@@ -873,9 +884,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0050"
+      "INV-0338"
     ],
-    "transaction_reference": "STK-00079-5B67",
+    "transaction_reference": "STK-00080-5B67",
     "winnable_by": "exact_reference"
   },
   {
@@ -884,7 +895,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0121"
+      "INV-0414"
     ],
     "transaction_reference": "4817097008649",
     "winnable_by": "amount_window"
@@ -895,7 +906,7 @@
     "name_mangling": "clean",
     "note": "paid more than the invoice; the rest is credit",
     "order_references": [
-      "INV-0220"
+      "INV-0050"
     ],
     "transaction_reference": "2131886818538",
     "winnable_by": "fuzzy"
@@ -906,9 +917,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0063"
+      "INV-0424"
     ],
-    "transaction_reference": "STK-00082-761F",
+    "transaction_reference": "STK-00083-761F",
     "winnable_by": "exact_reference"
   },
   {
@@ -917,9 +928,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0164"
+      "INV-0220"
     ],
-    "transaction_reference": "STK-00083-D6B0",
+    "transaction_reference": "STK-00084-D6B0",
     "winnable_by": "exact_reference"
   },
   {
@@ -928,7 +939,7 @@
     "name_mangling": "clean",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0475"
+      "INV-0197"
     ],
     "transaction_reference": "5248979092254",
     "winnable_by": "fuzzy"
@@ -939,7 +950,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0060"
+      "INV-0164"
     ],
     "transaction_reference": "8594960725288",
     "winnable_by": "amount_window"
@@ -950,21 +961,21 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0419"
+      "INV-0035"
     ],
-    "transaction_reference": "STK-00086-51C8",
+    "transaction_reference": "STK-00087-51C8",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "dva_partial",
+    "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "right customer, wrong amount, so which invoice is a guess",
+    "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0265"
+      "INV-0475"
     ],
     "transaction_reference": "1392021278674",
-    "winnable_by": "dva"
+    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_name_exact",
@@ -972,7 +983,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0327"
+      "INV-0419"
     ],
     "transaction_reference": "6982214607143",
     "winnable_by": "amount_window"
@@ -983,9 +994,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0344"
+      "INV-0265"
     ],
-    "transaction_reference": "STK-00089-25B8",
+    "transaction_reference": "STK-00090-25B8",
     "winnable_by": "exact_reference"
   },
   {
@@ -994,7 +1005,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0003"
+      "INV-0344"
     ],
     "transaction_reference": "6180049139837",
     "winnable_by": "amount_window"
@@ -1005,9 +1016,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0489"
+      "INV-0003"
     ],
-    "transaction_reference": "STK-00091-9437",
+    "transaction_reference": "STK-00092-9437",
     "winnable_by": "exact_reference"
   },
   {
@@ -1016,7 +1027,7 @@
     "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
-      "INV-0036"
+      "INV-0489"
     ],
     "transaction_reference": "4993712886904",
     "winnable_by": "amount_window"
@@ -1027,21 +1038,21 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0020"
+      "INV-0036"
     ],
     "transaction_reference": "5322950101953",
     "winnable_by": "amount_window"
   },
   {
-    "case": "dva_partial",
+    "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
-    "note": "right customer, wrong amount, so which invoice is a guess",
+    "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0031"
+      "INV-0169"
     ],
     "transaction_reference": "2349698398990",
-    "winnable_by": "dva"
+    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_name_exact",
@@ -1049,7 +1060,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0318"
+      "INV-0031"
     ],
     "transaction_reference": "4138246059510",
     "winnable_by": "amount_window"
@@ -1060,21 +1071,21 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0099"
+      "INV-0318"
     ],
-    "transaction_reference": "STK-00096-32E3",
+    "transaction_reference": "STK-00097-32E3",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
-    "note": "part payment; the balance may never arrive",
+    "note": "right customer, wrong amount, so which invoice is a guess",
     "order_references": [
-      "INV-0198"
+      "INV-0099"
     ],
     "transaction_reference": "7390240539413",
-    "winnable_by": "fuzzy"
+    "winnable_by": "dva"
   },
   {
     "case": "transfer_name_exact",
@@ -1082,7 +1093,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0079"
+      "INV-0198"
     ],
     "transaction_reference": "2122967142547",
     "winnable_by": "amount_window"
@@ -1090,12 +1101,12 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "reorder_and_typo",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
-      "INV-0402"
+      "INV-0079"
     ],
-    "transaction_reference": "cash-00099",
+    "transaction_reference": "cash-00100",
     "winnable_by": "fuzzy"
   },
   {
@@ -1104,7 +1115,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0108"
+      "INV-0402"
     ],
     "transaction_reference": "9149559578933",
     "winnable_by": "amount_window"
@@ -1115,7 +1126,7 @@
     "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
-      "INV-0127"
+      "INV-0108"
     ],
     "transaction_reference": "6161579815511",
     "winnable_by": "amount_window"
@@ -1126,9 +1137,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0264"
+      "INV-0081"
     ],
-    "transaction_reference": "STK-00102-FD53",
+    "transaction_reference": "STK-00103-FD53",
     "winnable_by": "exact_reference"
   },
   {
@@ -1139,7 +1150,7 @@
     "order_references": [
       "INV-0355"
     ],
-    "transaction_reference": "STK-00103-8F68",
+    "transaction_reference": "STK-00104-8F68",
     "winnable_by": "exact_reference"
   },
   {
@@ -1161,7 +1172,7 @@
     "order_references": [
       "INV-0341"
     ],
-    "transaction_reference": "STK-00105-3BBC",
+    "transaction_reference": "STK-00106-3BBC",
     "winnable_by": "exact_reference"
   },
   {
@@ -1183,7 +1194,7 @@
     "order_references": [
       "INV-0172"
     ],
-    "transaction_reference": "STK-00107-3483",
+    "transaction_reference": "STK-00108-3483",
     "winnable_by": "exact_reference"
   },
   {
@@ -1299,12 +1310,12 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "short_form",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0073"
     ],
-    "transaction_reference": "cash-00118",
+    "transaction_reference": "cash-00119",
     "winnable_by": "fuzzy"
   },
   {
@@ -1376,12 +1387,12 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0292"
     ],
-    "transaction_reference": "cash-00125",
+    "transaction_reference": "cash-00126",
     "winnable_by": "fuzzy"
   },
   {
@@ -1449,7 +1460,7 @@
     "order_references": [
       "INV-0155"
     ],
-    "transaction_reference": "STK-00131-65DA",
+    "transaction_reference": "STK-00132-65DA",
     "winnable_by": "exact_reference"
   },
   {
@@ -1471,7 +1482,7 @@
     "order_references": [
       "INV-0350"
     ],
-    "transaction_reference": "STK-00133-4D5C",
+    "transaction_reference": "STK-00134-4D5C",
     "winnable_by": "exact_reference"
   },
   {
@@ -1493,7 +1504,7 @@
     "order_references": [
       "INV-0298"
     ],
-    "transaction_reference": "STK-00135-3D2A",
+    "transaction_reference": "STK-00136-3D2A",
     "winnable_by": "exact_reference"
   },
   {
@@ -1569,12 +1580,12 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0270"
     ],
-    "transaction_reference": "cash-00142",
+    "transaction_reference": "cash-00143",
     "winnable_by": "fuzzy"
   },
   {
@@ -1585,7 +1596,7 @@
     "order_references": [
       "INV-0451"
     ],
-    "transaction_reference": "STK-00143-6978",
+    "transaction_reference": "STK-00144-6978",
     "winnable_by": "exact_reference"
   },
   {
@@ -1596,18 +1607,18 @@
     "order_references": [
       "INV-0259"
     ],
-    "transaction_reference": "STK-00144-DC15",
+    "transaction_reference": "STK-00145-DC15",
     "winnable_by": "exact_reference"
   },
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0066"
     ],
-    "transaction_reference": "cash-00145",
+    "transaction_reference": "cash-00146",
     "winnable_by": "fuzzy"
   },
   {
@@ -1624,12 +1635,12 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0206"
     ],
-    "transaction_reference": "cash-00147",
+    "transaction_reference": "cash-00148",
     "winnable_by": "fuzzy"
   },
   {
@@ -1640,19 +1651,19 @@
     "order_references": [
       "INV-0080"
     ],
-    "transaction_reference": "STK-00148-920C",
+    "transaction_reference": "STK-00149-920C",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
     "note": "",
     "order_references": [
-      "INV-0240"
+      "INV-0187"
     ],
     "transaction_reference": "9073730528890",
-    "winnable_by": "amount_window"
+    "winnable_by": "dva"
   },
   {
     "case": "card_with_reference",
@@ -1660,21 +1671,32 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0008"
+      "INV-0240"
     ],
-    "transaction_reference": "STK-00150-B5D2",
+    "transaction_reference": "STK-00151-B5D2",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
-    "note": "part payment; the balance may never arrive",
+    "note": "right customer, wrong amount, so which invoice is a guess",
+    "order_references": [
+      "INV-0008"
+    ],
+    "transaction_reference": "2823725313301",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
     "order_references": [
       "INV-0452"
     ],
-    "transaction_reference": "2823725313301",
-    "winnable_by": "fuzzy"
+    "transaction_reference": "STK-00153-3BC7",
+    "winnable_by": "exact_reference"
   },
   {
     "case": "card_with_reference",
@@ -1684,41 +1706,41 @@
     "order_references": [
       "INV-0473"
     ],
-    "transaction_reference": "STK-00152-3BC7",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0208"
-    ],
-    "transaction_reference": "STK-00153-D21C",
+    "transaction_reference": "STK-00154-D21C",
     "winnable_by": "exact_reference"
   },
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "alternative_spelling",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
-      "INV-0027"
+      "INV-0208"
     ],
-    "transaction_reference": "cash-00154",
+    "transaction_reference": "cash-00155",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_with_reference",
+    "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "",
+    "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0184"
+      "INV-0027"
     ],
-    "transaction_reference": "1059352928580",
-    "winnable_by": "exact_reference"
+    "transaction_reference": "8667380131884",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0230"
+    ],
+    "transaction_reference": "cash-00157",
+    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_with_reference",
@@ -1728,7 +1750,7 @@
     "order_references": [
       "INV-0046"
     ],
-    "transaction_reference": "8680471814644",
+    "transaction_reference": "1388365588670",
     "winnable_by": "exact_reference"
   },
   {
@@ -1739,205 +1761,18 @@
     "order_references": [
       "INV-0156"
     ],
-    "transaction_reference": "STK-00157-C2B0",
+    "transaction_reference": "STK-00159-B082",
     "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "short_form",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0181"
-    ],
-    "transaction_reference": "7111587115671",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
-    "order_references": [
-      "INV-0500"
-    ],
-    "transaction_reference": "5116782145024",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0422"
-    ],
-    "transaction_reference": "STK-00160-D78F",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0367"
-    ],
-    "transaction_reference": "2762437038392",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0083"
-    ],
-    "transaction_reference": "2172181629086",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0346"
-    ],
-    "transaction_reference": "STK-00163-7383",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0129"
-    ],
-    "transaction_reference": "3907904486178",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0456"
-    ],
-    "transaction_reference": "STK-00165-9B16",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0293"
-    ],
-    "transaction_reference": "STK-00166-FDCB",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "dva_partial",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "right customer, wrong amount, so which invoice is a guess",
-    "order_references": [
-      "INV-0191"
-    ],
-    "transaction_reference": "9500542687601",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "initials",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0443"
-    ],
-    "transaction_reference": "6287095309454",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0272"
-    ],
-    "transaction_reference": "5064033016465",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0114"
-    ],
-    "transaction_reference": "cash-00170",
-    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_name_over",
     "duplicate_of": null,
-    "name_mangling": "reorder",
+    "name_mangling": "reorder_and_typo",
     "note": "paid more than the invoice; the rest is credit",
     "order_references": [
-      "INV-0426"
+      "INV-0181"
     ],
-    "transaction_reference": "7403883226704",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0062"
-    ],
-    "transaction_reference": "7540442961674",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0493"
-    ],
-    "transaction_reference": "5727918371947",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0034"
-    ],
-    "transaction_reference": "7624042814659",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0289"
-    ],
-    "transaction_reference": "6965418614733",
+    "transaction_reference": "5773038362026",
     "winnable_by": "fuzzy"
   },
   {
@@ -1946,10 +1781,76 @@
     "name_mangling": "alternative_spelling",
     "note": "right customer, wrong amount, so which invoice is a guess",
     "order_references": [
-      "INV-0165"
+      "INV-0470"
     ],
-    "transaction_reference": "1789521716689",
+    "transaction_reference": "5029981994783",
     "winnable_by": "dva"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0500"
+    ],
+    "transaction_reference": "cash-00162",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "typo",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0422"
+    ],
+    "transaction_reference": "cash-00163",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0367"
+    ],
+    "transaction_reference": "STK-00164-E479",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0083"
+    ],
+    "transaction_reference": "STK-00165-8FB7",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0384"
+    ],
+    "transaction_reference": "STK-00166-C308",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0479"
+    ],
+    "transaction_reference": "STK-00167-3C89",
+    "winnable_by": "exact_reference"
   },
   {
     "case": "transfer_name_exact",
@@ -1957,7 +1858,163 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
+      "INV-0346"
+    ],
+    "transaction_reference": "8631460220234",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0221"
+    ],
+    "transaction_reference": "STK-00169-420F",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0456"
+    ],
+    "transaction_reference": "3833571824448",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0219"
+    ],
+    "transaction_reference": "STK-00171-C2D8",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
+      "INV-0293"
+    ],
+    "transaction_reference": "1657984109818",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0191"
+    ],
+    "transaction_reference": "cash-00173",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "split_three_invoices",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "one payment, three invoices; only the total matches anything",
+    "order_references": [
+      "INV-0443",
+      "INV-0114",
       "INV-0143"
+    ],
+    "transaction_reference": "2014853456707",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
+      "INV-0272"
+    ],
+    "transaction_reference": "8188622284962",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0426"
+    ],
+    "transaction_reference": "6176853208902",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder_and_typo",
+    "note": "",
+    "order_references": [
+      "INV-0444"
+    ],
+    "transaction_reference": "3631399355912",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "dva_exact",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0062"
+    ],
+    "transaction_reference": "5727918371947",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0493"
+    ],
+    "transaction_reference": "7624042814659",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "dva_partial",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "right customer, wrong amount, so which invoice is a guess",
+    "order_references": [
+      "INV-0034"
+    ],
+    "transaction_reference": "6965418614733",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0289"
+    ],
+    "transaction_reference": "1789521716689",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
+      "INV-0165"
     ],
     "transaction_reference": "7039679892825",
     "winnable_by": "amount_window"
@@ -1976,23 +2033,23 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0257"
     ],
-    "transaction_reference": "cash-00179",
+    "transaction_reference": "cash-00184",
     "winnable_by": "fuzzy"
   },
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0308"
     ],
-    "transaction_reference": "cash-00180",
+    "transaction_reference": "cash-00185",
     "winnable_by": "fuzzy"
   },
   {
@@ -2049,7 +2106,7 @@
     "order_references": [
       "INV-0375"
     ],
-    "transaction_reference": "STK-00185-F39C",
+    "transaction_reference": "STK-00190-F39C",
     "winnable_by": "exact_reference"
   },
   {
@@ -2060,7 +2117,7 @@
     "order_references": [
       "INV-0282"
     ],
-    "transaction_reference": "STK-00186-2CFA",
+    "transaction_reference": "STK-00191-2CFA",
     "winnable_by": "exact_reference"
   },
   {
@@ -2071,74 +2128,63 @@
     "order_references": [
       "INV-0086"
     ],
-    "transaction_reference": "STK-00187-AC06",
+    "transaction_reference": "STK-00192-AC06",
     "winnable_by": "exact_reference"
   },
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "short_form",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0448"
     ],
-    "transaction_reference": "cash-00188",
+    "transaction_reference": "cash-00193",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "dva_partial",
+    "case": "card_with_reference",
     "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "right customer, wrong amount, so which invoice is a guess",
+    "name_mangling": "",
+    "note": "",
     "order_references": [
       "INV-0013"
     ],
-    "transaction_reference": "5454549525025",
-    "winnable_by": "dva"
+    "transaction_reference": "STK-00194-919D",
+    "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0147"
-    ],
-    "transaction_reference": "7457260909040",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "dva_exact",
+    "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
       "INV-0138"
     ],
-    "transaction_reference": "1478788702983",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0067"
-    ],
-    "transaction_reference": "STK-00192-1267",
+    "transaction_reference": "4998902910137",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "card_with_reference",
+    "case": "dva_partial",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "alternative_spelling",
+    "note": "right customer, wrong amount, so which invoice is a guess",
+    "order_references": [
+      "INV-0067"
+    ],
+    "transaction_reference": "7457260909040",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
       "INV-0004"
     ],
-    "transaction_reference": "STK-00193-6607",
-    "winnable_by": "exact_reference"
+    "transaction_reference": "6913474133755",
+    "winnable_by": "amount_window"
   },
   {
     "case": "card_with_reference",
@@ -2148,7 +2194,7 @@
     "order_references": [
       "INV-0255"
     ],
-    "transaction_reference": "STK-00194-A704",
+    "transaction_reference": "STK-00198-A704",
     "winnable_by": "exact_reference"
   },
   {
@@ -2159,7 +2205,7 @@
     "order_references": [
       "INV-0021"
     ],
-    "transaction_reference": "STK-00195-37C3",
+    "transaction_reference": "STK-00199-37C3",
     "winnable_by": "exact_reference"
   },
   {
@@ -2170,7 +2216,7 @@
     "order_references": [
       "INV-0116"
     ],
-    "transaction_reference": "STK-00196-FDF0",
+    "transaction_reference": "STK-00200-FDF0",
     "winnable_by": "exact_reference"
   },
   {
@@ -2192,7 +2238,7 @@
     "order_references": [
       "INV-0128"
     ],
-    "transaction_reference": "STK-00198-B7CA",
+    "transaction_reference": "STK-00202-B7CA",
     "winnable_by": "exact_reference"
   },
   {
@@ -2269,7 +2315,7 @@
     "order_references": [
       "INV-0111"
     ],
-    "transaction_reference": "STK-00205-ACAD",
+    "transaction_reference": "STK-00209-ACAD",
     "winnable_by": "exact_reference"
   },
   {
@@ -2291,7 +2337,7 @@
     "order_references": [
       "INV-0360"
     ],
-    "transaction_reference": "STK-00207-CD40",
+    "transaction_reference": "STK-00211-CD40",
     "winnable_by": "exact_reference"
   },
   {
@@ -2365,12 +2411,12 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "reorder",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0370"
     ],
-    "transaction_reference": "cash-00214",
+    "transaction_reference": "cash-00218",
     "winnable_by": "fuzzy"
   },
   {
@@ -2392,40 +2438,62 @@
     "order_references": [
       "INV-0039"
     ],
-    "transaction_reference": "STK-00216-7C36",
+    "transaction_reference": "STK-00220-7C36",
     "winnable_by": "exact_reference"
   },
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0090"
     ],
-    "transaction_reference": "cash-00217",
+    "transaction_reference": "cash-00221",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "card_with_reference",
+    "case": "transfer_name_exact",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "",
     "order_references": [
       "INV-0415"
     ],
-    "transaction_reference": "STK-00218-5011",
-    "winnable_by": "exact_reference"
+    "transaction_reference": "6293433507116",
+    "winnable_by": "amount_window"
   },
   {
-    "case": "cash",
+    "case": "dva_exact",
     "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
+    "name_mangling": "short_form",
+    "note": "",
     "order_references": [
       "INV-0098"
     ],
-    "transaction_reference": "cash-00219",
+    "transaction_reference": "5194441878517",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "dva_exact",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "",
+    "order_references": [
+      "INV-0210"
+    ],
+    "transaction_reference": "2043482846482",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0115"
+    ],
+    "transaction_reference": "4840208459495",
     "winnable_by": "fuzzy"
   },
   {
@@ -2434,62 +2502,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0210"
-    ],
-    "transaction_reference": "6293433507116",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "short_form",
-    "note": "",
-    "order_references": [
-      "INV-0115"
-    ],
-    "transaction_reference": "5194441878517",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "",
-    "order_references": [
       "INV-0290"
-    ],
-    "transaction_reference": "7331170065430",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "",
-    "order_references": [
-      "INV-0314"
-    ],
-    "transaction_reference": "5333860796235",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0082"
-    ],
-    "transaction_reference": "cash-00224",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "",
-    "order_references": [
-      "INV-0199"
     ],
     "transaction_reference": "2483834315054",
     "winnable_by": "amount_window"
@@ -2500,7 +2513,7 @@
     "name_mangling": "clean",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0022"
+      "INV-0160"
     ],
     "transaction_reference": "2815433970192",
     "winnable_by": "fuzzy"
@@ -2511,9 +2524,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0486"
+      "INV-0314"
     ],
-    "transaction_reference": "STK-00227-FF7E",
+    "transaction_reference": "STK-00228-FF7E",
     "winnable_by": "exact_reference"
   },
   {
@@ -2522,9 +2535,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0468"
+      "INV-0082"
     ],
-    "transaction_reference": "STK-00228-1EBD",
+    "transaction_reference": "STK-00229-1EBD",
     "winnable_by": "exact_reference"
   },
   {
@@ -2533,7 +2546,7 @@
     "name_mangling": "short_form",
     "note": "paid more than the invoice; the rest is credit",
     "order_references": [
-      "INV-0446"
+      "INV-0199"
     ],
     "transaction_reference": "6289160696959",
     "winnable_by": "fuzzy"
@@ -2544,7 +2557,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0427"
+      "INV-0022"
     ],
     "transaction_reference": "5717167347127",
     "winnable_by": "amount_window"
@@ -2555,9 +2568,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0496"
+      "INV-0486"
     ],
-    "transaction_reference": "STK-00231-52D4",
+    "transaction_reference": "STK-00232-52D4",
     "winnable_by": "exact_reference"
   },
   {
@@ -2566,9 +2579,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0455"
+      "INV-0468"
     ],
-    "transaction_reference": "STK-00232-BB94",
+    "transaction_reference": "STK-00233-BB94",
     "winnable_by": "exact_reference"
   },
   {
@@ -2577,7 +2590,7 @@
     "name_mangling": "short_form",
     "note": "",
     "order_references": [
-      "INV-0376"
+      "INV-0446"
     ],
     "transaction_reference": "5563876434137",
     "winnable_by": "amount_window"
@@ -2588,9 +2601,9 @@
     "name_mangling": "initials",
     "note": "one payment, three invoices; only the total matches anything",
     "order_references": [
-      "INV-0258",
-      "INV-0097",
-      "INV-0476"
+      "INV-0427",
+      "INV-0495",
+      "INV-0366"
     ],
     "transaction_reference": "8821531043987",
     "winnable_by": "fuzzy"
@@ -2601,9 +2614,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0093"
+      "INV-0496"
     ],
-    "transaction_reference": "STK-00235-482E",
+    "transaction_reference": "STK-00236-482E",
     "winnable_by": "exact_reference"
   },
   {
@@ -2612,21 +2625,21 @@
     "name_mangling": "alternative_spelling",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0437"
+      "INV-0455"
     ],
     "transaction_reference": "4773284157064",
     "winnable_by": "fuzzy"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
-    "note": "part payment; the balance may never arrive",
+    "note": "right customer, wrong amount, so which invoice is a guess",
     "order_references": [
-      "INV-0075"
+      "INV-0376"
     ],
     "transaction_reference": "3251550038207",
-    "winnable_by": "fuzzy"
+    "winnable_by": "dva"
   },
   {
     "case": "transfer_name_partial",
@@ -2634,7 +2647,7 @@
     "name_mangling": "clean",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0390"
+      "INV-0258"
     ],
     "transaction_reference": "9732148030036",
     "winnable_by": "fuzzy"
@@ -2645,9 +2658,9 @@
     "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
-      "INV-0497"
+      "INV-0093"
     ],
-    "transaction_reference": "9624599338996",
+    "transaction_reference": "1673592526175",
     "winnable_by": "exact_reference"
   },
   {
@@ -2656,43 +2669,111 @@
     "name_mangling": "typo",
     "note": "",
     "order_references": [
-      "INV-0152"
+      "INV-0437"
     ],
-    "transaction_reference": "2167788921791",
+    "transaction_reference": "8355164342831",
     "winnable_by": "exact_reference"
-  },
-  {
-    "case": "dva_exact",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
-    "order_references": [
-      "INV-0196"
-    ],
-    "transaction_reference": "6514961554615",
-    "winnable_by": "dva"
   },
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "reorder_and_typo",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
-      "INV-0211"
+      "INV-0075"
     ],
     "transaction_reference": "cash-00242",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0390"
+    ],
+    "transaction_reference": "9377941323843",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "initials",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0497"
+    ],
+    "transaction_reference": "5512377867554",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0152"
+    ],
+    "transaction_reference": "cash-00245",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "split_three_invoices",
     "duplicate_of": null,
-    "name_mangling": "short_form",
+    "name_mangling": "clean",
+    "note": "one payment, three invoices; only the total matches anything",
+    "order_references": [
+      "INV-0097",
+      "INV-0476",
+      "INV-0407"
+    ],
+    "transaction_reference": "9462541744579",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
     "note": "",
+    "order_references": [
+      "INV-0196"
+    ],
+    "transaction_reference": "STK-00247-F493",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_over",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "paid more than the invoice; the rest is credit",
+    "order_references": [
+      "INV-0211"
+    ],
+    "transaction_reference": "6366721543687",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "typo",
+    "note": "part payment; the balance may never arrive",
     "order_references": [
       "INV-0012"
     ],
-    "transaction_reference": "5769852093929",
-    "winnable_by": "amount_window"
+    "transaction_reference": "7773557425876",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "typo",
+    "note": "",
+    "order_references": [
+      "INV-0223"
+    ],
+    "transaction_reference": "9382426313229",
+    "winnable_by": "exact_reference"
   },
   {
     "case": "transfer_name_exact",
@@ -2700,31 +2781,9 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0223"
-    ],
-    "transaction_reference": "6179453377982",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "short_form",
-    "note": "",
-    "order_references": [
       "INV-0125"
     ],
-    "transaction_reference": "7036916984788",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0052"
-    ],
-    "transaction_reference": "6183899599242",
+    "transaction_reference": "1607340836681",
     "winnable_by": "amount_window"
   },
   {
@@ -2733,67 +2792,54 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0119"
+      "INV-0052"
     ],
-    "transaction_reference": "STK-00247-271E",
+    "transaction_reference": "STK-00252-D16D",
     "winnable_by": "exact_reference"
   },
   {
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0119"
+    ],
+    "transaction_reference": "2969782928568",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
     "note": "",
     "order_references": [
       "INV-0226"
     ],
-    "transaction_reference": "2119919349397",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_over",
-    "duplicate_of": null,
-    "name_mangling": "short_form",
-    "note": "paid more than the invoice; the rest is credit",
-    "order_references": [
-      "INV-0051"
-    ],
-    "transaction_reference": "9084072880378",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "",
-    "order_references": [
-      "INV-0101"
-    ],
-    "transaction_reference": "2620359503670",
+    "transaction_reference": "STK-00254-BECB",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
+    "name_mangling": "typo",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0101"
+    ],
+    "transaction_reference": "cash-00255",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
     "order_references": [
       "INV-0410"
     ],
-    "transaction_reference": "5974691184043",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "split_three_invoices",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "one payment, three invoices; only the total matches anything",
-    "order_references": [
-      "INV-0435",
-      "INV-0110",
-      "INV-0249"
-    ],
-    "transaction_reference": "2632140481558",
-    "winnable_by": "fuzzy"
+    "transaction_reference": "2435899064911",
+    "winnable_by": "amount_window"
   },
   {
     "case": "transfer_name_exact",
@@ -2801,20 +2847,31 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
+      "INV-0435"
+    ],
+    "transaction_reference": "7477383458982",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "short_form",
+    "note": "",
+    "order_references": [
       "INV-0168"
     ],
-    "transaction_reference": "4414638627827",
+    "transaction_reference": "9867276336735",
     "winnable_by": "amount_window"
   },
   {
     "case": "transfer_name_partial",
     "duplicate_of": null,
-    "name_mangling": "typo",
+    "name_mangling": "reorder",
     "note": "part payment; the balance may never arrive",
     "order_references": [
       "INV-0245"
     ],
-    "transaction_reference": "7326393391505",
+    "transaction_reference": "7486445231081",
     "winnable_by": "fuzzy"
   },
   {
@@ -2825,29 +2882,7 @@
     "order_references": [
       "INV-0454"
     ],
-    "transaction_reference": "STK-00255-5F12",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0319"
-    ],
-    "transaction_reference": "7462330707433",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0369"
-    ],
-    "transaction_reference": "cash-00257",
+    "transaction_reference": "STK-00260-8F40",
     "winnable_by": "exact_reference"
   },
   {
@@ -2856,64 +2891,130 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0449"
+      "INV-0319"
     ],
-    "transaction_reference": "STK-00258-B377",
+    "transaction_reference": "STK-00261-B0ED",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
+      "INV-0369"
+    ],
+    "transaction_reference": "9753288574124",
     "winnable_by": "exact_reference"
   },
   {
     "case": "dva_exact",
     "duplicate_of": null,
-    "name_mangling": "initials",
+    "name_mangling": "typo",
+    "note": "",
+    "order_references": [
+      "INV-0449"
+    ],
+    "transaction_reference": "9434126734398",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
     "note": "",
     "order_references": [
       "INV-0405"
     ],
-    "transaction_reference": "3623486095074",
-    "winnable_by": "dva"
+    "transaction_reference": "STK-00264-9E46",
+    "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "dva_partial",
     "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "part payment; the balance may never arrive",
+    "name_mangling": "short_form",
+    "note": "right customer, wrong amount, so which invoice is a guess",
     "order_references": [
       "INV-0477"
     ],
-    "transaction_reference": "9467878018403",
-    "winnable_by": "fuzzy"
+    "transaction_reference": "1005874528580",
+    "winnable_by": "dva"
   },
   {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0171"
-    ],
-    "transaction_reference": "6027272486025",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_with_reference",
+    "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
     "note": "",
     "order_references": [
+      "INV-0171"
+    ],
+    "transaction_reference": "3866738351393",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "dva_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
       "INV-0306"
     ],
-    "transaction_reference": "6222998053163",
+    "transaction_reference": "5925813846566",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0085"
+    ],
+    "transaction_reference": "9326241157349",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0130"
+    ],
+    "transaction_reference": "3795080835771",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0356"
+    ],
+    "transaction_reference": "STK-00270-9AAC",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0227"
+    ],
+    "transaction_reference": "STK-00271-8780",
     "winnable_by": "exact_reference"
   },
   {
     "case": "transfer_name_exact",
     "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
+    "name_mangling": "initials",
     "note": "",
     "order_references": [
-      "INV-0068"
+      "INV-0433"
     ],
-    "transaction_reference": "2418349402633",
+    "transaction_reference": "7701908729454",
     "winnable_by": "amount_window"
   },
   {
@@ -2922,87 +3023,43 @@
     "name_mangling": "clean",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0495"
+      "INV-0483"
     ],
-    "transaction_reference": "3127289312680",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0130"
-    ],
-    "transaction_reference": "cash-00265",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_over",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "paid more than the invoice; the rest is credit",
-    "order_references": [
-      "INV-0356"
-    ],
-    "transaction_reference": "8500671969823",
+    "transaction_reference": "6201366008773",
     "winnable_by": "fuzzy"
   },
   {
     "case": "dva_partial",
     "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
+    "name_mangling": "clean",
     "note": "right customer, wrong amount, so which invoice is a guess",
     "order_references": [
-      "INV-0227"
+      "INV-0365"
     ],
-    "transaction_reference": "9329356630963",
+    "transaction_reference": "7379892538603",
     "winnable_by": "dva"
   },
   {
     "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
-    "order_references": [
-      "INV-0315"
-    ],
-    "transaction_reference": "6953503167940",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "reorder_and_typo",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0483"
-    ],
-    "transaction_reference": "4322185310475",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
     "note": "",
     "order_references": [
       "INV-0091"
     ],
-    "transaction_reference": "9297931079686",
-    "winnable_by": "exact_reference"
+    "transaction_reference": "4782262244253",
+    "winnable_by": "amount_window"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
+    "name_mangling": "typo",
+    "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0317"
     ],
-    "transaction_reference": "2590435259607",
-    "winnable_by": "amount_window"
+    "transaction_reference": "cash-00276",
+    "winnable_by": "exact_reference"
   },
   {
     "case": "card_with_reference",
@@ -3012,19 +3069,19 @@
     "order_references": [
       "INV-0037"
     ],
-    "transaction_reference": "STK-00272-5B66",
+    "transaction_reference": "STK-00277-1D17",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "transfer_name_exact",
     "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "part payment; the balance may never arrive",
+    "name_mangling": "short_form",
+    "note": "",
     "order_references": [
       "INV-0383"
     ],
-    "transaction_reference": "8081469022202",
-    "winnable_by": "fuzzy"
+    "transaction_reference": "1134435979305",
+    "winnable_by": "amount_window"
   },
   {
     "case": "card_with_reference",
@@ -3034,52 +3091,8 @@
     "order_references": [
       "INV-0353"
     ],
-    "transaction_reference": "STK-00274-88D0",
+    "transaction_reference": "STK-00279-B5AE",
     "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "short_form",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0325"
-    ],
-    "transaction_reference": "4444165861110",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0141"
-    ],
-    "transaction_reference": "cash-00276",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "",
-    "order_references": [
-      "INV-0088"
-    ],
-    "transaction_reference": "9360860214721",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "",
-    "order_references": [
-      "INV-0159"
-    ],
-    "transaction_reference": "8535691266054",
-    "winnable_by": "amount_window"
   },
   {
     "case": "card_with_reference",
@@ -3087,10 +3100,54 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0188"
+      "INV-0325"
     ],
-    "transaction_reference": "STK-00279-2087",
+    "transaction_reference": "STK-00280-C882",
     "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "short_form",
+    "note": "",
+    "order_references": [
+      "INV-0149"
+    ],
+    "transaction_reference": "3173342859659",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
+      "INV-0141"
+    ],
+    "transaction_reference": "3265358329525",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "short_form",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0088"
+    ],
+    "transaction_reference": "cash-00283",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "",
+    "order_references": [
+      "INV-0159"
+    ],
+    "transaction_reference": "5351322185524",
+    "winnable_by": "amount_window"
   },
   {
     "case": "transfer_name_exact",
@@ -3100,30 +3157,32 @@
     "order_references": [
       "INV-0232"
     ],
-    "transaction_reference": "2502359656510",
+    "transaction_reference": "8768153785193",
     "winnable_by": "amount_window"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "dva_exact",
     "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
-    "order_references": [
-      "INV-0235"
-    ],
-    "transaction_reference": "7037737633376",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
+    "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
       "INV-0381"
     ],
+    "transaction_reference": "3469879296504",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "split_three_invoices",
+    "duplicate_of": null,
+    "name_mangling": "reorder_and_typo",
+    "note": "one payment, three invoices; only the total matches anything",
+    "order_references": [
+      "INV-0110",
+      "INV-0249",
+      "INV-0358"
+    ],
     "transaction_reference": "8843022043858",
-    "winnable_by": "amount_window"
+    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_with_reference",
@@ -3131,7 +3190,7 @@
     "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
-      "INV-0366"
+      "INV-0492"
     ],
     "transaction_reference": "3739457162127",
     "winnable_by": "exact_reference"
@@ -3142,7 +3201,7 @@
     "name_mangling": "alternative_spelling",
     "note": "paid more than the invoice; the rest is credit",
     "order_references": [
-      "INV-0178"
+      "INV-0218"
     ],
     "transaction_reference": "9901308978244",
     "winnable_by": "fuzzy"
@@ -3153,31 +3212,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0492"
-    ],
-    "transaction_reference": "STK-00285-7C20",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0218"
-    ],
-    "transaction_reference": "STK-00286-213A",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
       "INV-0371"
     ],
-    "transaction_reference": "STK-00287-DFD2",
+    "transaction_reference": "STK-00290-7C20",
     "winnable_by": "exact_reference"
   },
   {
@@ -3188,7 +3225,29 @@
     "order_references": [
       "INV-0222"
     ],
-    "transaction_reference": "STK-00288-CE2D",
+    "transaction_reference": "STK-00291-213A",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0337"
+    ],
+    "transaction_reference": "STK-00292-DFD2",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0342"
+    ],
+    "transaction_reference": "STK-00293-CE2D",
     "winnable_by": "exact_reference"
   },
   {
@@ -3197,7 +3256,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0337"
+      "INV-0287"
     ],
     "transaction_reference": "2042892572775",
     "winnable_by": "amount_window"
@@ -3208,9 +3267,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0342"
+      "INV-0411"
     ],
-    "transaction_reference": "STK-00290-4D92",
+    "transaction_reference": "STK-00295-4D92",
     "winnable_by": "exact_reference"
   },
   {
@@ -3219,9 +3278,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0287"
+      "INV-0273"
     ],
-    "transaction_reference": "STK-00291-5BD5",
+    "transaction_reference": "STK-00296-5BD5",
     "winnable_by": "exact_reference"
   },
   {
@@ -3230,7 +3289,7 @@
     "name_mangling": "typo",
     "note": "",
     "order_references": [
-      "INV-0411"
+      "INV-0028"
     ],
     "transaction_reference": "4590054471619",
     "winnable_by": "amount_window"
@@ -3241,9 +3300,9 @@
     "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
-      "INV-0273"
+      "INV-0183"
     ],
-    "transaction_reference": "4929079479782",
+    "transaction_reference": "3096902820378",
     "winnable_by": "dva"
   },
   {
@@ -3252,49 +3311,40 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0028"
+      "INV-0464"
     ],
-    "transaction_reference": "STK-00294-F074",
+    "transaction_reference": "STK-00299-86A6",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "cash",
+    "case": "split_three_invoices",
     "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
+    "name_mangling": "short_form",
+    "note": "one payment, three invoices; only the total matches anything",
     "order_references": [
-      "INV-0183"
+      "INV-0203",
+      "INV-0146",
+      "INV-0217"
     ],
-    "transaction_reference": "cash-00295",
+    "transaction_reference": "1378372794595",
     "winnable_by": "fuzzy"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder_and_typo",
+    "note": "",
+    "order_references": [
+      "INV-0140"
+    ],
+    "transaction_reference": "5401554231444",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0482"
-    ],
-    "transaction_reference": "3804239440873",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0203"
-    ],
-    "transaction_reference": "8524103416407",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
+    "note": "paid more than the invoice; the rest is credit",
     "order_references": [
       "INV-0069"
     ],
@@ -3304,35 +3354,24 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0416"
     ],
-    "transaction_reference": "cash-00299",
+    "transaction_reference": "cash-00303",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_partial",
+    "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "reorder_and_typo",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0026"
-    ],
-    "transaction_reference": "1177219442354",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
+    "name_mangling": "reorder",
+    "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0431"
     ],
-    "transaction_reference": "2229321246440",
-    "winnable_by": "amount_window"
+    "transaction_reference": "cash-00304",
+    "winnable_by": "fuzzy"
   },
   {
     "case": "card_with_reference",
@@ -3342,52 +3381,8 @@
     "order_references": [
       "INV-0074"
     ],
-    "transaction_reference": "STK-00302-F24C",
+    "transaction_reference": "STK-00305-87AF",
     "winnable_by": "exact_reference"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0499"
-    ],
-    "transaction_reference": "cash-00303",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0394"
-    ],
-    "transaction_reference": "STK-00304-B78F",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0103"
-    ],
-    "transaction_reference": "4605343102125",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "short_form",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0215"
-    ],
-    "transaction_reference": "5733425118766",
-    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_name_exact",
@@ -3395,9 +3390,189 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0146"
+      "INV-0056"
+    ],
+    "transaction_reference": "8500996291579",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "dva_exact",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "",
+    "order_references": [
+      "INV-0394"
+    ],
+    "transaction_reference": "9254436470384",
+    "winnable_by": "dva"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0103"
+    ],
+    "transaction_reference": "cash-00308",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "",
+    "order_references": [
+      "INV-0215"
+    ],
+    "transaction_reference": "5263277428456",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "typo",
+    "note": "",
+    "order_references": [
+      "INV-0041"
+    ],
+    "transaction_reference": "5733425118766",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "split_three_invoices",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "one payment, three invoices; only the total matches anything",
+    "order_references": [
+      "INV-0267",
+      "INV-0109",
+      "INV-0387"
     ],
     "transaction_reference": "7131812966282",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "",
+    "order_references": [
+      "INV-0348"
+    ],
+    "transaction_reference": "1297971357857",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "split_three_invoices",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "one payment, three invoices; only the total matches anything",
+    "order_references": [
+      "INV-0212",
+      "INV-0296",
+      "INV-0434"
+    ],
+    "transaction_reference": "7823180249912",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0361"
+    ],
+    "transaction_reference": "7002134824577",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder_and_typo",
+    "note": "",
+    "order_references": [
+      "INV-0438"
+    ],
+    "transaction_reference": "2774798709766",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0017"
+    ],
+    "transaction_reference": "cash-00316",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0362"
+    ],
+    "transaction_reference": "cash-00317",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "typo",
+    "note": "",
+    "order_references": [
+      "INV-0162"
+    ],
+    "transaction_reference": "6424058620293",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "short_form",
+    "note": "",
+    "order_references": [
+      "INV-0336"
+    ],
+    "transaction_reference": "5860536942945",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0436"
+    ],
+    "transaction_reference": "STK-00320-8208",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder_and_typo",
+    "note": "",
+    "order_references": [
+      "INV-0352"
+    ],
+    "transaction_reference": "4246650935560",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
+      "INV-0182"
+    ],
+    "transaction_reference": "2819818509226",
     "winnable_by": "amount_window"
   },
   {
@@ -3406,163 +3581,20 @@
     "name_mangling": "alternative_spelling",
     "note": "",
     "order_references": [
-      "INV-0041"
-    ],
-    "transaction_reference": "7495725824750",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0267"
-    ],
-    "transaction_reference": "9416834952715",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0348"
-    ],
-    "transaction_reference": "cash-00310",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "dva_partial",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "right customer, wrong amount, so which invoice is a guess",
-    "order_references": [
-      "INV-0212"
-    ],
-    "transaction_reference": "2813636305201",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0361"
-    ],
-    "transaction_reference": "STK-00312-DFF7",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
-    "order_references": [
-      "INV-0438"
-    ],
-    "transaction_reference": "9855875873880",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0017"
-    ],
-    "transaction_reference": "STK-00314-CE89",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0362"
-    ],
-    "transaction_reference": "STK-00315-2804",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "dva_exact",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "",
-    "order_references": [
-      "INV-0436"
-    ],
-    "transaction_reference": "8139045453208",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "cash",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0352"
-    ],
-    "transaction_reference": "cash-00317",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "dva_exact",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "",
-    "order_references": [
-      "INV-0112"
-    ],
-    "transaction_reference": "1018366411214",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
       "INV-0284"
     ],
-    "transaction_reference": "3893763039696",
+    "transaction_reference": "9550333783108",
     "winnable_by": "amount_window"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "card_with_reference",
     "duplicate_of": null,
-    "name_mangling": "clean",
+    "name_mangling": "",
     "note": "",
     "order_references": [
       "INV-0278"
     ],
-    "transaction_reference": "8247588077019",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0417"
-    ],
-    "transaction_reference": "2102785980935",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0107"
-    ],
-    "transaction_reference": "STK-00322-B437",
+    "transaction_reference": "STK-00324-7C2E",
     "winnable_by": "exact_reference"
   },
   {
@@ -3571,9 +3603,31 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0311"
+      "INV-0417"
     ],
-    "transaction_reference": "STK-00323-D32A",
+    "transaction_reference": "STK-00325-C8FE",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0107"
+    ],
+    "transaction_reference": "cash-00326",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0442"
+    ],
+    "transaction_reference": "STK-00327-D32A",
     "winnable_by": "exact_reference"
   },
   {
@@ -3582,7 +3636,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0030"
+      "INV-0311"
     ],
     "transaction_reference": "9905892105465",
     "winnable_by": "amount_window"
@@ -3593,7 +3647,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0382"
+      "INV-0244"
     ],
     "transaction_reference": "3846693611684",
     "winnable_by": "amount_window"
@@ -3604,7 +3658,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0045"
+      "INV-0324"
     ],
     "transaction_reference": "5400978917800",
     "winnable_by": "amount_window"
@@ -3615,7 +3669,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0401"
+      "INV-0045"
     ],
     "transaction_reference": "9789235659375",
     "winnable_by": "amount_window"
@@ -3626,7 +3680,7 @@
     "name_mangling": "reorder",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0418"
+      "INV-0349"
     ],
     "transaction_reference": "4679390148158",
     "winnable_by": "fuzzy"
@@ -3637,9 +3691,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0113"
+      "INV-0418"
     ],
-    "transaction_reference": "STK-00329-BD43",
+    "transaction_reference": "STK-00333-BD43",
     "winnable_by": "exact_reference"
   },
   {
@@ -3648,7 +3702,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0268"
+      "INV-0113"
     ],
     "transaction_reference": "5490606928687",
     "winnable_by": "amount_window"
@@ -3659,9 +3713,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0430"
+      "INV-0268"
     ],
-    "transaction_reference": "STK-00331-E60D",
+    "transaction_reference": "STK-00335-E60D",
     "winnable_by": "exact_reference"
   },
   {
@@ -3670,7 +3724,7 @@
     "name_mangling": "short_form",
     "note": "",
     "order_references": [
-      "INV-0288"
+      "INV-0430"
     ],
     "transaction_reference": "5511197456855",
     "winnable_by": "amount_window"
@@ -3681,7 +3735,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0148"
+      "INV-0288"
     ],
     "transaction_reference": "3140485711245",
     "winnable_by": "amount_window"
@@ -3692,7 +3746,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0014"
+      "INV-0148"
     ],
     "transaction_reference": "9054494973217",
     "winnable_by": "exact_reference"
@@ -3703,9 +3757,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0193"
+      "INV-0014"
     ],
-    "transaction_reference": "STK-00335-2F35",
+    "transaction_reference": "STK-00339-2F35",
     "winnable_by": "exact_reference"
   },
   {
@@ -3714,7 +3768,7 @@
     "name_mangling": "clean",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0192"
+      "INV-0193"
     ],
     "transaction_reference": "7837017823524",
     "winnable_by": "fuzzy"
@@ -3725,9 +3779,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0340"
+      "INV-0192"
     ],
-    "transaction_reference": "STK-00337-F820",
+    "transaction_reference": "STK-00341-F820",
     "winnable_by": "exact_reference"
   },
   {
@@ -3736,7 +3790,7 @@
     "name_mangling": "reorder",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0277"
+      "INV-0340"
     ],
     "transaction_reference": "5710304371614",
     "winnable_by": "fuzzy"
@@ -3747,9 +3801,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0180"
+      "INV-0277"
     ],
-    "transaction_reference": "STK-00339-3CD2",
+    "transaction_reference": "STK-00343-3CD2",
     "winnable_by": "exact_reference"
   },
   {
@@ -3758,9 +3812,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0368"
+      "INV-0180"
     ],
-    "transaction_reference": "STK-00340-5DEB",
+    "transaction_reference": "STK-00344-5DEB",
     "winnable_by": "exact_reference"
   },
   {
@@ -3769,7 +3823,7 @@
     "name_mangling": "reorder",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0033"
+      "INV-0368"
     ],
     "transaction_reference": "5652324274499",
     "winnable_by": "fuzzy"
@@ -3780,9 +3834,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0136"
+      "INV-0033"
     ],
-    "transaction_reference": "STK-00342-100C",
+    "transaction_reference": "STK-00346-100C",
     "winnable_by": "exact_reference"
   },
   {
@@ -3791,7 +3845,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0404"
+      "INV-0136"
     ],
     "transaction_reference": "1969315095224",
     "winnable_by": "dva"
@@ -3799,12 +3853,12 @@
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "reorder",
     "note": "attested by a human; nothing verifies it",
     "order_references": [
-      "INV-0459"
+      "INV-0404"
     ],
-    "transaction_reference": "cash-00344",
+    "transaction_reference": "cash-00348",
     "winnable_by": "fuzzy"
   },
   {
@@ -3813,7 +3867,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0077"
+      "INV-0459"
     ],
     "transaction_reference": "4266081956682",
     "winnable_by": "exact_reference"
@@ -3824,7 +3878,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0275"
+      "INV-0077"
     ],
     "transaction_reference": "8747558353384",
     "winnable_by": "exact_reference"
@@ -3835,9 +3889,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0494"
+      "INV-0275"
     ],
-    "transaction_reference": "STK-00347-E49A",
+    "transaction_reference": "STK-00351-E49A",
     "winnable_by": "exact_reference"
   },
   {
@@ -3846,7 +3900,7 @@
     "name_mangling": "short_form",
     "note": "paid more than the invoice; the rest is credit",
     "order_references": [
-      "INV-0269"
+      "INV-0494"
     ],
     "transaction_reference": "4110779067568",
     "winnable_by": "fuzzy"
@@ -3857,7 +3911,7 @@
     "name_mangling": "initials",
     "note": "",
     "order_references": [
-      "INV-0421"
+      "INV-0269"
     ],
     "transaction_reference": "9748870227954",
     "winnable_by": "amount_window"
@@ -3868,7 +3922,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0393"
+      "INV-0421"
     ],
     "transaction_reference": "2035094646397",
     "winnable_by": "exact_reference"
@@ -3879,7 +3933,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0217"
+      "INV-0393"
     ],
     "transaction_reference": "6574591152559",
     "winnable_by": "exact_reference"
@@ -3925,7 +3979,7 @@
     "order_references": [
       "INV-0154"
     ],
-    "transaction_reference": "STK-00355-F85B",
+    "transaction_reference": "STK-00359-F85B",
     "winnable_by": "exact_reference"
   },
   {
@@ -3934,21 +3988,21 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0202"
+      "INV-0445"
     ],
-    "transaction_reference": "STK-00356-FEBE",
+    "transaction_reference": "STK-00360-FEBE",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0445"
+      "INV-0260"
     ],
     "transaction_reference": "5395531382637",
-    "winnable_by": "amount_window"
+    "winnable_by": "dva"
   },
   {
     "case": "transfer_name_exact",
@@ -3956,7 +4010,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0407"
+      "INV-0256"
     ],
     "transaction_reference": "2917940796340",
     "winnable_by": "amount_window"
@@ -3967,21 +4021,21 @@
     "name_mangling": "typo",
     "note": "paid more than the invoice; the rest is credit",
     "order_references": [
-      "INV-0256"
+      "INV-0236"
     ],
     "transaction_reference": "3970575556178",
     "winnable_by": "fuzzy"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0299"
+      "INV-0174"
     ],
     "transaction_reference": "8597698299201",
-    "winnable_by": "amount_window"
+    "winnable_by": "dva"
   },
   {
     "case": "transfer_name_exact",
@@ -3989,7 +4043,7 @@
     "name_mangling": "reorder_and_typo",
     "note": "",
     "order_references": [
-      "INV-0236"
+      "INV-0357"
     ],
     "transaction_reference": "4794270127503",
     "winnable_by": "amount_window"
@@ -4000,9 +4054,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0174"
+      "INV-0200"
     ],
-    "transaction_reference": "STK-00362-4FDD",
+    "transaction_reference": "STK-00366-4FDD",
     "winnable_by": "exact_reference"
   },
   {
@@ -4011,9 +4065,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0357"
+      "INV-0481"
     ],
-    "transaction_reference": "STK-00363-BB80",
+    "transaction_reference": "STK-00367-BB80",
     "winnable_by": "exact_reference"
   },
   {
@@ -4022,7 +4076,7 @@
     "name_mangling": "reorder",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0200"
+      "INV-0011"
     ],
     "transaction_reference": "7571990787306",
     "winnable_by": "fuzzy"
@@ -4033,54 +4087,87 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0481"
+      "INV-0007"
     ],
-    "transaction_reference": "STK-00365-F5F6",
+    "transaction_reference": "STK-00369-F5F6",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "dva_exact",
+    "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
     "note": "",
     "order_references": [
-      "INV-0011"
-    ],
-    "transaction_reference": "4875125216690",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "short_form",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
       "INV-0239"
     ],
-    "transaction_reference": "6520237756048",
-    "winnable_by": "fuzzy"
+    "transaction_reference": "5383051146358",
+    "winnable_by": "amount_window"
   },
   {
-    "case": "card_with_reference",
+    "case": "transfer_name_exact",
     "duplicate_of": null,
-    "name_mangling": "",
+    "name_mangling": "clean",
     "note": "",
     "order_references": [
       "INV-0250"
     ],
-    "transaction_reference": "STK-00368-363C",
-    "winnable_by": "exact_reference"
+    "transaction_reference": "6219026754808",
+    "winnable_by": "amount_window"
   },
   {
-    "case": "dva_exact",
+    "case": "transfer_name_exact",
     "duplicate_of": null,
-    "name_mangling": "reorder",
+    "name_mangling": "clean",
     "note": "",
     "order_references": [
       "INV-0071"
     ],
-    "transaction_reference": "9465973245159",
-    "winnable_by": "dva"
+    "transaction_reference": "3429417418968",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0385"
+    ],
+    "transaction_reference": "7680606192127",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "",
+    "order_references": [
+      "INV-0065"
+    ],
+    "transaction_reference": "3696164766512",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "",
+    "order_references": [
+      "INV-0133"
+    ],
+    "transaction_reference": "7422525353700",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "reorder_and_typo",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0474"
+    ],
+    "transaction_reference": "cash-00376",
+    "winnable_by": "exact_reference"
   },
   {
     "case": "card_with_reference",
@@ -4088,163 +4175,53 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0109"
+      "INV-0330"
     ],
-    "transaction_reference": "STK-00370-C71D",
+    "transaction_reference": "STK-00377-D0E6",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0400"
+    ],
+    "transaction_reference": "STK-00378-4588",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0204"
+    ],
+    "transaction_reference": "STK-00379-9092",
     "winnable_by": "exact_reference"
   },
   {
     "case": "cash",
     "duplicate_of": null,
-    "name_mangling": "",
-    "note": "attested by a human; nothing verifies it",
-    "order_references": [
-      "INV-0385"
-    ],
-    "transaction_reference": "cash-00371",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0065"
-    ],
-    "transaction_reference": "8341427132987",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_exact",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "",
-    "order_references": [
-      "INV-0133"
-    ],
-    "transaction_reference": "5920816481316",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0474"
-    ],
-    "transaction_reference": "STK-00374-B909",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_over",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "paid more than the invoice; the rest is credit",
-    "order_references": [
-      "INV-0330"
-    ],
-    "transaction_reference": "5202285354594",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0400"
-    ],
-    "transaction_reference": "3754900225547",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0059"
-    ],
-    "transaction_reference": "STK-00377-E336",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
+    "note": "attested by a human; nothing verifies it",
     "order_references": [
       "INV-0484"
     ],
-    "transaction_reference": "STK-00378-DCCE",
-    "winnable_by": "exact_reference"
+    "transaction_reference": "cash-00380",
+    "winnable_by": "fuzzy"
   },
   {
-    "case": "transfer_name_exact",
+    "case": "card_with_reference",
     "duplicate_of": null,
-    "name_mangling": "clean",
+    "name_mangling": "",
     "note": "",
     "order_references": [
       "INV-0179"
     ],
-    "transaction_reference": "4383677877389",
-    "winnable_by": "amount_window"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0358"
-    ],
-    "transaction_reference": "2659097191530",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "typo",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0461"
-    ],
-    "transaction_reference": "7129576178618",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "dva_exact",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "",
-    "order_references": [
-      "INV-0024"
-    ],
-    "transaction_reference": "6016527537263",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0295"
-    ],
-    "transaction_reference": "STK-00383-56A6",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0084"
-    ],
-    "transaction_reference": "STK-00384-8783",
+    "transaction_reference": "STK-00381-285B",
     "winnable_by": "exact_reference"
   },
   {
@@ -4253,7 +4230,84 @@
     "name_mangling": "clean",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0019"
+      "INV-0461"
+    ],
+    "transaction_reference": "9728579831867",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_over",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "paid more than the invoice; the rest is credit",
+    "order_references": [
+      "INV-0024"
+    ],
+    "transaction_reference": "2344216605329",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_over",
+    "duplicate_of": null,
+    "name_mangling": "initials",
+    "note": "paid more than the invoice; the rest is credit",
+    "order_references": [
+      "INV-0447"
+    ],
+    "transaction_reference": "1287711935129",
+    "winnable_by": "fuzzy"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "reorder",
+    "note": "",
+    "order_references": [
+      "INV-0295"
+    ],
+    "transaction_reference": "6510965459865",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "transfer_name_exact",
+    "duplicate_of": null,
+    "name_mangling": "short_form",
+    "note": "",
+    "order_references": [
+      "INV-0084"
+    ],
+    "transaction_reference": "6016527537263",
+    "winnable_by": "amount_window"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0302"
+    ],
+    "transaction_reference": "STK-00387-56A6",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0276"
+    ],
+    "transaction_reference": "STK-00388-8783",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "transfer_name_partial",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "part payment; the balance may never arrive",
+    "order_references": [
+      "INV-0271"
     ],
     "transaction_reference": "2228852858695",
     "winnable_by": "fuzzy"
@@ -4264,9 +4318,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0302"
+      "INV-0246"
     ],
-    "transaction_reference": "STK-00386-10F4",
+    "transaction_reference": "STK-00390-10F4",
     "winnable_by": "exact_reference"
   },
   {
@@ -4275,7 +4329,7 @@
     "name_mangling": "reorder",
     "note": "",
     "order_references": [
-      "INV-0276"
+      "INV-0189"
     ],
     "transaction_reference": "8800141028403",
     "winnable_by": "exact_reference"
@@ -4286,21 +4340,21 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0271"
+      "INV-0307"
     ],
-    "transaction_reference": "STK-00388-64B4",
+    "transaction_reference": "STK-00392-64B4",
     "winnable_by": "exact_reference"
   },
   {
-    "case": "dva_partial",
+    "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "right customer, wrong amount, so which invoice is a guess",
+    "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0246"
+      "INV-0326"
     ],
     "transaction_reference": "8910794935011",
-    "winnable_by": "dva"
+    "winnable_by": "fuzzy"
   },
   {
     "case": "transfer_name_partial",
@@ -4308,21 +4362,10 @@
     "name_mangling": "alternative_spelling",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0189"
+      "INV-0185"
     ],
-    "transaction_reference": "6988661803329",
+    "transaction_reference": "5326099690353",
     "winnable_by": "fuzzy"
-  },
-  {
-    "case": "dva_partial",
-    "duplicate_of": null,
-    "name_mangling": "clean",
-    "note": "right customer, wrong amount, so which invoice is a guess",
-    "order_references": [
-      "INV-0307"
-    ],
-    "transaction_reference": "7412217786875",
-    "winnable_by": "dva"
   },
   {
     "case": "card_with_reference",
@@ -4330,9 +4373,42 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0326"
+      "INV-0354"
     ],
-    "transaction_reference": "STK-00392-1FF2",
+    "transaction_reference": "STK-00395-761D",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "cash",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "attested by a human; nothing verifies it",
+    "order_references": [
+      "INV-0332"
+    ],
+    "transaction_reference": "cash-00396",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0161"
+    ],
+    "transaction_reference": "STK-00397-6D4F",
+    "winnable_by": "exact_reference"
+  },
+  {
+    "case": "card_with_reference",
+    "duplicate_of": null,
+    "name_mangling": "",
+    "note": "",
+    "order_references": [
+      "INV-0190"
+    ],
+    "transaction_reference": "STK-00398-1FF2",
     "winnable_by": "exact_reference"
   },
   {
@@ -4341,7 +4417,7 @@
     "name_mangling": "short_form",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0185"
+      "INV-0254"
     ],
     "transaction_reference": "8180748171542",
     "winnable_by": "fuzzy"
@@ -4352,9 +4428,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0434"
+      "INV-0304"
     ],
-    "transaction_reference": "STK-00394-B51A",
+    "transaction_reference": "STK-00400-B51A",
     "winnable_by": "exact_reference"
   },
   {
@@ -4363,9 +4439,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0354"
+      "INV-0389"
     ],
-    "transaction_reference": "STK-00395-C627",
+    "transaction_reference": "STK-00401-C627",
     "winnable_by": "exact_reference"
   },
   {
@@ -4374,9 +4450,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0332"
+      "INV-0158"
     ],
-    "transaction_reference": "STK-00396-AC69",
+    "transaction_reference": "STK-00402-AC69",
     "winnable_by": "exact_reference"
   },
   {
@@ -4385,7 +4461,7 @@
     "name_mangling": "initials",
     "note": "",
     "order_references": [
-      "INV-0190"
+      "INV-0465"
     ],
     "transaction_reference": "3082318396378",
     "winnable_by": "exact_reference"
@@ -4396,7 +4472,7 @@
     "name_mangling": "clean",
     "note": "",
     "order_references": [
-      "INV-0254"
+      "INV-0025"
     ],
     "transaction_reference": "6970652834353",
     "winnable_by": "amount_window"
@@ -4407,7 +4483,7 @@
     "name_mangling": "initials",
     "note": "part payment; the balance may never arrive",
     "order_references": [
-      "INV-0304"
+      "INV-0316"
     ],
     "transaction_reference": "6802346200292",
     "winnable_by": "fuzzy"
@@ -4418,9 +4494,9 @@
     "name_mangling": "",
     "note": "",
     "order_references": [
-      "INV-0389"
+      "INV-0335"
     ],
-    "transaction_reference": "STK-00400-EE94",
+    "transaction_reference": "STK-00406-EE94",
     "winnable_by": "exact_reference"
   },
   {
@@ -4429,76 +4505,21 @@
     "name_mangling": "reorder",
     "note": "paid more than the invoice; the rest is credit",
     "order_references": [
-      "INV-0158"
+      "INV-0170"
     ],
     "transaction_reference": "1581230047943",
     "winnable_by": "fuzzy"
   },
   {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "initials",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0005"
-    ],
-    "transaction_reference": "6558776788938",
-    "winnable_by": "fuzzy"
-  },
-  {
-    "case": "dva_partial",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "right customer, wrong amount, so which invoice is a guess",
-    "order_references": [
-      "INV-0025"
-    ],
-    "transaction_reference": "4789048405929",
-    "winnable_by": "dva"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0316"
-    ],
-    "transaction_reference": "STK-00404-8438",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "card_with_reference",
-    "duplicate_of": null,
-    "name_mangling": "",
-    "note": "",
-    "order_references": [
-      "INV-0335"
-    ],
-    "transaction_reference": "STK-00405-53B1",
-    "winnable_by": "exact_reference"
-  },
-  {
-    "case": "transfer_name_partial",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "part payment; the balance may never arrive",
-    "order_references": [
-      "INV-0170"
-    ],
-    "transaction_reference": "7097126716683",
-    "winnable_by": "fuzzy"
-  },
-  {
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
-    "name_mangling": "clean",
+    "name_mangling": "reorder",
     "note": "two open invoices fit equally well; a confident answer here is a wrong one",
     "order_references": [
       "INV-0501",
       "INV-0502"
     ],
-    "transaction_reference": "5834290634480",
+    "transaction_reference": "3585541247131",
     "winnable_by": "human"
   },
   {
@@ -4510,19 +4531,19 @@
       "INV-0503",
       "INV-0504"
     ],
-    "transaction_reference": "9924555287338",
+    "transaction_reference": "3558441688948",
     "winnable_by": "human"
   },
   {
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
+    "name_mangling": "reorder",
     "note": "two open invoices fit equally well; a confident answer here is a wrong one",
     "order_references": [
       "INV-0505",
       "INV-0506"
     ],
-    "transaction_reference": "1463229634446",
+    "transaction_reference": "6387449316191",
     "winnable_by": "human"
   },
   {
@@ -4534,19 +4555,7 @@
       "INV-0507",
       "INV-0508"
     ],
-    "transaction_reference": "5885581056492",
-    "winnable_by": "human"
-  },
-  {
-    "case": "ambiguous_twin_invoices",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
-    "order_references": [
-      "INV-0509",
-      "INV-0510"
-    ],
-    "transaction_reference": "9993004489774",
+    "transaction_reference": "3221739582081",
     "winnable_by": "human"
   },
   {
@@ -4555,10 +4564,22 @@
     "name_mangling": "clean",
     "note": "two open invoices fit equally well; a confident answer here is a wrong one",
     "order_references": [
+      "INV-0509",
+      "INV-0510"
+    ],
+    "transaction_reference": "5399645345710",
+    "winnable_by": "human"
+  },
+  {
+    "case": "ambiguous_twin_invoices",
+    "duplicate_of": null,
+    "name_mangling": "alternative_spelling",
+    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "order_references": [
       "INV-0511",
       "INV-0512"
     ],
-    "transaction_reference": "9176597074473",
+    "transaction_reference": "2173409320891",
     "winnable_by": "human"
   },
   {
@@ -4570,130 +4591,121 @@
       "INV-0513",
       "INV-0514"
     ],
-    "transaction_reference": "5722038539654",
+    "transaction_reference": "9973045976943",
     "winnable_by": "human"
   },
   {
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
-    "name_mangling": "reorder",
+    "name_mangling": "clean",
     "note": "two open invoices fit equally well; a confident answer here is a wrong one",
     "order_references": [
       "INV-0515",
       "INV-0516"
     ],
-    "transaction_reference": "1674932904487",
+    "transaction_reference": "1506466399640",
     "winnable_by": "human"
   },
   {
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
-    "name_mangling": "typo",
+    "name_mangling": "reorder",
     "note": "two open invoices fit equally well; a confident answer here is a wrong one",
     "order_references": [
       "INV-0517",
       "INV-0518"
     ],
-    "transaction_reference": "3549759229018",
+    "transaction_reference": "5940601261459",
     "winnable_by": "human"
   },
   {
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
-    "name_mangling": "initials",
+    "name_mangling": "typo",
     "note": "two open invoices fit equally well; a confident answer here is a wrong one",
     "order_references": [
       "INV-0519",
       "INV-0520"
     ],
-    "transaction_reference": "7069269109681",
+    "transaction_reference": "4911399342053",
     "winnable_by": "human"
   },
   {
     "case": "duplicate_submission",
-    "duplicate_of": "6293433507116",
-    "name_mangling": "clean",
-    "note": "the same money submitted again under a fresh reference",
-    "order_references": [],
-    "transaction_reference": "9848148744989",
-    "winnable_by": "human"
-  },
-  {
-    "case": "duplicate_submission",
-    "duplicate_of": "4322744975650",
-    "name_mangling": "typo",
-    "note": "the same money submitted again under a fresh reference",
-    "order_references": [],
-    "transaction_reference": "5218246723570",
-    "winnable_by": "human"
-  },
-  {
-    "case": "duplicate_submission",
-    "duplicate_of": "6055975514938",
-    "name_mangling": "clean",
-    "note": "the same money submitted again under a fresh reference",
-    "order_references": [],
-    "transaction_reference": "1663860393725",
-    "winnable_by": "human"
-  },
-  {
-    "case": "duplicate_submission",
-    "duplicate_of": "4807234186392",
-    "name_mangling": "initials",
-    "note": "the same money submitted again under a fresh reference",
-    "order_references": [],
-    "transaction_reference": "2678386295898",
-    "winnable_by": "human"
-  },
-  {
-    "case": "duplicate_submission",
-    "duplicate_of": "3739457162127",
+    "duplicate_of": "6161579815511",
     "name_mangling": "alternative_spelling",
     "note": "the same money submitted again under a fresh reference",
     "order_references": [],
-    "transaction_reference": "4209525456239",
+    "transaction_reference": "3220698550453",
     "winnable_by": "human"
   },
   {
     "case": "duplicate_submission",
-    "duplicate_of": "7131812966282",
+    "duplicate_of": "6982214607143",
     "name_mangling": "reorder",
     "note": "the same money submitted again under a fresh reference",
     "order_references": [],
-    "transaction_reference": "3044598154406",
+    "transaction_reference": "2777659938392",
     "winnable_by": "human"
   },
   {
     "case": "duplicate_submission",
-    "duplicate_of": "6965418614733",
-    "name_mangling": "reorder",
-    "note": "the same money submitted again under a fresh reference",
-    "order_references": [],
-    "transaction_reference": "7093543496025",
-    "winnable_by": "human"
-  },
-  {
-    "case": "duplicate_submission",
-    "duplicate_of": "5248979092254",
+    "duplicate_of": "1506466399640",
     "name_mangling": "clean",
     "note": "the same money submitted again under a fresh reference",
     "order_references": [],
-    "transaction_reference": "3662218827653",
+    "transaction_reference": "7131699385431",
     "winnable_by": "human"
   },
   {
     "case": "duplicate_submission",
-    "duplicate_of": "4526044125112",
-    "name_mangling": "typo",
+    "duplicate_of": "cash-00221",
+    "name_mangling": "clean",
     "note": "the same money submitted again under a fresh reference",
     "order_references": [],
-    "transaction_reference": "3520485227815",
+    "transaction_reference": "cash-00421",
     "winnable_by": "human"
   },
   {
     "case": "duplicate_submission",
-    "duplicate_of": "cash-00179",
-    "name_mangling": "",
+    "duplicate_of": "3221739582081",
+    "name_mangling": "short_form",
+    "note": "the same money submitted again under a fresh reference",
+    "order_references": [],
+    "transaction_reference": "5019954284573",
+    "winnable_by": "human"
+  },
+  {
+    "case": "duplicate_submission",
+    "duplicate_of": "3387556304259",
+    "name_mangling": "initials",
+    "note": "the same money submitted again under a fresh reference",
+    "order_references": [],
+    "transaction_reference": "2183705508185",
+    "winnable_by": "human"
+  },
+  {
+    "case": "duplicate_submission",
+    "duplicate_of": "5615310880445",
+    "name_mangling": "clean",
+    "note": "the same money submitted again under a fresh reference",
+    "order_references": [],
+    "transaction_reference": "3320312305486",
+    "winnable_by": "human"
+  },
+  {
+    "case": "duplicate_submission",
+    "duplicate_of": "8656160234968",
+    "name_mangling": "alternative_spelling",
+    "note": "the same money submitted again under a fresh reference",
+    "order_references": [],
+    "transaction_reference": "2310273333067",
+    "winnable_by": "human"
+  },
+  {
+    "case": "duplicate_submission",
+    "duplicate_of": "cash-00316",
+    "name_mangling": "alternative_spelling",
     "note": "the same money submitted again under a fresh reference",
     "order_references": [],
     "transaction_reference": "cash-00426",
@@ -4701,21 +4713,57 @@
   },
   {
     "case": "duplicate_submission",
-    "duplicate_of": "5974691184043",
+    "duplicate_of": "cash-00308",
     "name_mangling": "clean",
     "note": "the same money submitted again under a fresh reference",
     "order_references": [],
-    "transaction_reference": "1183835618690",
+    "transaction_reference": "cash-00427",
     "winnable_by": "human"
   },
   {
     "case": "duplicate_submission",
-    "duplicate_of": "cash-00276",
-    "name_mangling": "",
+    "duplicate_of": "3140485711245",
+    "name_mangling": "clean",
     "note": "the same money submitted again under a fresh reference",
     "order_references": [],
-    "transaction_reference": "cash-00428",
+    "transaction_reference": "3950435459178",
     "winnable_by": "human"
+  },
+  {
+    "case": "duplicate_submission",
+    "duplicate_of": "9094683793641",
+    "name_mangling": "clean",
+    "note": "the same money submitted again under a fresh reference",
+    "order_references": [],
+    "transaction_reference": "7069269109681",
+    "winnable_by": "human"
+  },
+  {
+    "case": "no_matching_order",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "real money, no invoice; the right answer is to leave it alone",
+    "order_references": [],
+    "transaction_reference": "4209525456239",
+    "winnable_by": "none"
+  },
+  {
+    "case": "no_matching_order",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "real money, no invoice; the right answer is to leave it alone",
+    "order_references": [],
+    "transaction_reference": "4909290565464",
+    "winnable_by": "none"
+  },
+  {
+    "case": "no_matching_order",
+    "duplicate_of": null,
+    "name_mangling": "clean",
+    "note": "real money, no invoice; the right answer is to leave it alone",
+    "order_references": [],
+    "transaction_reference": "2196478752345",
+    "winnable_by": "none"
   },
   {
     "case": "no_matching_order",
@@ -4723,7 +4771,7 @@
     "name_mangling": "alternative_spelling",
     "note": "real money, no invoice; the right answer is to leave it alone",
     "order_references": [],
-    "transaction_reference": "4188937303516",
+    "transaction_reference": "8829740549211",
     "winnable_by": "none"
   },
   {
@@ -4732,22 +4780,13 @@
     "name_mangling": "typo",
     "note": "real money, no invoice; the right answer is to leave it alone",
     "order_references": [],
-    "transaction_reference": "9181192692607",
+    "transaction_reference": "2910859270511",
     "winnable_by": "none"
   },
   {
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "short_form",
-    "note": "real money, no invoice; the right answer is to leave it alone",
-    "order_references": [],
-    "transaction_reference": "6265849594046",
-    "winnable_by": "none"
-  },
-  {
-    "case": "no_matching_order",
-    "duplicate_of": null,
-    "name_mangling": "reorder",
     "note": "real money, no invoice; the right answer is to leave it alone",
     "order_references": [],
     "transaction_reference": "6847922284850",
@@ -4787,24 +4826,6 @@
     "note": "real money, no invoice; the right answer is to leave it alone",
     "order_references": [],
     "transaction_reference": "8860472106997",
-    "winnable_by": "none"
-  },
-  {
-    "case": "no_matching_order",
-    "duplicate_of": null,
-    "name_mangling": "initials",
-    "note": "real money, no invoice; the right answer is to leave it alone",
-    "order_references": [],
-    "transaction_reference": "8542370534039",
-    "winnable_by": "none"
-  },
-  {
-    "case": "no_matching_order",
-    "duplicate_of": null,
-    "name_mangling": "alternative_spelling",
-    "note": "real money, no invoice; the right answer is to leave it alone",
-    "order_references": [],
-    "transaction_reference": "5227846739331",
     "winnable_by": "none"
   }
 ]

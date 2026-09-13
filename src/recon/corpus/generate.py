@@ -600,17 +600,23 @@ class _Builder:
         customer = self._customer(order["customer_id"])
         amount = Money(order["amount_kobo"])
         mentions_reference = self.rng.random() < 0.45
+
+        # The name on a cash receipt is whatever the person at the counter
+        # wrote, so it is mangled like any other. Recording the customer's real
+        # name here would hand the matcher the answer and flatter every number.
+        shown, mangling = names.mangle(customer["name"], self.rng)
+        shown = shown.title()
         note = (
-            f"Cash from {customer['name']} for {order['reference']}"
+            f"Cash from {shown} for {order['reference']}"
             if mentions_reference
-            else f"Cash received from {names.mangle(customer['name'], self.rng)[0].title()}"
+            else f"Cash received from {shown}"
         )
         reference = self._emit(
             channel=Channel.CASH,
             amount=amount,
             when=self._paid_on(order),
             narration=note,
-            payer_name=customer["name"],
+            payer_name=shown,
             stated_reference=order["reference"] if mentions_reference else None,
             extra={
                 "verified": False,
@@ -623,6 +629,7 @@ class _Builder:
             [order["reference"]],
             "cash",
             "exact_reference" if mentions_reference else "fuzzy",
+            mangling,
             note="attested by a human; nothing verifies it",
         )
 
