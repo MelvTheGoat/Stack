@@ -17,7 +17,8 @@ types:
 test:
 	pytest
 
-check: lint types test
+check:
+	./scripts/check.sh
 
 # Rebuild the fake-but-realistic corpus in fixtures/.
 corpus:
