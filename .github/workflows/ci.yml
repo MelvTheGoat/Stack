@@ -20,17 +20,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[dev]"
 
-      - name: Lint
-        run: ruff check src tests
-
-      - name: Format check
-        run: ruff format --check src tests
-
-      - name: Types
-        run: mypy
-
-      - name: Tests
-        run: pytest --cov=recon --cov-report=term-missing
+      - name: Lint, types, tests
+        run: ./scripts/check.sh
 
       - name: Evaluation harness
         run: make eval
