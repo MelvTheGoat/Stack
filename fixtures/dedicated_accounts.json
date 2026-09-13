@@ -1,0 +1,134 @@
+[
+  {
+    "account_number": "9965047402",
+    "assigned_at": "2024-04-26T15:07:27+00:00",
+    "bank": "Wema Bank",
+    "customer_id": "CUS_055"
+  },
+  {
+    "account_number": "9912804595",
+    "assigned_at": "2024-04-26T11:47:54+00:00",
+    "bank": "Providus Bank",
+    "customer_id": "CUS_002"
+  },
+  {
+    "account_number": "9999164940",
+    "assigned_at": "2024-04-26T10:06:06+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_031"
+  },
+  {
+    "account_number": "9936059428",
+    "assigned_at": "2024-04-26T09:34:24+00:00",
+    "bank": "Providus Bank",
+    "customer_id": "CUS_054"
+  },
+  {
+    "account_number": "9959315191",
+    "assigned_at": "2024-04-26T09:47:46+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_025"
+  },
+  {
+    "account_number": "9948474714",
+    "assigned_at": "2024-04-26T13:11:55+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_051"
+  },
+  {
+    "account_number": "9992280456",
+    "assigned_at": "2024-04-26T10:42:26+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_056"
+  },
+  {
+    "account_number": "9985022508",
+    "assigned_at": "2024-04-26T11:20:12+00:00",
+    "bank": "Wema Bank",
+    "customer_id": "CUS_036"
+  },
+  {
+    "account_number": "9969023518",
+    "assigned_at": "2024-04-26T12:24:24+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_003"
+  },
+  {
+    "account_number": "9991423705",
+    "assigned_at": "2024-04-26T10:00:42+00:00",
+    "bank": "Providus Bank",
+    "customer_id": "CUS_015"
+  },
+  {
+    "account_number": "9932869825",
+    "assigned_at": "2024-04-26T20:16:12+00:00",
+    "bank": "Wema Bank",
+    "customer_id": "CUS_008"
+  },
+  {
+    "account_number": "9973798299",
+    "assigned_at": "2024-04-26T18:10:35+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_012"
+  },
+  {
+    "account_number": "9976981218",
+    "assigned_at": "2024-04-26T09:09:20+00:00",
+    "bank": "Wema Bank",
+    "customer_id": "CUS_026"
+  },
+  {
+    "account_number": "9963674222",
+    "assigned_at": "2024-04-26T12:45:50+00:00",
+    "bank": "Wema Bank",
+    "customer_id": "CUS_046"
+  },
+  {
+    "account_number": "9973997924",
+    "assigned_at": "2024-04-26T14:34:48+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_020"
+  },
+  {
+    "account_number": "9996306713",
+    "assigned_at": "2024-04-26T12:29:02+00:00",
+    "bank": "Wema Bank",
+    "customer_id": "CUS_045"
+  },
+  {
+    "account_number": "9986586655",
+    "assigned_at": "2024-04-26T17:20:15+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_019"
+  },
+  {
+    "account_number": "9932086910",
+    "assigned_at": "2024-04-26T18:48:25+00:00",
+    "bank": "Providus Bank",
+    "customer_id": "CUS_006"
+  },
+  {
+    "account_number": "9964208523",
+    "assigned_at": "2024-04-26T19:12:46+00:00",
+    "bank": "Providus Bank",
+    "customer_id": "CUS_041"
+  },
+  {
+    "account_number": "9906785742",
+    "assigned_at": "2024-04-26T18:56:38+00:00",
+    "bank": "Wema Bank",
+    "customer_id": "CUS_057"
+  },
+  {
+    "account_number": "9967253373",
+    "assigned_at": "2024-04-26T12:14:11+00:00",
+    "bank": "Titan Trust Bank",
+    "customer_id": "CUS_044"
+  },
+  {
+    "account_number": "9997030194",
+    "assigned_at": "2024-04-26T16:31:25+00:00",
+    "bank": "Providus Bank",
+    "customer_id": "CUS_007"
+  }
+]

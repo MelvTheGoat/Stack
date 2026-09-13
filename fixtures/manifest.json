@@ -1,0 +1,42 @@
+{
+  "best_possible_layer": {
+    "amount_window": 101,
+    "dva": 34,
+    "exact_reference": 152,
+    "fuzzy": 119,
+    "human": 22,
+    "none": 10
+  },
+  "cases": {
+    "ambiguous_twin_invoices": 10,
+    "card_with_reference": 111,
+    "cash": 31,
+    "duplicate_submission": 12,
+    "dva_exact": 20,
+    "dva_partial": 14,
+    "no_matching_order": 10,
+    "split_three_invoices": 12,
+    "transfer_name_exact": 101,
+    "transfer_name_over": 22,
+    "transfer_name_partial": 65,
+    "transfer_with_reference": 30
+  },
+  "counts": {
+    "customers": 57,
+    "dedicated_accounts": 22,
+    "orders": 520,
+    "settlements": 23,
+    "transactions": 438
+  },
+  "generated_for_period": {
+    "from": "2024-05-01",
+    "to": "2024-05-31"
+  },
+  "seed": 20240517,
+  "transactions_by_channel": {
+    "bank_transfer": 260,
+    "card": 111,
+    "cash": 33,
+    "dva": 34
+  }
+}

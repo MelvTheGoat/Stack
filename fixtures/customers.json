@@ -1,0 +1,356 @@
+[
+  {
+    "email": "babatunde.bello@example.com",
+    "id": "CUS_001",
+    "name": "Babatunde Bello",
+    "phone": "07011342150"
+  },
+  {
+    "email": "emeka.chukwu@example.com",
+    "id": "CUS_002",
+    "name": "Emeka Chukwu",
+    "phone": "09154710914"
+  },
+  {
+    "email": "obinna.olaniyi@example.com",
+    "id": "CUS_003",
+    "name": "Obinna Olaniyi",
+    "phone": "09014136437"
+  },
+  {
+    "email": "zainab.balogun@example.com",
+    "id": "CUS_004",
+    "name": "Zainab Balogun",
+    "phone": "08057569601"
+  },
+  {
+    "email": "blessing.uche@example.com",
+    "id": "CUS_005",
+    "name": "Blessing Uche",
+    "phone": "09132384898"
+  },
+  {
+    "email": "chinedu.obi@example.com",
+    "id": "CUS_006",
+    "name": "Chinedu Obi",
+    "phone": "09111575710"
+  },
+  {
+    "email": "babatunde.adewale@example.com",
+    "id": "CUS_007",
+    "name": "Babatunde Adewale",
+    "phone": "09180777996"
+  },
+  {
+    "email": "damilola.ibrahim@example.com",
+    "id": "CUS_008",
+    "name": "Damilola Ibrahim",
+    "phone": "07057425431"
+  },
+  {
+    "email": "ekene.akintola@example.com",
+    "id": "CUS_009",
+    "name": "Ekene Akintola",
+    "phone": "07057131694"
+  },
+  {
+    "email": "chidinma.onyeka@example.com",
+    "id": "CUS_010",
+    "name": "Chidinma Onyeka",
+    "phone": "09190114430"
+  },
+  {
+    "email": "ngozi.suleiman@example.com",
+    "id": "CUS_011",
+    "name": "Ngozi Suleiman",
+    "phone": "08033424367"
+  },
+  {
+    "email": "zainab.musa@example.com",
+    "id": "CUS_012",
+    "name": "Zainab Musa",
+    "phone": "07091937688"
+  },
+  {
+    "email": "chidinma.okonkwo@example.com",
+    "id": "CUS_013",
+    "name": "Chidinma Okonkwo",
+    "phone": "08039112804"
+  },
+  {
+    "email": "maryam.okafor@example.com",
+    "id": "CUS_014",
+    "name": "Maryam Okafor",
+    "phone": "08153247743"
+  },
+  {
+    "email": "ifeanyi.okonkwo@example.com",
+    "id": "CUS_015",
+    "name": "Ifeanyi Okonkwo",
+    "phone": "09137581181"
+  },
+  {
+    "email": "folake.mohammed@example.com",
+    "id": "CUS_016",
+    "name": "Folake Mohammed",
+    "phone": "08095431408"
+  },
+  {
+    "email": "tobiloba.chukwu@example.com",
+    "id": "CUS_017",
+    "name": "Tobiloba Chukwu",
+    "phone": "08006216873"
+  },
+  {
+    "email": "sadiq.sanusi@example.com",
+    "id": "CUS_018",
+    "name": "Sadiq Sanusi",
+    "phone": "08060259950"
+  },
+  {
+    "email": "damilola.ezenwa@example.com",
+    "id": "CUS_019",
+    "name": "Damilola Ezenwa",
+    "phone": "09058080231"
+  },
+  {
+    "email": "ikechukwu.mohammed@example.com",
+    "id": "CUS_020",
+    "name": "Ikechukwu Mohammed",
+    "phone": "09080319049"
+  },
+  {
+    "email": "adebayo.okafor@example.com",
+    "id": "CUS_021",
+    "name": "Adebayo Okafor",
+    "phone": "09084495311"
+  },
+  {
+    "email": "ifeanyi.ogundipe@example.com",
+    "id": "CUS_022",
+    "name": "Ifeanyi Ogundipe",
+    "phone": "08121302326"
+  },
+  {
+    "email": "yusuf.ibrahim@example.com",
+    "id": "CUS_023",
+    "name": "Yusuf Ibrahim",
+    "phone": "08090471964"
+  },
+  {
+    "email": "nnamdi.musa@example.com",
+    "id": "CUS_024",
+    "name": "Nnamdi Musa",
+    "phone": "08145442329"
+  },
+  {
+    "email": "ifeanyi.obi@example.com",
+    "id": "CUS_025",
+    "name": "Ifeanyi Obi",
+    "phone": "08058212842"
+  },
+  {
+    "email": "rukayat.udeh@example.com",
+    "id": "CUS_026",
+    "name": "Rukayat Udeh",
+    "phone": "09072020042"
+  },
+  {
+    "email": "nnamdi.danjuma@example.com",
+    "id": "CUS_027",
+    "name": "Nnamdi Danjuma",
+    "phone": "08175558313"
+  },
+  {
+    "email": "ekene.okonkwo@example.com",
+    "id": "CUS_028",
+    "name": "Ekene Okonkwo",
+    "phone": "09096241008"
+  },
+  {
+    "email": "oluwaseun.eze@example.com",
+    "id": "CUS_029",
+    "name": "Oluwaseun Eze",
+    "phone": "08091990864"
+  },
+  {
+    "email": "chidinma.balogun@example.com",
+    "id": "CUS_030",
+    "name": "Chidinma Balogun",
+    "phone": "09148519781"
+  },
+  {
+    "email": "aisha.lawal@example.com",
+    "id": "CUS_031",
+    "name": "Aisha Lawal",
+    "phone": "08097305308"
+  },
+  {
+    "email": "adaeze.nwachukwu@example.com",
+    "id": "CUS_032",
+    "name": "Adaeze Nwachukwu",
+    "phone": "09041077916"
+  },
+  {
+    "email": "chinedu.adewale@example.com",
+    "id": "CUS_033",
+    "name": "Chinedu Adewale",
+    "phone": "07028945922"
+  },
+  {
+    "email": "emeka.nwosu@example.com",
+    "id": "CUS_034",
+    "name": "Emeka Nwosu",
+    "phone": "09146146300"
+  },
+  {
+    "email": "rukayat.bello@example.com",
+    "id": "CUS_035",
+    "name": "Rukayat Bello",
+    "phone": "08118521379"
+  },
+  {
+    "email": "adaeze.ogunleye@example.com",
+    "id": "CUS_036",
+    "name": "Adaeze Ogunleye",
+    "phone": "09148903464"
+  },
+  {
+    "email": "ibrahim.okafor@example.com",
+    "id": "CUS_037",
+    "name": "Ibrahim Okafor",
+    "phone": "08164599221"
+  },
+  {
+    "email": "amina.ezenwa@example.com",
+    "id": "CUS_038",
+    "name": "Amina Ezenwa",
+    "phone": "08190685523"
+  },
+  {
+    "email": "adaeze.akintola@example.com",
+    "id": "CUS_039",
+    "name": "Adaeze Akintola",
+    "phone": "08074917839"
+  },
+  {
+    "email": "yusuf.mohammed@example.com",
+    "id": "CUS_040",
+    "name": "Yusuf Mohammed",
+    "phone": "07033831377"
+  },
+  {
+    "email": "segun.onyeka@example.com",
+    "id": "CUS_041",
+    "name": "Segun Onyeka",
+    "phone": "08101846391"
+  },
+  {
+    "email": "folake.musa@example.com",
+    "id": "CUS_042",
+    "name": "Folake Musa",
+    "phone": "08048386902"
+  },
+  {
+    "email": "aisha.onyeka@example.com",
+    "id": "CUS_043",
+    "name": "Aisha Onyeka",
+    "phone": "09016249473"
+  },
+  {
+    "email": "ikechukwu.ezenwa@example.com",
+    "id": "CUS_044",
+    "name": "Ikechukwu Ezenwa",
+    "phone": "09110699116"
+  },
+  {
+    "email": "maryam.nwosu@example.com",
+    "id": "CUS_045",
+    "name": "Maryam Nwosu",
+    "phone": "08078988754"
+  },
+  {
+    "confusable_with": "Chinedum Okafor",
+    "email": "chinedu.okafor@example.com",
+    "id": "CUS_046",
+    "name": "Chinedu Okafor",
+    "phone": "08010498365"
+  },
+  {
+    "confusable_with": "Chinedu Okafor",
+    "email": "chinedum.okafor@example.com",
+    "id": "CUS_047",
+    "name": "Chinedum Okafor",
+    "phone": "07071726595"
+  },
+  {
+    "confusable_with": "Aishat Bello",
+    "email": "aisha.bello@example.com",
+    "id": "CUS_048",
+    "name": "Aisha Bello",
+    "phone": "08197024473"
+  },
+  {
+    "confusable_with": "Aisha Bello",
+    "email": "aishat.bello@example.com",
+    "id": "CUS_049",
+    "name": "Aishat Bello",
+    "phone": "08189031119"
+  },
+  {
+    "confusable_with": "Muhammad Sanusi",
+    "email": "mohammed.sanusi@example.com",
+    "id": "CUS_050",
+    "name": "Mohammed Sanusi",
+    "phone": "09113946829"
+  },
+  {
+    "confusable_with": "Mohammed Sanusi",
+    "email": "muhammad.sanusi@example.com",
+    "id": "CUS_051",
+    "name": "Muhammad Sanusi",
+    "phone": "08125759581"
+  },
+  {
+    "confusable_with": "Ngozi Ezeh",
+    "email": "ngozi.eze@example.com",
+    "id": "CUS_052",
+    "name": "Ngozi Eze",
+    "phone": "08135411150"
+  },
+  {
+    "confusable_with": "Ngozi Eze",
+    "email": "ngozi.ezeh@example.com",
+    "id": "CUS_053",
+    "name": "Ngozi Ezeh",
+    "phone": "07094668888"
+  },
+  {
+    "confusable_with": "Tunde Balogon",
+    "email": "tunde.balogun@example.com",
+    "id": "CUS_054",
+    "name": "Tunde Balogun",
+    "phone": "09079420068"
+  },
+  {
+    "confusable_with": "Tunde Balogun",
+    "email": "tunde.balogon@example.com",
+    "id": "CUS_055",
+    "name": "Tunde Balogon",
+    "phone": "07074380843"
+  },
+  {
+    "confusable_with": "Ifeanyi Obiora",
+    "email": "ifeanyi.obi@example.com",
+    "id": "CUS_056",
+    "name": "Ifeanyi Obi",
+    "phone": "07022349729"
+  },
+  {
+    "confusable_with": "Ifeanyi Obi",
+    "email": "ifeanyi.obiora@example.com",
+    "id": "CUS_057",
+    "name": "Ifeanyi Obiora",
+    "phone": "07003838358"
+  }
+]
