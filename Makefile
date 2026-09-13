@@ -3,6 +3,9 @@
 install:
 	pip install -e ".[dev]"
 	pre-commit install
+	install -m 755 scripts/hooks/commit-msg .git/hooks/commit-msg
+	git config user.name "Mayungbo Melvyn Oluwatobi"
+	git config user.email "mlvyn.t@gmail.com"
 
 lint:
 	ruff check src tests

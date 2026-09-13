@@ -46,3 +46,18 @@ def test_the_env_example_exists_and_carries_no_real_key() -> None:
     assert any(line.startswith("PAYSTACK_SECRET_KEY=sk_test_") for line in assignments)
     assert not any("sk_live_" in line for line in assignments)
     assert ".env" in (ROOT / ".gitignore").read_text()
+
+
+def test_the_commit_msg_hook_is_versioned_and_installed_by_make() -> None:
+    """git does not version .git/hooks, so a fresh clone would silently lose it."""
+    hook = ROOT / "scripts" / "hooks" / "commit-msg"
+    assert hook.exists()
+    assert hook.stat().st_mode & 0o111, "the hook has to be executable"
+    assert "scripts/hooks/commit-msg .git/hooks/commit-msg" in (ROOT / "Makefile").read_text()
+
+
+def test_the_working_agreement_is_checked_in() -> None:
+    """It is the thing that keeps the next session consistent with this one."""
+    agreement = (ROOT / "CLAUDE.md").read_text()
+    assert "integers in kobo" in agreement
+    assert "docs/DECISIONS.md" in agreement

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Strip AI attribution trailers out of commit messages.
+#
+# The working agreement in CLAUDE.md says not to add them. Instructions alone
+# are not reliable, so this removes them mechanically. Installed by
+# `make install`; git does not version .git/hooks, so it lives here instead.
+sed -i'' -e '/Co-Authored-By: Claude/d' \
+         -e '/Claude-Session:/d' \
+         -e '/Generated with \[Claude Code\]/d' \
+         -e '/🤖 Generated with/d' \
+         -e '/claude\.ai\/code/d' "$1"
