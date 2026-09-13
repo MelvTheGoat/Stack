@@ -36,7 +36,13 @@ def test_the_dockerfile_ships_the_corpus_and_the_model() -> None:
 
 
 def test_the_env_example_exists_and_carries_no_real_key() -> None:
+    """`sk_live_` may appear in a comment explaining why it is refused; it may
+    never appear as the value of anything."""
     example = (ROOT / ".env.example").read_text()
     assert "sk_test_" in example
-    assert "sk_live_" not in example
+    assignments = [
+        line for line in example.splitlines() if "=" in line and not line.strip().startswith("#")
+    ]
+    assert any(line.startswith("PAYSTACK_SECRET_KEY=sk_test_") for line in assignments)
+    assert not any("sk_live_" in line for line in assignments)
     assert ".env" in (ROOT / ".gitignore").read_text()
