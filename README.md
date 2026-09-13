@@ -25,6 +25,10 @@ Work in progress. See `docs/DECISIONS.md` for why things are the way they are.
   stated.
 - `recon.match.pipeline` — deterministic first, probabilistic second, and a
   report of which layer resolved what.
+- `recon.intake` — reads payment reports written by people ("Ada paid 45k for
+  invoice 42 this morning") into typed records, and refuses rather than guesses.
+- `recon.evaluation.extraction` — scores the reader on a hand-labelled set, a
+  quarter of which was written after the parser was finished.
 - `recon.evaluation.truth` / `recon.evaluation.score` — reads the answer key and
   turns matches into numbers.
 - `recon.fees` — Paystack's Nigerian rates and T+1 settlement timing, in one

@@ -171,3 +171,49 @@ is genuinely hard — part payments, split payments, duplicates and twin invoice
 — and a person looks at it. That is the correct answer for this data, and if a
 bigger corpus later supports a lower line, the cost matrix will say so on its
 own.
+
+---
+
+## 9. A payment report that cannot be read goes to a person, once
+
+**Picked:** rules first, an optional model second, and then a person. One
+attempt per layer. A failure carries the original text, what was missing, and
+what each layer said about it.
+
+**Rejected:** retrying the model with a firmer prompt, or a "best effort" record
+with the missing fields left blank.
+
+**Why:** a second attempt at an ambiguous sentence does not produce more
+information. It produces a more confident guess. "Someone paid 20k today" does
+not contain a payer, and no amount of prompting will find one — but a model
+asked twice will eventually supply a name, and that name goes into the books
+looking exactly like a fact. A blank-field record is the same problem wearing a
+different hat: "no date given" and "the date was 31/02/2024 and we dropped it"
+are different things and the ledger cannot tell them apart afterwards.
+
+**What it costs:** more items in the review queue. On the labelled set, one
+readable report in eighteen gets refused when a person could have read it — the
+comma-separated form with no verb in it, "invoice 42: forty-five thousand naira,
+Ada Okonkwo, cash". That one is exactly what the generative layer is for, and it
+is left failing in the repo rather than special-cased, because a rule written to
+pass one test case is not a rule.
+
+---
+
+## 10. The extraction score is measured on a set we partly wrote afterwards
+
+**Picked:** forty hand-labelled reports, ten of them written *after* the parser
+was finished and never used to tune it. Those ten are marked
+`written_after: true` in the fixture and reported separately.
+
+**Rejected:** one labelled set, written alongside the parser.
+
+**Why:** the first thirty examples scored 100%, and they scored 100% because the
+rules were adjusted until they did. That is a smoke test wearing an evaluation's
+clothes. The ten written afterwards immediately found four real bugs: hyphenated
+number words, two invoice numbers in one sentence, an impossible date being
+silently dropped, and "Ada Okonkwo's brother" being read as Ada Okonkwo.
+
+**What it costs:** ten examples is still not many, and the same person wrote the
+parser and the labels. The honest description of this number is "it has not
+failed yet on forty examples", not "94% accurate". The README says that.

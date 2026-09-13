@@ -1,0 +1,321 @@
+[
+  {
+    "text": "Ada Okonkwo paid 45k for invoice 42 this morning by transfer",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 4500000,
+      "payer_name": "Ada Okonkwo",
+      "channel": "bank_transfer",
+      "order_reference": "INV-0042",
+      "paid_on": "2024-05-17"
+    }
+  },
+  {
+    "text": "Received ₦120,000 cash from Chinedu Eze yesterday",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 12000000,
+      "payer_name": "Chinedu Eze",
+      "channel": "cash",
+      "order_reference": null,
+      "paid_on": "2024-05-16"
+    }
+  },
+  {
+    "text": "Bisi Adeyemi sent N15,500 for INV-0301 on 15/05/2024",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 1550000,
+      "payer_name": "Bisi Adeyemi",
+      "channel": "unknown",
+      "order_reference": "INV-0301",
+      "paid_on": "2024-05-15"
+    }
+  },
+  {
+    "text": "Ngozi Bello paid forty five thousand naira by card",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 4500000,
+      "payer_name": "Ngozi Bello",
+      "channel": "card",
+      "order_reference": null,
+      "paid_on": null
+    }
+  },
+  {
+    "text": "Halima Sanusi transferred 2.5m for invoice no 88 on Monday",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 250000000,
+      "payer_name": "Halima Sanusi",
+      "channel": "bank_transfer",
+      "order_reference": "INV-0088",
+      "paid_on": "2024-05-13"
+    }
+  },
+  {
+    "text": "Payment of ₦7,250.50 from Emeka Obi, bank transfer, today",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 725050,
+      "payer_name": "Emeka Obi",
+      "channel": "bank_transfer",
+      "order_reference": null,
+      "paid_on": "2024-05-17"
+    }
+  },
+  {
+    "text": "Yusuf Lawal dropped 30k cash for the generator servicing this evening",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 3000000,
+      "payer_name": "Yusuf Lawal",
+      "channel": "cash",
+      "order_reference": null,
+      "paid_on": "2024-05-17"
+    }
+  },
+  {
+    "text": "Folake Balogun settled INV-0117, ₦88,000, transfer",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 8800000,
+      "payer_name": "Folake Balogun",
+      "channel": "bank_transfer",
+      "order_reference": "INV-0117",
+      "paid_on": null
+    }
+  },
+  {
+    "text": "Oga, Mrs Folake Balogun dropped 30k cash for the ankara this evening",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 3000000,
+      "payer_name": "Folake Balogun",
+      "channel": "cash",
+      "order_reference": null,
+      "paid_on": "2024-05-17"
+    }
+  },
+  {
+    "text": "Alhaji Musa Danjuma sent 200k by transfer yesterday",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 20000000,
+      "payer_name": "Musa Danjuma",
+      "channel": "bank_transfer",
+      "order_reference": null,
+      "paid_on": "2024-05-16"
+    }
+  },
+  {
+    "text": "good evening ma. Chief Obinna Nwosu paid #55,000 into the account today",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 5500000,
+      "payer_name": "Obinna Nwosu",
+      "channel": "unknown",
+      "order_reference": null,
+      "paid_on": "2024-05-17"
+    },
+    "note": "relabelled: 'into the account' does not say which account. A Nigerian SME's main account and a customer's dedicated account are both 'the account', so unknown is the truthful answer."
+  },
+  {
+    "text": "Dr Amina Suleiman paid 12k card, invoice 9",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 1200000,
+      "payer_name": "Amina Suleiman",
+      "channel": "card",
+      "order_reference": "INV-0009",
+      "paid_on": null
+    }
+  },
+  {
+    "text": "so erm Kelechi Udeh he paid me like ten thousand naira cash this afternoon",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 1000000,
+      "payer_name": "Kelechi Udeh",
+      "channel": "cash",
+      "order_reference": null,
+      "paid_on": "2024-05-17"
+    }
+  },
+  {
+    "text": "Hello. This is to confirm that Zainab Lawal transferred two hundred thousand naira for invoice 250 yesterday",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 20000000,
+      "payer_name": "Zainab Lawal",
+      "channel": "bank_transfer",
+      "order_reference": "INV-0250",
+      "paid_on": "2024-05-16"
+    }
+  },
+  {
+    "text": "Uchenna Obi sent 1.2m for the solar inverter, transfer, day before yesterday",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 120000000,
+      "payer_name": "Uchenna Obi",
+      "channel": "bank_transfer",
+      "order_reference": null,
+      "paid_on": "2024-05-15"
+    }
+  },
+  {
+    "text": "Segun Afolabi paid N9500 into his dedicated account on Friday",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 950000,
+      "payer_name": "Segun Afolabi",
+      "channel": "dva",
+      "order_reference": null,
+      "paid_on": "2024-05-10"
+    }
+  },
+  {
+    "text": "someone paid 20k today",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "about fifty thousand naira from Ada Okonkwo",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "Musa paid",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "payment received",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "a customer dropped cash",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "Ada paid 45k, balance 15k still outstanding",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "roughly 100k came in from Chinedu yesterday",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "the client settled everything",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "check the account, money entered",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "Blessing paid part of it this morning",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "transfer of around ₦75,000 from Ibrahim Bello",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "INV-0042 is settled",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "she sent money for invoice 42",
+    "today": "2024-05-17",
+    "expect": null
+  },
+  {
+    "text": "Tolu paid 3 units at 15k each, so 45k total, transfer today",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  },
+  {
+    "text": "Received ₦0 from Ada Okonkwo",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  },
+  {
+    "text": "Ibrahim paid N-5000",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  },
+  {
+    "text": "invoice 42: forty-five thousand naira, Ada Okonkwo, cash, 17/05/2024",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 4500000,
+      "payer_name": "Ada Okonkwo",
+      "channel": "cash",
+      "order_reference": "INV-0042",
+      "paid_on": "2024-05-17"
+    },
+    "written_after": true
+  },
+  {
+    "text": "ADA OKONKWO PAID 45K TODAY BY TRANSFER",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  },
+  {
+    "text": "Ada Okonkwo paid ₦45,000 for invoice 42 and invoice 43",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  },
+  {
+    "text": "2 bags sold to Chinedu Eze, he paid 30k cash",
+    "today": "2024-05-17",
+    "expect": {
+      "amount_kobo": 3000000,
+      "payer_name": "Chinedu Eze",
+      "channel": "cash",
+      "order_reference": null,
+      "paid_on": null
+    },
+    "written_after": true
+  },
+  {
+    "text": "Ngozi sent 45k on 31/02/2024",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  },
+  {
+    "text": "payment of 45k received from Ada Okonkwo's brother",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  },
+  {
+    "text": "Ada Okonkwo paid 45000",
+    "today": "2024-05-17",
+    "expect": null,
+    "written_after": true
+  }
+]
