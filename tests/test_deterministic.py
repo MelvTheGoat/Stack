@@ -204,14 +204,31 @@ class TestDuplicates:
         second = matcher.match(payment("T2", minutes=7 * 24 * 60, stated="INV-0002"))
         assert second.order_references == ("INV-0002",)
 
-    def test_two_unmatched_payments_of_the_same_size_are_both_still_open(self) -> None:
-        """Neither settled anything, so neither is evidence that the other is a copy."""
+    def test_a_repeat_is_flagged_even_when_the_first_one_matched_nothing(self) -> None:
+        """The case that made this rule wider than it started.
+
+        Two identical payments where the first could not be matched — a pair of
+        twin invoices, say — used to sail straight through, and between them
+        they quietly settled both twins. That is the worst duplicate to miss, so
+        a repeat now counts as a repeat regardless.
+        """
         ledger = ledger_with(("INV-0001", "CUS_1", "999", 2))
         matcher = DeterministicMatcher(ledger)
         first = matcher.match(payment("T1", naira="7777"))
         second = matcher.match(payment("T2", naira="7777", minutes=10))
-        assert first.layer is Layer.UNRESOLVED
-        assert second.layer is Layer.UNRESOLVED
+
+        assert first.layer is Layer.UNRESOLVED, "nothing to match it to"
+        assert second.evidence["duplicate_of"] == "T1"
+        assert second.order_references == ()
+        assert second.needs_human
+
+    def test_two_payments_that_are_the_same_size_by_coincidence_are_not_a_repeat(self) -> None:
+        """The fingerprint includes who paid, so two different people paying the
+        same round number on the same day are two payments, not one."""
+        ledger = ledger_with(("INV-0001", "CUS_1", "5000", 2), ("INV-0002", "CUS_2", "5000", 2))
+        matcher = DeterministicMatcher(ledger)
+        matcher.match(payment("T1", naira="7777", payer="ADA OKONKWO"))
+        second = matcher.match(payment("T2", naira="7777", minutes=10, payer="CHINEDU EZE"))
         assert "duplicate_of" not in second.evidence
 
 

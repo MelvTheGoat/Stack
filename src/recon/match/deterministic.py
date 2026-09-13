@@ -100,7 +100,18 @@ class DeterministicMatcher:
     # ---------------------------------------------------------------- rules
 
     def _already_seen(self, txn: TxnRow) -> Match | None:
-        """The same money, from the same payer, twice in a day."""
+        """The same money, from the same payer, twice in a day.
+
+        This fires whether or not the first payment was ever matched to
+        anything. An earlier version only flagged a repeat once the original had
+        settled an invoice, which let every duplicate of an *ambiguous* payment
+        straight through — and those are the worst ones to miss, because the
+        pair then quietly settles both of a customer's twin invoices.
+
+        It never claims to know which it is. A repeat is either money to give
+        back or a real second purchase, and nothing in the data separates those,
+        so it always goes to a person.
+        """
         earlier = [
             other
             for other in self._seen.get(self._fingerprint(txn), ())
@@ -111,14 +122,9 @@ class DeterministicMatcher:
             return None
 
         original = earlier[-1]
-        # A repeat only counts as a duplicate if the first one actually settled
-        # something. Two unmatched payments of the same size are still two
-        # payments, and a person should look at both.
         settled_by_original = [
             reference for reference, by in self._claimed.items() if by == original.reference
         ]
-        if not settled_by_original:
-            return None
 
         return Match(
             transaction_reference=txn.reference,
@@ -130,7 +136,10 @@ class DeterministicMatcher:
                 "duplicate_of": original.reference,
                 "minutes_apart": int((txn.paid_at - original.paid_at).total_seconds() // 60),
                 "settled_by_original": settled_by_original,
-                "note": "same amount and payer within a day; pays no new invoice",
+                "note": (
+                    "same amount and same payer within a day: either a second "
+                    "purchase or money to give back, which is a person's call"
+                ),
             },
             # Always a person's call: this is either money to give back or a
             # genuine second purchase, and the difference is not in the data.
