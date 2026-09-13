@@ -30,6 +30,12 @@ dev = [
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+# The review pages are Jinja templates loaded from disk at request time. Without
+# this they are left out of the wheel and the container 500s on /review, which
+# is a thing you only find out after deploying.
+recon = ["review/templates/*.html"]
+
 [tool.ruff]
 line-length = 100
 src = ["src", "tests"]
