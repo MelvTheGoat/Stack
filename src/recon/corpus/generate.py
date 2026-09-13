@@ -257,12 +257,18 @@ class _Builder:
             )
 
     def _twin_orders(self) -> None:
-        """Add pairs of same-customer, same-amount, same-week invoices.
+        """Add pairs of same-customer, same-amount, same-day invoices.
 
-        A payment for that amount fits either one. There is no signal in the
-        data that separates them, and a matcher that claims otherwise is
-        overfitting. These belong in the review queue, and the evaluation
-        harness checks that they land there.
+        A payment for that amount fits either one, and no rule may pretend to
+        know which. What the deterministic layer must do is decline: two
+        candidates is not a certainty.
+
+        What happens next is the interesting part. Marking *either* one paid
+        leaves the books correct, because the customer owes for two identical
+        things and has paid for one of them. So this is not a case that has to
+        go to a person; it is a case the certain layer must refuse and the
+        scoring layer may take. The answer key marks both references as
+        alternatives, and getting either is right.
         """
         for _ in range(10):
             customer = self.rng.choice(self.corpus.customers)
@@ -670,17 +676,20 @@ class _Builder:
                 narration=text,
                 payer_name=shown,
             )
-            # The truth is genuinely "one of these two". The evaluation harness
-            # treats either as correct, and expects the matcher to be unsure.
+            # The truth is genuinely "one of these two", and either is right.
             first["status"] = "paid"
             self._truth(
                 reference,
                 [first["reference"], second["reference"]],
                 "ambiguous_twin_invoices",
-                "human",
+                "fuzzy",
                 mangling,
                 alternatives=True,
-                note="two open invoices fit equally well; a confident answer here is a wrong one",
+                note=(
+                    "two identical open invoices for the same customer; either "
+                    "one may be marked paid and the books are still right, but "
+                    "no rule may claim to know which"
+                ),
             )
 
     def _scenario_duplicates(self, count: int = 12) -> None:

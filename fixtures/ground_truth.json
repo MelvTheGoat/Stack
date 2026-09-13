@@ -4922,130 +4922,130 @@
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0501",
       "INV-0502"
     ],
     "transaction_reference": "3585541247131",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0503",
       "INV-0504"
     ],
     "transaction_reference": "3558441688948",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0505",
       "INV-0506"
     ],
     "transaction_reference": "6387449316191",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "short_form",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0507",
       "INV-0508"
     ],
     "transaction_reference": "3221739582081",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0509",
       "INV-0510"
     ],
     "transaction_reference": "5399645345710",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0511",
       "INV-0512"
     ],
     "transaction_reference": "2173409320891",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0513",
       "INV-0514"
     ],
     "transaction_reference": "9973045976943",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0515",
       "INV-0516"
     ],
     "transaction_reference": "1506466399640",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0517",
       "INV-0518"
     ],
     "transaction_reference": "5940601261459",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "typo",
-    "note": "two open invoices fit equally well; a confident answer here is a wrong one",
+    "note": "two identical open invoices for the same customer; either one may be marked paid and the books are still right, but no rule may claim to know which",
     "order_references": [
       "INV-0519",
       "INV-0520"
     ],
     "transaction_reference": "4911399342053",
-    "winnable_by": "human"
+    "winnable_by": "fuzzy"
   },
   {
     "alternatives": false,

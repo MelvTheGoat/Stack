@@ -169,7 +169,11 @@ class TestTheHardCasesAreReallyHard:
             first, second = (orders[r] for r in entry.order_references)
             assert first["amount_kobo"] == second["amount_kobo"]
             assert first["customer_id"] == second["customer_id"]
-            assert entry.winnable_by == "human"
+            assert entry.alternatives, "either invoice is a right answer"
+            assert entry.winnable_by == "fuzzy", (
+                "no exact rule may pick between them, but a scoring layer may: "
+                "marking either one paid leaves the books correct"
+            )
 
     def test_payments_that_match_nothing_are_labelled_as_such(self, corpus: Corpus) -> None:
         strays = [t for t in corpus.truth if t.case == "no_matching_order"]
