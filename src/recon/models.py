@@ -14,16 +14,20 @@ from __future__ import annotations
 
 import json
 from datetime import UTC, datetime
+from enum import StrEnum
 from typing import Any
 
 from sqlalchemy import (
     Boolean,
     DateTime,
+    Dialect,
+    Enum,
     ForeignKey,
     Index,
     Integer,
     String,
     Text,
+    TypeDecorator,
     UniqueConstraint,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -43,12 +47,57 @@ def utcnow() -> datetime:
     return datetime.now(UTC)
 
 
+class UtcDateTime(TypeDecorator[datetime]):
+    """A timestamp that is always UTC, going in and coming out.
+
+    SQLite has no timezone support, so a value written as "18:30 UTC" reads back
+    as a bare "18:30" with no marker. Postgres keeps the marker. That difference
+    is exactly the kind of thing that passes every local test and then compares
+    two timestamps wrongly in production, so this type normalises both ends:
+    anything naive is assumed UTC on the way in, and everything comes out
+    tagged UTC.
+    """
+
+    impl = DateTime(timezone=True)
+    cache_ok = True
+
+    def process_bind_param(self, value: datetime | None, dialect: Dialect) -> datetime | None:
+        if value is None:
+            return None
+        if value.tzinfo is None:
+            return value.replace(tzinfo=UTC)
+        return value.astimezone(UTC)
+
+    def process_result_value(self, value: datetime | None, dialect: Dialect) -> datetime | None:
+        if value is None:
+            return None
+        if value.tzinfo is None:
+            return value.replace(tzinfo=UTC)
+        return value.astimezone(UTC)
+
+
 class Base(DeclarativeBase):
     pass
 
 
 def _json_column(**kwargs: Any) -> Mapped[str]:
     return mapped_column(Text, **kwargs)
+
+
+def _enum_column(enum_type: type[StrEnum]) -> Enum:
+    """Store the enum's *value* as text, and read it back as the enum.
+
+    `values_callable` matters: without it SQLAlchemy stores the member NAME
+    ("BANK_TRANSFER"), which is not what we write into fixtures or reports.
+    `native_enum=False` keeps it a plain text column, so adding a new channel
+    later is a code change rather than a database migration.
+    """
+    return Enum(
+        enum_type,
+        native_enum=False,
+        length=32,
+        values_callable=lambda members: [m.value for m in members],
+    )
 
 
 class Customer(Base):
@@ -58,7 +107,7 @@ class Customer(Base):
     name: Mapped[str] = mapped_column(String(255))
     phone: Mapped[str | None] = mapped_column(String(32), default=None)
     email: Mapped[str | None] = mapped_column(String(255), default=None)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    created_at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow)
 
     dedicated_accounts: Mapped[list[DedicatedAccount]] = relationship(back_populates="customer")
     orders: Mapped[list[Order]] = relationship(back_populates="customer")
@@ -76,7 +125,7 @@ class DedicatedAccount(Base):
     account_number: Mapped[str] = mapped_column(String(20), primary_key=True)
     bank: Mapped[str] = mapped_column(String(100))
     customer_id: Mapped[str] = mapped_column(ForeignKey("customers.id"), index=True)
-    assigned_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    assigned_at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow)
 
     customer: Mapped[Customer] = relationship(back_populates="dedicated_accounts")
 
@@ -89,9 +138,9 @@ class Order(Base):
     reference: Mapped[str] = mapped_column(String(64), primary_key=True)
     customer_id: Mapped[str] = mapped_column(ForeignKey("customers.id"), index=True)
     amount_kobo: Mapped[int] = mapped_column(Integer)
-    issued_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
-    due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), default=None)
-    status: Mapped[OrderStatus] = mapped_column(String(16), default=OrderStatus.OPEN)
+    issued_at: Mapped[datetime] = mapped_column(UtcDateTime(), index=True)
+    due_at: Mapped[datetime | None] = mapped_column(UtcDateTime(), default=None)
+    status: Mapped[OrderStatus] = mapped_column(_enum_column(OrderStatus), default=OrderStatus.OPEN)
     description: Mapped[str] = mapped_column(String(255), default="")
 
     customer: Mapped[Customer] = relationship(back_populates="orders")
@@ -112,17 +161,17 @@ class Transaction(Base):
     __tablename__ = "transactions"
 
     reference: Mapped[str] = mapped_column(String(128), primary_key=True)
-    channel: Mapped[Channel] = mapped_column(String(20), index=True)
+    channel: Mapped[Channel] = mapped_column(_enum_column(Channel), index=True)
     status: Mapped[TransactionStatus] = mapped_column(
-        String(16), default=TransactionStatus.PENDING, index=True
+        _enum_column(TransactionStatus), default=TransactionStatus.PENDING, index=True
     )
     amount_kobo: Mapped[int] = mapped_column(Integer)
     fees_kobo: Mapped[int] = mapped_column(Integer, default=0)
     refunded_kobo: Mapped[int] = mapped_column(Integer, default=0)
     currency: Mapped[str] = mapped_column(String(3), default="NGN")
 
-    paid_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
-    last_event_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    paid_at: Mapped[datetime] = mapped_column(UtcDateTime(), index=True)
+    last_event_at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow)
 
     #: Whatever the payer wrote or the bank passed along. Freeform, often a mess.
     narration: Mapped[str] = mapped_column(String(500), default="")
@@ -158,7 +207,7 @@ class Settlement(Base):
     __tablename__ = "settlements"
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
-    settled_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
+    settled_at: Mapped[datetime] = mapped_column(UtcDateTime(), index=True)
     gross_kobo: Mapped[int] = mapped_column(Integer)
     fees_kobo: Mapped[int] = mapped_column(Integer)
     net_kobo: Mapped[int] = mapped_column(Integer)
@@ -193,8 +242,8 @@ class WebhookEvent(Base):
     event_type: Mapped[str] = mapped_column(String(64), index=True)
     reference: Mapped[str | None] = mapped_column(String(128), default=None, index=True)
     signature_ok: Mapped[bool] = mapped_column(Boolean, default=False)
-    received_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
-    processed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), default=None)
+    received_at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow)
+    processed_at: Mapped[datetime | None] = mapped_column(UtcDateTime(), default=None)
     process_error: Mapped[str | None] = mapped_column(Text, default=None)
     payload_json: Mapped[str] = _json_column(default="{}")
 
@@ -216,16 +265,18 @@ class MatchDecision(Base):
     )
     #: JSON list of order references. Usually one; sometimes a transfer covers three.
     order_references_json: Mapped[str] = _json_column(default="[]")
-    layer: Mapped[Layer] = mapped_column(String(24), index=True)
+    layer: Mapped[Layer] = mapped_column(_enum_column(Layer), index=True)
     #: Calibrated probability the match is right, 0.0 to 1.0. 1.0 for exact matches.
     confidence: Mapped[float] = mapped_column(default=0.0)
-    status: Mapped[DecisionStatus] = mapped_column(String(16), index=True)
+    status: Mapped[DecisionStatus] = mapped_column(_enum_column(DecisionStatus), index=True)
     #: Money we would get wrong if this decision is wrong. Ranks the review queue.
     money_at_risk_kobo: Mapped[int] = mapped_column(Integer, default=0)
     evidence_json: Mapped[str] = _json_column(default="{}")
-    decided_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    decided_at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow)
     decided_by: Mapped[str | None] = mapped_column(String(64), default=None)
-    reject_reason: Mapped[RejectReason | None] = mapped_column(String(24), default=None)
+    reject_reason: Mapped[RejectReason | None] = mapped_column(
+        _enum_column(RejectReason), default=None
+    )
 
     @property
     def order_references(self) -> list[str]:
@@ -254,11 +305,11 @@ class AuditRecord(Base):
     __table_args__ = (Index("ix_audit_subject", "subject_type", "subject_id"),)
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow, index=True)
+    at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow, index=True)
     action: Mapped[str] = mapped_column(String(64), index=True)
     subject_type: Mapped[str] = mapped_column(String(32))
     subject_id: Mapped[str] = mapped_column(String(128))
-    layer: Mapped[Layer | None] = mapped_column(String(24), default=None)
+    layer: Mapped[Layer | None] = mapped_column(_enum_column(Layer), default=None)
     confidence: Mapped[float | None] = mapped_column(default=None)
     actor: Mapped[str] = mapped_column(String(64), default="system")
     inputs_json: Mapped[str] = _json_column(default="{}")
