@@ -4514,7 +4514,7 @@
     "customer_id": "CUS_010",
     "description": "Repeat order, same price",
     "due_at": "2024-05-31T11:13:13+00:00",
-    "issued_at": "2024-05-25T11:11:28+00:00",
+    "issued_at": "2024-05-24T11:11:28+00:00",
     "reference": "INV-0502",
     "status": "open",
     "twin": true
@@ -4534,7 +4534,7 @@
     "customer_id": "CUS_012",
     "description": "Repeat order, same price",
     "due_at": "2024-05-17T19:45:44+00:00",
-    "issued_at": "2024-05-11T12:39:36+00:00",
+    "issued_at": "2024-05-10T12:39:36+00:00",
     "reference": "INV-0504",
     "status": "open",
     "twin": true
@@ -4554,7 +4554,7 @@
     "customer_id": "CUS_055",
     "description": "Repeat order, same price",
     "due_at": "2024-05-16T18:45:58+00:00",
-    "issued_at": "2024-05-10T14:35:58+00:00",
+    "issued_at": "2024-05-09T14:35:58+00:00",
     "reference": "INV-0506",
     "status": "open",
     "twin": true
@@ -4574,7 +4574,7 @@
     "customer_id": "CUS_053",
     "description": "Repeat order, same price",
     "due_at": "2024-05-17T10:33:36+00:00",
-    "issued_at": "2024-05-11T09:23:44+00:00",
+    "issued_at": "2024-05-10T09:23:44+00:00",
     "reference": "INV-0508",
     "status": "open",
     "twin": true
@@ -4594,7 +4594,7 @@
     "customer_id": "CUS_016",
     "description": "Repeat order, same price",
     "due_at": "2024-05-26T13:56:09+00:00",
-    "issued_at": "2024-05-20T10:58:25+00:00",
+    "issued_at": "2024-05-19T10:58:25+00:00",
     "reference": "INV-0510",
     "status": "open",
     "twin": true
@@ -4614,7 +4614,7 @@
     "customer_id": "CUS_050",
     "description": "Repeat order, same price",
     "due_at": "2024-05-18T13:55:40+00:00",
-    "issued_at": "2024-05-12T13:25:55+00:00",
+    "issued_at": "2024-05-11T13:25:55+00:00",
     "reference": "INV-0512",
     "status": "open",
     "twin": true
@@ -4634,7 +4634,7 @@
     "customer_id": "CUS_036",
     "description": "Repeat order, same price",
     "due_at": "2024-05-14T16:31:45+00:00",
-    "issued_at": "2024-05-08T09:55:47+00:00",
+    "issued_at": "2024-05-07T09:55:47+00:00",
     "reference": "INV-0514",
     "status": "open",
     "twin": true
@@ -4654,7 +4654,7 @@
     "customer_id": "CUS_024",
     "description": "Repeat order, same price",
     "due_at": "2024-05-22T12:35:32+00:00",
-    "issued_at": "2024-05-16T19:32:41+00:00",
+    "issued_at": "2024-05-15T19:32:41+00:00",
     "reference": "INV-0516",
     "status": "open",
     "twin": true
@@ -4674,7 +4674,7 @@
     "customer_id": "CUS_036",
     "description": "Repeat order, same price",
     "due_at": "2024-05-18T17:35:37+00:00",
-    "issued_at": "2024-05-12T14:47:09+00:00",
+    "issued_at": "2024-05-11T14:47:09+00:00",
     "reference": "INV-0518",
     "status": "open",
     "twin": true
@@ -4694,7 +4694,7 @@
     "customer_id": "CUS_008",
     "description": "Repeat order, same price",
     "due_at": "2024-05-25T16:25:08+00:00",
-    "issued_at": "2024-05-19T16:38:41+00:00",
+    "issued_at": "2024-05-18T16:38:41+00:00",
     "reference": "INV-0520",
     "status": "open",
     "twin": true

@@ -61,6 +61,14 @@ class TruthEntry:
     exact_reference, dva, amount_window, fuzzy, human, or none."""
 
     name_mangling: str = ""
+    alternatives: bool = False
+    """When true, `order_references` are alternatives, not a set.
+
+    The twin-invoice cases have two invoices that fit equally well. Getting
+    either one is as right as anyone can be, so scoring them as "must name
+    both" would mark a correct answer wrong.
+    """
+
     duplicate_of: str | None = None
     """For a double submission, the reference of the payment this repeats.
 
@@ -260,13 +268,17 @@ class _Builder:
             customer = self.rng.choice(self.corpus.customers)
             amount = self._price().kobo
             issued = CORPUS_END - timedelta(days=self.rng.randrange(5, CORPUS_DAYS))
-            for offset in (0, 1):
+            for _ in range(2):
                 self.corpus.orders.append(
                     {
                         "reference": self._order_ref(),
                         "customer_id": customer["id"],
                         "amount_kobo": amount,
-                        "issued_at": self._moment(issued + timedelta(days=offset)).isoformat(),
+                        # Same day, so the payment cannot arrive between them.
+                        # A pair where one invoice did not exist yet is not
+                        # ambiguous, it is just ordered, and the matcher is
+                        # right to pick the earlier one.
+                        "issued_at": self._moment(issued).isoformat(),
                         "due_at": self._moment(issued + timedelta(days=7)).isoformat(),
                         "status": "open",
                         "description": "Repeat order, same price",
@@ -320,6 +332,7 @@ class _Builder:
         mangling: str = "",
         note: str = "",
         duplicate_of: str | None = None,
+        alternatives: bool = False,
     ) -> None:
         self.corpus.truth.append(
             TruthEntry(
@@ -328,6 +341,7 @@ class _Builder:
                 case=case,
                 winnable_by=winnable_by,
                 name_mangling=mangling,
+                alternatives=alternatives,
                 duplicate_of=duplicate_of,
                 note=note,
             )
@@ -665,6 +679,7 @@ class _Builder:
                 "ambiguous_twin_invoices",
                 "human",
                 mangling,
+                alternatives=True,
                 note="two open invoices fit equally well; a confident answer here is a wrong one",
             )
 

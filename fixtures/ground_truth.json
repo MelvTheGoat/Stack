@@ -1,5 +1,6 @@
 [
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -11,6 +12,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -22,6 +24,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -35,6 +38,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -46,6 +50,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -57,6 +62,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -68,6 +74,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -79,6 +86,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -90,6 +98,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -101,6 +110,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -112,6 +122,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -123,6 +134,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -134,6 +146,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -145,6 +158,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -156,6 +170,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -167,6 +182,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -180,6 +196,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -191,6 +208,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -202,6 +220,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -213,6 +232,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -224,6 +244,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -235,6 +256,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -246,6 +268,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -257,6 +280,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -268,6 +292,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -279,6 +304,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -290,6 +316,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -301,6 +328,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -312,6 +340,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -323,6 +352,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -334,6 +364,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -345,6 +376,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -356,6 +388,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -367,6 +400,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -378,6 +412,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -389,6 +424,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -402,6 +438,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -413,6 +450,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -424,6 +462,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -435,6 +474,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -446,6 +486,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -457,6 +498,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -468,6 +510,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -479,6 +522,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -490,6 +534,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -501,6 +546,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -512,6 +558,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -523,6 +570,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -534,6 +582,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -545,6 +594,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -556,6 +606,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -567,6 +618,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -578,6 +630,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -589,6 +642,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -600,6 +654,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -611,6 +666,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -622,6 +678,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -633,6 +690,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -644,6 +702,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -655,6 +714,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -666,6 +726,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -677,6 +738,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -688,6 +750,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -699,6 +762,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -710,6 +774,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -723,6 +788,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -734,6 +800,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -745,6 +812,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -756,6 +824,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -767,6 +836,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -778,6 +848,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -789,6 +860,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -800,6 +872,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -811,6 +884,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -822,6 +896,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -833,6 +908,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -844,6 +920,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -855,6 +932,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -868,6 +946,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -879,6 +958,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -890,6 +970,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -901,6 +982,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -912,6 +994,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -923,6 +1006,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -934,6 +1018,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -945,6 +1030,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -956,6 +1042,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -967,6 +1054,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -978,6 +1066,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -989,6 +1078,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1000,6 +1090,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1011,6 +1102,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1022,6 +1114,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1033,6 +1126,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1044,6 +1138,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1055,6 +1150,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1066,6 +1162,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1077,6 +1174,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -1088,6 +1186,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1099,6 +1198,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -1110,6 +1210,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1121,6 +1222,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1132,6 +1234,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1143,6 +1246,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1154,6 +1258,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1165,6 +1270,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1176,6 +1282,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1187,6 +1294,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1198,6 +1306,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -1209,6 +1318,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1220,6 +1330,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -1231,6 +1342,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1242,6 +1354,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1253,6 +1366,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1264,6 +1378,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -1275,6 +1390,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1286,6 +1402,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1297,6 +1414,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1308,6 +1426,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -1319,6 +1438,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1330,6 +1450,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1341,6 +1462,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1352,6 +1474,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1363,6 +1486,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1374,6 +1498,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1385,6 +1510,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1396,6 +1522,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1407,6 +1534,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1420,6 +1548,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1431,6 +1560,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1442,6 +1572,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1453,6 +1584,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1464,6 +1596,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1475,6 +1608,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1486,6 +1620,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1497,6 +1632,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1508,6 +1644,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -1521,6 +1658,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1532,6 +1670,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -1543,6 +1682,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1554,6 +1694,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1565,6 +1706,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1578,6 +1720,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1589,6 +1732,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1600,6 +1744,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1611,6 +1756,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1622,6 +1768,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1633,6 +1780,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1644,6 +1792,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1655,6 +1804,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -1666,6 +1816,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1677,6 +1828,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -1688,6 +1840,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1699,6 +1852,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1710,6 +1864,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1721,6 +1876,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1732,6 +1888,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1743,6 +1900,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1754,6 +1912,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1765,6 +1924,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -1776,6 +1936,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1787,6 +1948,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1798,6 +1960,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -1809,6 +1972,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1820,6 +1984,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1831,6 +1996,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1842,6 +2008,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1853,6 +2020,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1864,6 +2032,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1875,6 +2044,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1886,6 +2056,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -1897,6 +2068,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1908,6 +2080,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1919,6 +2092,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -1932,6 +2106,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1943,6 +2118,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1954,6 +2130,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -1965,6 +2142,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -1976,6 +2154,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1987,6 +2166,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -1998,6 +2178,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2009,6 +2190,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2020,6 +2202,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2031,6 +2214,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2042,6 +2226,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2053,6 +2238,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2064,6 +2250,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2077,6 +2264,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2088,6 +2276,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2099,6 +2288,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2110,6 +2300,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2121,6 +2312,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2132,6 +2324,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -2143,6 +2336,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2154,6 +2348,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2165,6 +2360,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2176,6 +2372,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2187,6 +2384,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2198,6 +2396,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2209,6 +2408,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2220,6 +2420,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2231,6 +2432,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2242,6 +2444,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2253,6 +2456,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2264,6 +2468,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2275,6 +2480,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2286,6 +2492,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2297,6 +2504,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2308,6 +2516,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2319,6 +2528,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2330,6 +2540,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2341,6 +2552,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2354,6 +2566,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -2365,6 +2578,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2376,6 +2590,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2387,6 +2602,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2398,6 +2614,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2409,6 +2626,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2420,6 +2638,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2431,6 +2650,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2442,6 +2662,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2453,6 +2674,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2464,6 +2686,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -2475,6 +2698,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2486,6 +2710,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2497,6 +2722,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2508,6 +2734,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2519,6 +2746,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2530,6 +2758,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2541,6 +2770,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -2552,6 +2782,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2563,6 +2794,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2574,6 +2806,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2585,6 +2818,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -2596,6 +2830,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -2609,6 +2844,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2620,6 +2856,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2631,6 +2868,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -2642,6 +2880,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2653,6 +2892,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -2664,6 +2904,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -2675,6 +2916,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -2686,6 +2928,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2697,6 +2940,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -2708,6 +2952,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2719,6 +2964,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2732,6 +2978,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2743,6 +2990,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2754,6 +3002,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -2765,6 +3014,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -2776,6 +3026,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2787,6 +3038,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2798,6 +3050,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2809,6 +3062,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2820,6 +3074,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -2831,6 +3086,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2842,6 +3098,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2853,6 +3110,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -2864,6 +3122,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2875,6 +3134,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2886,6 +3146,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2897,6 +3158,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2908,6 +3170,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -2919,6 +3182,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2930,6 +3194,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -2941,6 +3206,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2952,6 +3218,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -2963,6 +3230,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2974,6 +3242,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -2985,6 +3254,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -2996,6 +3266,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3007,6 +3278,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -3018,6 +3290,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3029,6 +3302,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3040,6 +3314,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3051,6 +3326,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -3062,6 +3338,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3073,6 +3350,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -3084,6 +3362,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3095,6 +3374,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3106,6 +3386,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -3117,6 +3398,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3128,6 +3410,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -3139,6 +3422,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3150,6 +3434,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -3161,6 +3446,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3172,6 +3458,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -3185,6 +3472,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3196,6 +3484,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3207,6 +3496,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3218,6 +3508,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3229,6 +3520,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3240,6 +3532,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3251,6 +3544,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3262,6 +3556,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3273,6 +3568,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3284,6 +3580,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -3295,6 +3592,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3306,6 +3604,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3317,6 +3616,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -3330,6 +3630,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -3341,6 +3642,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3352,6 +3654,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3363,6 +3666,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3374,6 +3678,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3385,6 +3690,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3396,6 +3702,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3407,6 +3714,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3418,6 +3726,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3429,6 +3738,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -3440,6 +3750,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3453,6 +3764,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3464,6 +3776,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "split_three_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3477,6 +3790,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3488,6 +3802,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -3499,6 +3814,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3510,6 +3826,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3521,6 +3838,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -3532,6 +3850,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -3543,6 +3862,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3554,6 +3874,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -3565,6 +3886,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3576,6 +3898,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -3587,6 +3910,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3598,6 +3922,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3609,6 +3934,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3620,6 +3946,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3631,6 +3958,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3642,6 +3970,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3653,6 +3982,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3664,6 +3994,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3675,6 +4006,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3686,6 +4018,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3697,6 +4030,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3708,6 +4042,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3719,6 +4054,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -3730,6 +4066,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3741,6 +4078,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3752,6 +4090,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3763,6 +4102,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3774,6 +4114,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3785,6 +4126,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3796,6 +4138,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3807,6 +4150,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3818,6 +4162,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3829,6 +4174,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3840,6 +4186,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3851,6 +4198,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3862,6 +4210,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -3873,6 +4222,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3884,6 +4234,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3895,6 +4246,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -3906,6 +4258,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -3917,6 +4270,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3928,6 +4282,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3939,6 +4294,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3950,6 +4306,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -3961,6 +4318,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -3972,6 +4330,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3983,6 +4342,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -3994,6 +4354,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4005,6 +4366,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4016,6 +4378,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -4027,6 +4390,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "dva_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4038,6 +4402,7 @@
     "winnable_by": "dva"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -4049,6 +4414,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4060,6 +4426,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4071,6 +4438,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4082,6 +4450,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4093,6 +4462,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -4104,6 +4474,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4115,6 +4486,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4126,6 +4498,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4137,6 +4510,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4148,6 +4522,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -4159,6 +4534,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "reorder_and_typo",
@@ -4170,6 +4546,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4181,6 +4558,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4192,6 +4570,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4203,6 +4582,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4214,6 +4594,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4225,6 +4606,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4236,6 +4618,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -4247,6 +4630,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -4258,6 +4642,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4269,6 +4654,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -4280,6 +4666,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4291,6 +4678,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4302,6 +4690,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4313,6 +4702,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4324,6 +4714,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4335,6 +4726,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4346,6 +4738,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4357,6 +4750,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -4368,6 +4762,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4379,6 +4774,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "cash",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4390,6 +4786,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4401,6 +4798,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4412,6 +4810,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -4423,6 +4822,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4434,6 +4834,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4445,6 +4846,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4456,6 +4858,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_with_reference",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -4467,6 +4870,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_exact",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4478,6 +4882,7 @@
     "winnable_by": "amount_window"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_partial",
     "duplicate_of": null,
     "name_mangling": "initials",
@@ -4489,6 +4894,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": false,
     "case": "card_with_reference",
     "duplicate_of": null,
     "name_mangling": "",
@@ -4500,6 +4906,7 @@
     "winnable_by": "exact_reference"
   },
   {
+    "alternatives": false,
     "case": "transfer_name_over",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4511,6 +4918,7 @@
     "winnable_by": "fuzzy"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4523,6 +4931,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4535,6 +4944,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4547,6 +4957,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -4559,6 +4970,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4571,6 +4983,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -4583,6 +4996,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4595,6 +5009,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4607,6 +5022,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4619,6 +5035,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": true,
     "case": "ambiguous_twin_invoices",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -4631,6 +5048,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "6161579815511",
     "name_mangling": "alternative_spelling",
@@ -4640,6 +5058,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "6982214607143",
     "name_mangling": "reorder",
@@ -4649,6 +5068,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "1506466399640",
     "name_mangling": "clean",
@@ -4658,6 +5078,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "cash-00221",
     "name_mangling": "clean",
@@ -4667,6 +5088,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "3221739582081",
     "name_mangling": "short_form",
@@ -4676,6 +5098,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "3387556304259",
     "name_mangling": "initials",
@@ -4685,6 +5108,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "5615310880445",
     "name_mangling": "clean",
@@ -4694,6 +5118,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "8656160234968",
     "name_mangling": "alternative_spelling",
@@ -4703,6 +5128,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "cash-00316",
     "name_mangling": "alternative_spelling",
@@ -4712,6 +5138,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "cash-00308",
     "name_mangling": "clean",
@@ -4721,6 +5148,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "3140485711245",
     "name_mangling": "clean",
@@ -4730,6 +5158,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "duplicate_submission",
     "duplicate_of": "9094683793641",
     "name_mangling": "clean",
@@ -4739,6 +5168,7 @@
     "winnable_by": "human"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4748,6 +5178,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4757,6 +5188,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "clean",
@@ -4766,6 +5198,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "alternative_spelling",
@@ -4775,6 +5208,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "typo",
@@ -4784,6 +5218,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "short_form",
@@ -4793,6 +5228,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4802,6 +5238,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4811,6 +5248,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "reorder",
@@ -4820,6 +5258,7 @@
     "winnable_by": "none"
   },
   {
+    "alternatives": false,
     "case": "no_matching_order",
     "duplicate_of": null,
     "name_mangling": "clean",
