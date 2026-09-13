@@ -79,3 +79,27 @@ ours.
 **What it costs:** a genuine reversal *after* a refund cannot be expressed, and
 a payment can never be walked backwards to fix a mistake. Corrections have to be
 new rows, which is the right answer for an audited ledger anyway.
+
+---
+
+## 5. The test corpus is generated, and the answer key ships with it
+
+**Picked:** a seeded generator that produces a month of payments together with a
+ground-truth file recording, for every transaction, which orders it really paid
+and which kind of mess it is.
+
+**Rejected:** a hand-written fixture file of a few dozen rows. Also rejected:
+anonymised real data.
+
+**Why:** you cannot report "the deterministic layer closes 58% of cases" unless
+something knows what the right answer was for all of them. Hand-written
+fixtures are too small and too tidy — they contain the cases you thought of,
+which are the cases your matcher already handles. Real data would be better
+still, but it is somebody's customer list and it is not ours to publish.
+
+**What it costs:** the numbers describe a simulation, and the simulation's
+weights (how often people type the invoice number in, how often names are
+reversed) are a guess. Those weights are written out in one place in
+`generate.py` rather than scattered through the code, so anyone can see what
+was assumed and argue with it. If the guess is wrong, every coverage number
+moves with it. That is a real limitation and the README says so.
