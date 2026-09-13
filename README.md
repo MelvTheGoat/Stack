@@ -29,6 +29,10 @@ Work in progress. See `docs/DECISIONS.md` for why things are the way they are.
   invoice 42 this morning") into typed records, and refuses rather than guesses.
 - `recon.evaluation.extraction` — scores the reader on a hand-labelled set, a
   quarter of which was written after the parser was finished.
+- `recon.report.settlement` — the daily report: gross, fees, and the T+1 gap,
+  each shown rather than netted off into one unexplained difference.
+- `recon.review` — the queue a person works through, ordered by money at risk,
+  with one-click approve and reject-with-a-reason. Rejections become labels.
 - `recon.evaluation.truth` / `recon.evaluation.score` — reads the answer key and
   turns matches into numbers.
 - `recon.fees` — Paystack's Nigerian rates and T+1 settlement timing, in one

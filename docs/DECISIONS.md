@@ -217,3 +217,46 @@ silently dropped, and "Ada Okonkwo's brother" being read as Ada Okonkwo.
 **What it costs:** ten examples is still not many, and the same person wrote the
 parser and the labels. The honest description of this number is "it has not
 failed yet on forty examples", not "94% accurate". The README says that.
+
+---
+
+## 11. The review queue is ordered by money, not by confidence
+
+**Picked:** biggest money at risk first, and the page says how much of tonight's
+total the first forty cases cover.
+
+**Rejected:** ordering by confidence (most-uncertain first), or by age.
+
+**Why:** a bookkeeper has about two hours after closing, which is roughly forty
+decisions. Ordering by confidence spends that evening on whatever the model
+happens to find hardest, which is not the same as whatever matters. On this
+corpus the first forty cases by money cover most of the money at risk; the same
+forty by confidence would not. Age ordering has the same problem and also buries
+a large payment behind a fortnight of small ones.
+
+**What it costs:** a ₦900 payment that has been sitting there for three weeks
+stays at the bottom forever. That is the right call for the money and the wrong
+one for the customer waiting on it, so a real deployment would want an age
+escalation. It does not have one yet, and the limitations section says so.
+
+---
+
+## 12. Rejections are stored as labels, approvals mostly are not
+
+**Picked:** a rejection records the reason code, what the model had suggested,
+and how confident it was. That is a labelled example of a specific mistake.
+
+**Rejected:** treating approve and reject as symmetrical feedback.
+
+**Why:** an approval usually confirms something the model was already fairly
+sure about, and there are hundreds of those. A rejection is a case the model got
+wrong, with a person's explanation of *how* it was wrong attached — wrong
+customer, wrong amount, already paid. Those are rare and they are the only
+examples that would actually move the model. Storing both equally would bury
+them.
+
+**What it costs:** the feedback loop is not closed yet. The labels come out of
+`/api/labels` in the right shape for a training run, and nothing retrains on
+them automatically. That is deliberate — a model that retrains itself on its own
+review queue overnight, unattended, is a way to drift somewhere strange without
+anyone noticing.

@@ -18,6 +18,7 @@ from recon import ingest
 from recon.config import Settings, get_settings
 from recon.db import init_db, session_scope
 from recon.paystack.signature import SIGNATURE_HEADER
+from recon.review.web import router as review_router
 
 log = logging.getLogger("recon.webhook")
 
@@ -29,6 +30,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(title="Paystack Reconciliation Core", version="0.1.0", lifespan=lifespan)
+app.include_router(review_router)
 
 
 def db() -> Iterator[Session]:

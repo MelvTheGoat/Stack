@@ -1,4 +1,4 @@
-.PHONY: install lint fmt types test check corpus eval serve review clean
+.PHONY: install lint fmt types test check corpus train eval serve clean
 
 install:
 	pip install -e ".[dev]"
@@ -24,12 +24,17 @@ check:
 corpus:
 	python -m recon.corpus.generate --out fixtures --seed 20240517
 
+# Fit the probabilistic matcher and write models/.
+train:
+	python -m recon.match.training --fixtures fixtures --out models
+
 # Reproduce every number in the README.
 eval:
 	python -m recon.evaluation.harness --fixtures fixtures --out out
 
+# The review queue and the daily report, at http://localhost:8000/review
 serve:
 	uvicorn recon.app:app --reload --port 8000
 
 clean:
-	rm -rf out .pytest_cache .mypy_cache .ruff_cache recon.db
+	rm -rf out .pytest_cache .mypy_cache .ruff_cache recon.db demo.db

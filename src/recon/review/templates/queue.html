@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Review queue{% endblock %}
+{% block body %}
+<p class="lede">
+  {{ queue.items|length }} payments need a person. Biggest first, because that is
+  where an evening is best spent.
+</p>
+
+<div class="tiles">
+  <div class="tile"><div class="k">Waiting</div><div class="n">{{ queue.items|length }}</div></div>
+  <div class="tile"><div class="k">Money at risk</div><div class="n">{{ queue.money_at_risk }}</div></div>
+  <div class="tile">
+    <div class="k">Top {{ budget }} cover</div>
+    <div class="n">{{ top_share }}</div>
+  </div>
+  <div class="tile"><div class="k">Decided so far</div><div class="n">{{ decided }}</div></div>
+</div>
+
+{% if not queue.items %}
+  <p class="done">Nothing waiting. The books are closed.</p>
+{% endif %}
+
+{% for item in queue.items[:budget] %}
+<div class="item">
+  <h3>
+    {{ item.paid }} <span class="risk">at risk</span>
+    {% if item.is_suspected_duplicate %}— looks like a repeat of {{ item.duplicate_of }}{% endif %}
+  </h3>
+  <div class="meta">
+    {{ item.channel.replace('_', ' ') }} · {{ item.paid_at }} ·
+    {{ item.payer_name or 'no name given' }} · {{ item.reason }}
+  </div>
+  <div class="narration">{{ item.narration or '(no narration)' }}</div>
+
+  {% for candidate in item.candidates %}
+  <div class="cand">
+    <strong>{{ candidate.order_references|join(' + ') }}</strong>
+    — {{ candidate.customer }}, {{ candidate.invoice_total }}
+    <span class="conf {% if candidate.confidence >= 0.8 %}high{% elif candidate.confidence < 0.4 %}low{% endif %}">
+      {{ '%.0f'|format(candidate.confidence * 100) }}% sure
+    </span>
+    <ul>{% for reason in candidate.why %}<li>{{ reason }}</li>{% endfor %}</ul>
+    <form method="post" action="/review/{{ item.transaction_reference }}/approve">
+      <input type="hidden" name="orders" value="{{ candidate.order_references|join(',') }}">
+      <button class="yes" type="submit">Yes, this one</button>
+    </form>
+  </div>
+  {% endfor %}
+
+  <div class="cand">
+    <form method="post" action="/review/{{ item.transaction_reference }}/reject">
+      <select name="reason">
+        {% for code, label in reasons %}<option value="{{ code }}">{{ label }}</option>{% endfor %}
+      </select>
+      <button type="submit">None of these</button>
+    </form>
+  </div>
+</div>
+{% endfor %}
+
+{% if queue.items|length > budget %}
+<p class="lede">
+  {{ queue.items|length - budget }} more below tonight's {{ budget }}, worth
+  {{ remainder }}. They keep until tomorrow.
+</p>
+{% endif %}
+{% endblock %}

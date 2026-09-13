@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Daily report{% endblock %}
+{% block body %}
+<p class="lede">
+  What came in on {{ r.day }}, and what reached the bank. They are different
+  numbers for three reasons, and all three are shown.
+</p>
+
+<div class="tiles">
+  <div class="tile"><div class="k">Taken today</div><div class="n">{{ r.taken_today.gross }}</div></div>
+  <div class="tile"><div class="k">Paystack fees</div><div class="n">{{ r.taken_today.paystack_fees }}</div></div>
+  <div class="tile"><div class="k">Worth to us</div><div class="n">{{ r.taken_today.net }}</div></div>
+  <div class="tile"><div class="k">Hit the bank today</div><div class="n">{{ r.received_today.total }}</div></div>
+</div>
+
+{% for problem in r.problems %}
+<div class="problem"><strong>{{ problem.kind.replace('_', ' ') }}</strong> — {{ problem.detail }}</div>
+{% endfor %}
+
+<h2>Taken today</h2>
+<table>
+  <tr><th>How</th><th class="num">Payments</th><th class="num">Gross</th>
+      <th class="num">Fees</th><th class="num">Net</th><th>Arrives</th></tr>
+  {% for line in r.taken_today.by_channel %}
+  <tr>
+    <td>{{ line.channel.replace('_', ' ') }}</td>
+    <td class="num">{{ line.payments }}</td>
+    <td class="num">{{ line.gross }}</td>
+    <td class="num">{{ line.fees }}</td>
+    <td class="num">{{ line.net }}</td>
+    <td>{{ line.when_it_arrives }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2>Landed in the bank today</h2>
+{% if r.received_today.batches %}
+<table>
+  <tr><th>Batch</th><th>Earned on</th><th class="num">Days later</th>
+      <th class="num">Gross</th><th class="num">Fees</th><th class="num">Net</th></tr>
+  {% for batch in r.received_today.batches %}
+  <tr>
+    <td>{{ batch.batch }}</td>
+    <td>{{ batch.earned_on or '—' }}</td>
+    <td class="num">{{ batch.days_late if batch.days_late is not none else '—' }}</td>
+    <td class="num">{{ batch.gross }}</td>
+    <td class="num">{{ batch.fees }}</td>
+    <td class="num">{{ batch.net }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p class="lede">Nothing settled today. Weekends and public holidays do this.</p>
+{% endif %}
+
+<h2>Why the two numbers differ</h2>
+<table>
+  <tr><td>Already in hand (cash and direct transfers)</td>
+      <td class="num">{{ r.why_they_differ.already_in_hand }}</td></tr>
+  <tr><td>Still with Paystack, arriving next working day</td>
+      <td class="num">{{ r.why_they_differ.still_with_paystack }}</td></tr>
+  <tr><td>Refunded today</td><td class="num">{{ r.why_they_differ.refunded_today }}</td></tr>
+  <tr><td>Reversed today</td><td class="num">{{ r.why_they_differ.reversed_today }}</td></tr>
+</table>
+
+<h2>Matching</h2>
+<table>
+  <tr><td>Closed without a person</td><td class="num">{{ r.matching.closed }}</td>
+      <td class="num">{{ r.matching.closed_money }}</td></tr>
+  <tr><td>Waiting for a person</td><td class="num">{{ r.matching.needs_a_person }}</td>
+      <td class="num">{{ r.matching.money_at_risk }}</td></tr>
+</table>
+
+<p class="lede" style="margin-top:18px">
+  {% if r.balances %}<span class="done">The day balances.</span>
+  {% else %}<span class="risk">The day does not balance — see the problems above.</span>{% endif %}
+</p>
+{% endblock %}

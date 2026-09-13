@@ -61,6 +61,7 @@ class TxnRow:
     amount: Money
     fees: Money
     paid_at: datetime
+    refunded: Money = field(default_factory=Money.zero)
     narration: str = ""
     payer_name: str = ""
     stated_reference: str | None = None
@@ -148,6 +149,7 @@ def transactions_from_fixtures(directory: Path) -> list[TxnRow]:
             amount=Money(row["amount_kobo"]),
             fees=Money(row["fees_kobo"]),
             paid_at=datetime.fromisoformat(row["paid_at"]),
+            refunded=Money(row.get("refunded_kobo", 0)),
             narration=row.get("narration", ""),
             payer_name=row.get("payer_name", ""),
             stated_reference=row.get("stated_reference"),
