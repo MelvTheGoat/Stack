@@ -26,22 +26,39 @@ working review queue with no database and no training step.
 
 ## On Cloud Run
 
+One command:
+
 ```bash
-PROJECT=your-project
-REGION=europe-west1
+gcloud config set project your-project
+printf %s 'sk_test_xxx' | gcloud secrets create paystack-test-key --data-file=-
 
-gcloud builds submit --tag gcr.io/$PROJECT/recon
-
-gcloud run deploy recon \
-  --image gcr.io/$PROJECT/recon \
-  --region $REGION \
-  --allow-unauthenticated \
-  --set-env-vars RECON_OFFLINE=0 \
-  --set-secrets PAYSTACK_SECRET_KEY=paystack-test-key:latest
+make deploy
 ```
 
-Put the key in Secret Manager, not in `--set-env-vars`. Environment variables
-set that way are visible to anyone who can describe the service.
+`make deploy` runs `scripts/deploy.sh`, which builds the corpus and fits the
+matcher if they are missing, submits `cloudbuild.yaml`, and prints the URL.
+
+The build has three steps and the middle one matters: it boots the image it just
+built, opens `/review`, `/report` and `/api/report` against it, and checks the
+day's report actually balances. Only then does it deploy. A container can start
+cleanly and still 500 on the review queue — that is exactly what happened when
+the HTML templates were left out of the wheel — so a health endpoint is not
+enough of a gate.
+
+`scripts/smoke.py` is the same check, and you can point it at anything:
+
+```bash
+python3 scripts/smoke.py https://recon-xxxx.a.run.app
+```
+
+The key goes in Secret Manager, never in `--set-env-vars`. Environment variables
+set that way are readable by anyone who can describe the service.
+
+Overrides, if the defaults do not suit:
+
+```bash
+PROJECT=other-project REGION=us-central1 SERVICE=recon-staging make deploy
+```
 
 ### Pointing Paystack at it
 

@@ -1,4 +1,4 @@
-.PHONY: install lint fmt types test check corpus train eval eval-llm serve clean
+.PHONY: install lint fmt types test check corpus train eval eval-llm serve deploy clean
 
 install:
 	pip install -e ".[dev]"
@@ -43,6 +43,10 @@ eval-llm:
 # The review queue and the daily report, at http://localhost:8000/review
 serve:
 	uvicorn recon.app:app --reload --port 8000
+
+# Build, smoke-test and deploy to Cloud Run. Needs gcloud and a project.
+deploy:
+	./scripts/deploy.sh
 
 clean:
 	rm -rf out .pytest_cache .mypy_cache .ruff_cache recon.db demo.db

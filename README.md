@@ -261,9 +261,15 @@ case the model layer exists for.
 **It is one process holding everything in memory.** Fine for one shop and one
 bookkeeper. Point `RECON_DATABASE_URL` at Postgres for anything larger.
 
-**The container image has never been built.** The Dockerfile and the Cloud Run
-steps are written and the packaging is tested, but there was no Docker daemon
-available where this was developed, so the image itself is unverified.
+**The container image has not been built yet.** There was no Docker daemon on
+the machine this was developed on. What *has* been verified is everything the
+image depends on: the wheel was installed into a clean virtualenv with no source
+tree present, the app was started from it exactly as the Dockerfile's command
+does, and `scripts/smoke.py` opened the review queue, the daily report and the
+JSON endpoints against it — 105 cases waiting, the day balancing. What remains
+unproven is the base image layer itself. The build refuses to deploy until the
+same smoke test passes against the real container, so that gap closes the first
+time `make deploy` runs.
 
 ---
 
