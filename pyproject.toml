@@ -19,6 +19,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# The last extraction layer. Kept out of the core install so the service runs,
+# and the whole test suite passes, with no model provider at all.
+llm = ["anthropic>=1.0"]
 dev = [
     "pytest>=8.0",
     "pytest-cov>=4.1",

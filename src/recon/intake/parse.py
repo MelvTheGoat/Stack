@@ -319,7 +319,10 @@ class Intake:
     """Rules first, model second, a person third."""
 
     rules: RuleExtractor
-    generative: GenerativeExtractor | None = None
+    generative: Extractor | None = None
+    """Any reader satisfying the protocol. `recon.intake.anthropic_reader` is
+    the real one; `GenerativeExtractor` wraps a plain callable for anyone
+    plugging in something else."""
 
     def parse(self, text: str, today: date | None = None) -> Parsed:
         """Read one report. Raises `ParseError` if nothing could read it."""
@@ -388,7 +391,28 @@ def _first_problem(error: ValidationError) -> str:
 
 
 def default_intake(known_names: frozenset[str] = frozenset()) -> Intake:
-    """Rules only. The generative layer is opt-in, because it costs money and a
-    system that silently starts calling a model is a system with a surprise
+    """Rules only. The model layer is opt-in, because it costs money and a
+    system that silently starts calling an API is a system with a surprise
     invoice in it."""
     return Intake(rules=RuleExtractor(known_names=known_names))
+
+
+def intake_with_model(
+    known_names: frozenset[str] = frozenset(), model: str | None = None
+) -> Intake:
+    """Rules first, then Claude on whatever the rules could not read.
+
+    Raises if there is no key, rather than quietly degrading to rules-only and
+    reporting a number that looks like the model earned it.
+    """
+    from recon.intake.anthropic_reader import DEFAULT_MODEL, AnthropicReader, available
+
+    if not available():
+        raise RuntimeError(
+            "the model layer needs ANTHROPIC_API_KEY set and the anthropic package "
+            'installed (pip install ".[llm]")'
+        )
+    return Intake(
+        rules=RuleExtractor(known_names=known_names),
+        generative=AnthropicReader(model=model or DEFAULT_MODEL),
+    )

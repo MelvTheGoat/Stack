@@ -64,6 +64,18 @@ payment in
     └─ otherwise                                                   → the review queue
 ```
 
+Payment reports that arrive as prose — a WhatsApp message, a transcribed voice
+note — go through the same shape of pipeline before they reach any of that:
+
+```
+"Ada paid 45k for invoice 42 this morning by transfer"
+    │
+    ├─ patterns: amounts, names, channels, dates, invoice numbers  → a typed record
+    ├─ Claude, constrained to the same schema, on what the
+    │    patterns could not read                                    → a typed record
+    └─ otherwise                                                    → the review queue
+```
+
 Every decision records which layer made it, so the mix can be reported for any
 day rather than guessed at.
 
@@ -166,14 +178,28 @@ The system also takes payment reports in prose — "Ada Okonkwo paid 45k for
 invoice 42 this morning by transfer" — and turns them into typed records.
 Measured separately from matching, because they fail for different reasons.
 
-On 40 hand-labelled reports: **94.4% read completely right, 100% of the
-unreadable ones correctly refused, and nothing invented.** Every amount it read
-was right.
+On 40 hand-labelled reports, patterns alone: **94.4% read completely right, 100%
+of the unreadable ones correctly refused, and nothing invented.** Every amount it
+read was right.
 
 Read that number carefully. Forty examples, written by the same person who wrote
 the parser. Ten of them were written afterwards and never used to tune it, and
 those ten immediately found four real bugs. The honest description is "it has
 not failed on these yet", not an accuracy rate.
+
+**The last layer is Claude**, on the reports the patterns could not read — one
+in eighteen of the readable ones. It is constrained to a JSON schema generated
+from the same Pydantic model everything else validates against, so what it is
+told to produce and what is accepted cannot drift apart. It is allowed to answer
+"I cannot read this", and that answer is believed. It is never asked twice:
+re-prompting an ambiguous sentence buys confidence, not information.
+
+`make eval-llm` scores rules-only and rules-plus-Claude side by side on the same
+forty reports and prints what the model layer actually bought — how many extra
+reports it read correctly, and how many payments it invented that the patterns
+had refused. Those two numbers are reported together on purpose, because a
+reading layer that gains you one report and invents one payment is a net loss.
+It needs `ANTHROPIC_API_KEY` and costs a few cents to run.
 
 ---
 
@@ -218,12 +244,19 @@ is right for the books and wrong for the customer waiting on it.
 live account you would pull them from the settlement endpoints on a schedule.
 That is not built.
 
-**The generative extraction layer is wired up but not switched on.** The
-interface, the schema constraint and the validation are all there and tested
-with a stub. No model provider is configured, because a system that silently
-starts calling an API is a system with a surprise invoice in it. The one report
-in the labelled set that the rules cannot read — a comma-separated list with no
-verb in it — is left failing rather than special-cased.
+**The model layer's own number is not in this README yet.** The reader is
+implemented against the Anthropic SDK and tested against a stubbed client, and
+`make eval-llm` will score it — but it needs a key, and the numbers above were
+produced on a machine that did not have one. Until that run happens, every
+figure in this README is the deterministic and logistic layers only. The model
+layer is also opt-in rather than on by default, because a system that silently
+starts calling an API is a system with a surprise invoice in it.
+
+**The one report the patterns cannot read is left failing.** A comma-separated
+list with no verb in it: "invoice 42: forty-five thousand naira, Ada Okonkwo,
+cash". It is in the labelled set, failing, rather than special-cased, because a
+rule written to pass one test case is not a rule. It is exactly the shape of
+case the model layer exists for.
 
 **It is one process holding everything in memory.** Fine for one shop and one
 bookkeeper. Point `RECON_DATABASE_URL` at Postgres for anything larger.
@@ -246,7 +279,8 @@ available where this was developed, so the image itself is unverified.
 | `recon.match.deterministic` | The four certain rules, and the duplicate guard. |
 | `recon.match.similarity` | Name matching that survives reordering and spelling variants without merging two customers. |
 | `recon.match.model` / `.calibration` / `.threshold` | Eighteen named features, a logistic fit written out longhand, and a line drawn from a cost matrix. |
-| `recon.intake` | Reads payment reports written by people, or refuses. |
+| `recon.intake` | Reads payment reports written by people, or refuses. Patterns first. |
+| `recon.intake.anthropic_reader` | The last layer: Claude, constrained to a schema generated from the Pydantic model, allowed to say no, never asked twice. |
 | `recon.review` | The queue, the decisions, and the labels they produce. |
 | `recon.report.settlement` | The daily report: gross, fees and timing shown separately rather than netted into one unexplained difference. |
 | `recon.evaluation.harness` | `make eval`. Regenerates every number above. |
@@ -262,6 +296,14 @@ make corpus             # build the month of payments
 make train              # fit the matcher
 make eval               # every number above
 make serve              # http://localhost:8000/review
+```
+
+To score the model layer as well:
+
+```bash
+pip install ".[llm]"
+export ANTHROPIC_API_KEY=sk-ant-...
+make eval-llm           # rules-only vs rules+Claude, side by side
 ```
 
 Full instructions, including Cloud Run, in [`docs/DEPLOY.md`](docs/DEPLOY.md).

@@ -30,6 +30,7 @@ from typing import Any
 
 from recon.enums import DETERMINISTIC_LAYERS, Layer
 from recon.evaluation import truth as truth_module
+from recon.evaluation.extraction import compare as compare_extraction
 from recon.evaluation.extraction import evaluate as evaluate_extraction
 from recon.evaluation.extraction import load_labelled
 from recon.evaluation.extraction import summarise as summarise_extraction
@@ -66,7 +67,7 @@ class Evaluation:
         return json.dumps(self.numbers, indent=2, ensure_ascii=False) + "\n"
 
 
-def run(fixtures: Path) -> Evaluation:
+def run(fixtures: Path, *, with_model: bool = False) -> Evaluation:
     ledger = Ledger.from_fixtures(fixtures)
     transactions = transactions_from_fixtures(fixtures)
     answers = truth_module.load(fixtures / "ground_truth.json")
@@ -81,7 +82,7 @@ def run(fixtures: Path) -> Evaluation:
             "matching": _matching(matches, answers),
             "calibration": _calibration(ledger, transactions, answers, trained),
             "threshold": _threshold(trained),
-            "extraction": _extraction(fixtures),
+            "extraction": _extraction(fixtures, with_model=with_model),
             "adversarial": _adversarial(matches, answers),
             "review_queue": _queue(matches, transactions, answers),
             "against_doing_it_by_hand": _versus_manual(matches, answers, trained),
@@ -250,14 +251,14 @@ def _threshold(trained: TrainedMatcher) -> dict[str, Any]:
     }
 
 
-def _extraction(fixtures: Path) -> dict[str, Any]:
+def _extraction(fixtures: Path, *, with_model: bool = False) -> dict[str, Any]:
     path = fixtures / "intake_labelled.json"
     if not path.exists():
         return {"note": "no labelled set"}
 
     rows = load_labelled(path)
     held_back = [row for row in rows if row.get("written_after")]
-    return {
+    out: dict[str, Any] = {
         "all": summarise_extraction(evaluate_extraction(rows)),
         "written_after_the_parser_was_finished": summarise_extraction(
             evaluate_extraction(held_back)
@@ -268,6 +269,10 @@ def _extraction(fixtures: Path) -> dict[str, Any]:
             "The honest reading is 'it has not failed on these yet', not an accuracy rate."
         ),
     }
+    if with_model:
+        # Costs money, so it only runs when asked for: `make eval-llm`.
+        out["with_the_model_layer"] = compare_extraction(rows)
+    return out
 
 
 def _adversarial(matches: list[Match], answers: dict[str, Truth]) -> dict[str, Any]:
@@ -403,9 +408,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--fixtures", type=Path, default=Path("fixtures"))
     parser.add_argument("--out", type=Path, default=Path("out"))
     parser.add_argument("--quiet", action="store_true")
+    parser.add_argument(
+        "--with-model",
+        action="store_true",
+        help="also score the extraction layer with Claude switched on. Costs money.",
+    )
     args = parser.parse_args(argv)
 
-    evaluation = run(args.fixtures)
+    evaluation = run(args.fixtures, with_model=args.with_model)
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "eval.json").write_text(evaluation.to_json())
     (args.out / "layers.md").write_text(as_markdown(evaluation.numbers) + "\n")

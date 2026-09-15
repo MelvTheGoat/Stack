@@ -1,4 +1,4 @@
-.PHONY: install lint fmt types test check corpus train eval serve clean
+.PHONY: install lint fmt types test check corpus train eval eval-llm serve clean
 
 install:
 	pip install -e ".[dev]"
@@ -31,9 +31,14 @@ corpus:
 train:
 	python -m recon.match.training --fixtures fixtures --out models
 
-# Reproduce every number in the README.
+# Reproduce every number in the README. No model provider needed.
 eval:
 	python -m recon.evaluation.harness --fixtures fixtures --out out
+
+# The same, plus the last extraction layer scored with Claude switched on.
+# Needs ANTHROPIC_API_KEY and `pip install ".[llm]"`. Costs a few cents.
+eval-llm:
+	python -m recon.evaluation.harness --fixtures fixtures --out out --with-model
 
 # The review queue and the daily report, at http://localhost:8000/review
 serve:

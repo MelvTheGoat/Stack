@@ -297,3 +297,160 @@ class TestAgainstTheLabelledSet:
         rows = json.loads((FIXTURES / "intake_labelled.json").read_text())
         held_back = [row for row in rows if row.get("written_after")]
         assert len(held_back) >= 10
+
+
+class TestTheClaudeReader:
+    """The last layer, driven against a stubbed SDK.
+
+    No network, no key, no spend. What is under test is the contract around the
+    call: the schema is generated from the model, a refusal is believed, and
+    nothing is ever asked twice.
+    """
+
+    def reader(self, reading: object, *, fail: Exception | None = None):  # type: ignore[no-untyped-def]
+        from recon.intake.anthropic_reader import AnthropicReader
+
+        calls: list[dict[str, Any]] = []
+
+        class FakeMessages:
+            def parse(self, **kwargs: Any) -> Any:
+                calls.append(kwargs)
+                if fail is not None:
+                    raise fail
+                return reading
+
+        class FakeClient:
+            messages = FakeMessages()
+
+        return AnthropicReader(client=FakeClient()), calls  # type: ignore[arg-type]
+
+    def response(self, **fields: Any):  # type: ignore[no-untyped-def]
+        from recon.intake.anthropic_reader import ReportReading
+
+        class Response:
+            stop_reason = fields.pop("stop_reason", "end_turn")
+            parsed_output = None if fields.pop("nothing", False) else ReportReading(**fields)
+
+        return Response()
+
+    def test_it_reads_a_report_the_rules_could_not(self) -> None:
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, _calls = self.reader(
+            self.response(
+                readable=True,
+                amount_kobo=4_500_000,
+                payer_name="Ada Okonkwo",
+                channel=Channel.CASH,
+                order_reference="INV-0042",
+                paid_on="2024-05-17",
+            )
+        )
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        parsed = intake.parse("invoice 42: forty-five thousand naira, Ada Okonkwo, cash", TODAY)
+
+        assert parsed.extractor == "claude"
+        assert parsed.report.amount == Money.from_naira("45000")
+        assert parsed.report.order_reference == "INV-0042"
+        assert parsed.report.paid_on == TODAY
+
+    def test_the_rules_still_go_first_and_the_model_is_never_called(self) -> None:
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, calls = self.reader(self.response(readable=True))
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        parsed = intake.parse("Ada Okonkwo paid 45k today by transfer", TODAY)
+
+        assert parsed.extractor == "rules"
+        assert calls == [], "the rules handled it; there was nothing to pay for"
+
+    def test_the_schema_handed_to_the_model_is_generated_from_the_class(self) -> None:
+        """So what it is told to produce and what we validate cannot drift."""
+        from recon.intake.anthropic_reader import ReportReading
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, calls = self.reader(self.response(readable=False, why_not="no payer"))
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        intake.parse_or_review("money entered the account", TODAY)
+
+        assert calls[0]["output_format"] is ReportReading
+        assert calls[0]["output_config"]["effort"] == "low"
+
+    def test_a_model_that_says_it_cannot_read_it_is_believed(self) -> None:
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, _ = self.reader(self.response(readable=False, why_not="the amount is hedged"))
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        outcome = intake.parse_or_review("about fifty thousand from someone", TODAY)
+
+        assert isinstance(outcome, ParseError)
+        assert any("the amount is hedged" in attempt for attempt in outcome.attempts)
+
+    def test_it_is_never_asked_twice(self) -> None:
+        """The rule the whole layer exists under. Asking again about an
+        ambiguous sentence buys confidence, not information."""
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, calls = self.reader(self.response(readable=False, why_not="no payer"))
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        intake.parse_or_review("money entered the account", TODAY)
+        assert len(calls) == 1
+
+    def test_an_answer_that_fails_our_own_validation_is_dropped(self) -> None:
+        """Well-formed is not the same as valid. A negative amount fits the
+        schema's type and still is not an amount."""
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, _ = self.reader(self.response(readable=True, amount_kobo=-5, payer_name="Ada"))
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        outcome = intake.parse_or_review("money entered the account", TODAY)
+
+        assert isinstance(outcome, ParseError)
+        assert any("schema rejected" in attempt for attempt in outcome.attempts)
+
+    def test_a_safety_refusal_is_a_review_item_not_a_crash(self) -> None:
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, _ = self.reader(self.response(readable=True, stop_reason="refusal"))
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        outcome = intake.parse_or_review("money entered the account", TODAY)
+
+        assert isinstance(outcome, ParseError)
+        assert any("declined" in attempt for attempt in outcome.attempts)
+
+    def test_the_api_being_down_says_so_rather_than_blaming_the_report(self) -> None:
+        """An outage and a hard message both end in the review queue, and a
+        person needs to know which one they are looking at."""
+        import anthropic
+        import httpx2
+
+        from recon.intake.parse import Intake, RuleExtractor
+
+        boom = anthropic.APIConnectionError(request=httpx2.Request("POST", "https://x"))
+        reader, _ = self.reader(None, fail=boom)
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        outcome = intake.parse_or_review("money entered the account", TODAY)
+
+        assert isinstance(outcome, ParseError)
+        assert any("could not reach the model" in attempt for attempt in outcome.attempts)
+
+    def test_it_keeps_a_record_of_every_report_it_sent(self) -> None:
+        """The bill, itemised. A model layer you cannot audit the cost of is a
+        model layer you will be surprised by."""
+        from recon.intake.parse import Intake, RuleExtractor
+
+        reader, _ = self.reader(self.response(readable=False, why_not="no payer"))
+        intake = Intake(rules=RuleExtractor(), generative=reader)
+        intake.parse_or_review("money entered the account", TODAY)
+        intake.parse_or_review("check the account", TODAY)
+
+        assert reader.calls == ["money entered the account", "check the account"]
+
+    def test_turning_it_on_without_a_key_fails_loudly(self, monkeypatch) -> None:  # type: ignore[no-untyped-def]
+        """Rather than quietly running rules-only and reporting a number that
+        looks like the model earned it."""
+        from recon.intake.parse import intake_with_model
+
+        monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+        with pytest.raises(RuntimeError, match="ANTHROPIC_API_KEY"):
+            intake_with_model()
