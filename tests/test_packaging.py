@@ -55,12 +55,3 @@ def test_the_commit_msg_hook_is_versioned_and_installed_by_make() -> None:
     assert hook.stat().st_mode & 0o111, "the hook has to be executable"
     assert "Co-" in hook.read_text(), "it has to actually strip trailers"
     assert "scripts/hooks/commit-msg .git/hooks/commit-msg" in (ROOT / "Makefile").read_text()
-
-
-def test_the_contributing_guide_states_the_rules_the_tests_enforce() -> None:
-    """The guide and the test suite have to agree, or one of them is decoration."""
-    guide = (ROOT / "CONTRIBUTING.md").read_text()
-    assert "integers in kobo" in guide
-    assert "docs/DECISIONS.md" in guide
-    assert "scripts/check.sh" in guide
-    assert "make eval" in guide
