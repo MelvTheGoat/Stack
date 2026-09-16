@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "paystack-reconciliation-core"
+name = "reckon"
 version = "0.1.0"
-description = "Matches Paystack payments to an order ledger so a Nigerian SME can close its books daily."
+description = "Matches incoming payments to invoices, and hands a person the cases it is not sure about."
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.110",

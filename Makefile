@@ -1,3 +1,4 @@
+# Reckon - developer tasks. `make check` runs everything CI runs.
 .PHONY: install lint fmt types test check corpus train eval eval-llm serve deploy clean
 
 install:

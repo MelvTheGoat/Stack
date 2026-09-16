@@ -29,7 +29,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     yield
 
 
-app = FastAPI(title="Paystack Reconciliation Core", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="Reckon", version="0.1.0", lifespan=lifespan)
 app.include_router(review_router)
 
 
