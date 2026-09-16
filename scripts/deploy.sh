@@ -11,7 +11,7 @@ set -euo pipefail
 
 PROJECT="${PROJECT:-$(gcloud config get-value project 2>/dev/null)}"
 REGION="${REGION:-europe-west1}"
-SERVICE="${SERVICE:-recon}"
+SERVICE="${SERVICE:-reckon}"
 SECRET="${SECRET:-paystack-test-key}"
 
 if [[ -z "$PROJECT" || "$PROJECT" == "(unset)" ]]; then

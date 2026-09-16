@@ -5,7 +5,7 @@
 # still 500 on the review queue, so nothing deploys until the real pages have
 # been opened against the real image.
 substitutions:
-  _SERVICE: recon
+  _SERVICE: reckon
   _REGION: europe-west1
   _SECRET: paystack-test-key
 

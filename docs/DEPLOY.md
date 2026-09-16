@@ -1,4 +1,4 @@
-# Running it
+# Running Reckon
 
 ## On your machine
 
@@ -17,8 +17,8 @@ time, on purpose: a number you cannot regenerate is a number you cannot trust.
 ## In a container
 
 ```bash
-docker build -t recon .
-docker run -p 8080:8080 -e PAYSTACK_SECRET_KEY=sk_test_xxx recon
+docker build -t reckon .
+docker run -p 8080:8080 -e PAYSTACK_SECRET_KEY=sk_test_xxx reckon
 ```
 
 The image carries the corpus and the fitted model, so it boots straight into a
@@ -48,7 +48,7 @@ enough of a gate.
 `scripts/smoke.py` is the same check, and you can point it at anything:
 
 ```bash
-python3 scripts/smoke.py https://recon-xxxx.a.run.app
+python3 scripts/smoke.py https://reckon-xxxx.a.run.app
 ```
 
 The key goes in Secret Manager, never in `--set-env-vars`. Environment variables
@@ -57,7 +57,7 @@ set that way are readable by anyone who can describe the service.
 Overrides, if the defaults do not suit:
 
 ```bash
-PROJECT=other-project REGION=us-central1 SERVICE=recon-staging make deploy
+PROJECT=other-project REGION=us-central1 SERVICE=reckon-staging make deploy
 ```
 
 ### Pointing Paystack at it
