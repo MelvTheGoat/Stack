@@ -9,9 +9,9 @@
   },
   "expected_cost_a_night_kobo": 396000,
   "brier_by_calibration_method": {
-    "identity": 0.0934151765966221,
-    "platt": 0.05161974458124467,
-    "isotonic": 0.05330333772521603
+    "identity": 0.09343367711535992,
+    "platt": 0.05159036784212469,
+    "isotonic": 0.05259595105024981
   },
   "training_rows": 547,
   "training_positives": 84

@@ -15,6 +15,10 @@ from __future__ import annotations
 
 import random
 
+#: The business whose books these are. Appears in the narrations its own
+#: customers generate, so it lives here once rather than inside a template.
+MERCHANT = "MERIDIAN STORES LTD"
+
 BANKS: tuple[str, ...] = (
     "GTB",
     "UBA",
@@ -50,7 +54,7 @@ NAME_ONLY_TEMPLATES: tuple[str, ...] = (
     "NIP/{bank}/{name}/{purpose}",
     "{session}/{name}/TRANSFER",
     "Mobile Transfer from {name}",
-    "{name} TO STACK STORES LTD",
+    "{name} TO {merchant}",
     "TRF/{name}/{purpose}",
     "USSD TRF FROM {name}",
     "{name}",
@@ -93,6 +97,7 @@ def narration(
 
     text = template.format(
         name=payer_name,
+        merchant=MERCHANT,
         bank=rng.choice(BANKS),
         purpose=rng.choice(PURPOSES),
         session=session_id(rng),
