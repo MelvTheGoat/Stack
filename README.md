@@ -1,12 +1,23 @@
-# Paystack Reconciliation Core
+# Reckon
 
-A Nigerian shop takes money four different ways and has to match every payment
-to an invoice before it closes its books. This does most of that matching on its
-own, and hands a person the cases where it is not sure, ranked so the biggest
-money gets looked at first.
+Matches incoming payments to invoices, and hands a person the cases it is not
+sure about.
 
-Live instance: _not deployed yet — `docs/DEPLOY.md` has the Cloud Run steps, and
-this line gets a URL when it goes up._
+Money arrives through several channels at once and most of it does not say what
+it is for. Reckon takes each payment, works out which invoice it settles, closes
+the ones it can prove, and puts the rest in a queue ranked by how much money is
+at stake. Every decision records which layer made it, so what the system did on
+any given day is a thing you can read rather than a thing you assume.
+
+Matching, review and the audit trail work on a plain payment record — a
+reference, an amount, a time, a channel and whatever text came with it — and
+know nothing about where that record came from. Paystack is the provider wired
+up today, covering card, dedicated virtual account, bank transfer and cash. Its
+fee schedule and settlement timing live in one file, because those are the parts
+that are genuinely provider-specific.
+
+Live instance: _not deployed yet — `docs/DEPLOY.md` has the steps, and this line
+gets a URL when it goes up._
 
 ---
 
@@ -257,6 +268,13 @@ list with no verb in it: "invoice 42: forty-five thousand naira, Ada Okonkwo,
 cash". It is in the labelled set, failing, rather than special-cased, because a
 rule written to pass one test case is not a rule. It is exactly the shape of
 case the model layer exists for.
+
+**Only one provider is wired up.** The matching core takes a plain payment
+record and does not care who produced it, but Paystack is the only ingest
+adapter that exists — nobody has written a second one, so the seam between
+"general" and "Paystack-shaped" has never actually been tested by a second
+implementation. The fee model and settlement calendar are Paystack's Nigerian
+rates specifically.
 
 **It is one process holding everything in memory.** Fine for one shop and one
 bookkeeper. Point `RECON_DATABASE_URL` at Postgres for anything larger.
