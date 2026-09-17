@@ -71,14 +71,22 @@ def test_every_layer_that_fired_was_perfect(report) -> None:  # type: ignore[no-
         )
 
 
-def test_the_twin_invoices_all_went_to_a_human(report) -> None:  # type: ignore[no-untyped-def]
+def test_layer_one_refuses_every_twin_invoice(report) -> None:  # type: ignore[no-untyped-def]
+    """Two identical invoices is two candidates, and two candidates is not a
+    certainty, so no exact rule may pick between them.
+
+    This says nothing about what happens next. The scoring layer does take these
+    - marking either of a customer's two identical invoices paid leaves the books
+    correct - and the answer key scores either as right. What is pinned here is
+    only that the certain layer declines.
+    """
     _, matches = report
     answers = truth_module.load(FIXTURES / "ground_truth.json")
     twins = [
         m for m in matches if answers[m.transaction_reference].case == "ambiguous_twin_invoices"
     ]
     assert twins
-    assert all(not m.resolved for m in twins), "a coin flip is not a match"
+    assert all(m.layer is Layer.UNRESOLVED for m in twins), "a coin flip is not a certainty"
 
 
 def test_most_of_the_money_is_already_settled_by_layer_one(report) -> None:  # type: ignore[no-untyped-def]
