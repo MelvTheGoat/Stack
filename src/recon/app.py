@@ -1,7 +1,7 @@
 """The HTTP surface.
 
-The webhook endpoint, a health check, and the pages a person uses (mounted from
-`recon.review.web`).
+Just the webhook endpoint and a health check for now. The review queue and the
+daily report get mounted onto this same app later.
 """
 
 from __future__ import annotations
@@ -12,15 +12,12 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import BackgroundTasks, Depends, FastAPI, Header, Request, Response
-from fastapi.responses import HTMLResponse, RedirectResponse
 from sqlalchemy.orm import Session
 
-from recon import ingest, state
+from recon import ingest
 from recon.config import Settings, get_settings
 from recon.db import init_db, session_scope
 from recon.paystack.signature import SIGNATURE_HEADER
-from recon.review.access import PagesLockedError
-from recon.review.setup import router as setup_router
 from recon.review.web import router as review_router
 
 log = logging.getLogger("recon.webhook")
@@ -34,28 +31,6 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 app = FastAPI(title="Reckon", version="0.1.0", lifespan=lifespan)
 app.include_router(review_router)
-app.include_router(setup_router)
-
-
-@app.exception_handler(PagesLockedError)
-def pages_locked(request: Request, exc: PagesLockedError) -> HTMLResponse:
-    return HTMLResponse(LOCKED_PAGE, status_code=503)
-
-
-LOCKED_PAGE = """<!doctype html><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reckon needs a password</title>
-<body style="font:16px/1.5 system-ui,sans-serif;max-width:560px;margin:40px auto;padding:0 16px">
-<h1 style="font-size:20px">Reckon needs a password first</h1>
-<p>These pages show your customers' names and payments, so they stay shut until
-there is a password in front of them.</p>
-<p>Set <code>RECON_PASSWORD</code> where this app runs (on Railway: the service's
-Variables tab), let it restart, and open this page again. Log in with any name
-and that password. The name goes on every decision you make.</p>
-<p>Want to look around first? Set <code>RECON_DEMO=1</code> to show practice data
-instead.</p>
-</body>
-"""
 
 
 def db() -> Iterator[Session]:
@@ -63,14 +38,9 @@ def db() -> Iterator[Session]:
         yield session
 
 
-@app.get("/")
-def home() -> RedirectResponse:
-    return RedirectResponse("/review", status_code=307)
-
-
 @app.get("/health")
-def health(settings: Settings = Depends(get_settings)) -> dict[str, str]:
-    return {"status": "ok", "mode": "test", "books": "demo" if settings.demo else "own"}
+def health() -> dict[str, str]:
+    return {"status": "ok", "mode": "test"}
 
 
 @app.post("/webhooks/paystack")
@@ -123,5 +93,3 @@ def _process_in_background(event_key: str) -> None:
             ingest.process(session, event_key)
     except Exception:
         log.exception("processing webhook %s failed", event_key)
-    finally:
-        state.changed()

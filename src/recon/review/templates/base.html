@@ -42,7 +42,6 @@
   button { font: inherit; padding: 5px 11px; border-radius: 6px; cursor: pointer;
            border: 1px solid var(--line); background: #fff; }
   button.yes { background: var(--ok); border-color: var(--ok); color: #fff; }
-  button:disabled { opacity: .45; cursor: not-allowed; }
   select { font: inherit; padding: 5px; border-radius: 6px; border: 1px solid var(--line); }
   table { border-collapse: collapse; width: 100%; background: #fff; }
   th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
@@ -51,14 +50,6 @@
   .done { color: var(--ok); }
   .problem { background: #fdecec; border: 1px solid #f3c9cb; border-radius: 6px;
              padding: 10px 12px; margin-bottom: 10px; }
-  .note { background: #e3f4ec; border: 1px solid #b9e2cd; border-radius: 6px;
-          padding: 10px 12px; margin-bottom: 10px; }
-  .demo { background: #fff6e0; border-bottom: 1px solid #f0dca6; padding: 8px 20px;
-          font-size: 14px; }
-  form.block { display: block; margin: 8px 0 14px; }
-  details { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-  code { font-size: 13px; background: #f4f6f8; padding: 1px 4px; border-radius: 4px; }
-  input { font: inherit; }
   footer { color: var(--muted); font-size: 13px; padding: 30px 20px; text-align: center; }
 </style>
 </head>
@@ -68,16 +59,10 @@
   <nav>
     <a href="/review">Review queue</a>
     <a href="/report">Daily report</a>
-    <a href="/setup">Your data</a>
+    <a href="/health">Health</a>
   </nav>
   <span style="color:var(--muted);font-size:13px">test mode — this service never moves money</span>
 </header>
-{% if demo() %}
-<div class="demo">
-  <strong>Practice data.</strong> These customers and payments are made up, to show how Reckon works.
-  <a href="/setup">Use your own</a>.
-</div>
-{% endif %}
 <main>{% block body %}{% endblock %}</main>
 <footer>Every decision here is written to an append-only audit log.</footer>
 </body>

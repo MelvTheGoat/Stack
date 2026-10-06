@@ -100,21 +100,17 @@ class Ledger:
 
     def add_orders(self, rows: Iterable[dict[str, Any]]) -> None:
         for row in rows:
-            self.add_order(
-                OrderRow(
-                    reference=row["reference"],
-                    customer_id=row["customer_id"],
-                    amount=Money(row["amount_kobo"]),
-                    issued_at=datetime.fromisoformat(row["issued_at"]),
-                    status=row.get("status", "open"),
-                    description=row.get("description", ""),
-                )
+            order = OrderRow(
+                reference=row["reference"],
+                customer_id=row["customer_id"],
+                amount=Money(row["amount_kobo"]),
+                issued_at=datetime.fromisoformat(row["issued_at"]),
+                status=row.get("status", "open"),
+                description=row.get("description", ""),
             )
-
-    def add_order(self, order: OrderRow) -> None:
-        self.orders[order.reference] = order
-        self._orders_by_customer.setdefault(order.customer_id, []).append(order)
-        self._orders_by_amount.setdefault(order.amount.kobo, []).append(order)
+            self.orders[order.reference] = order
+            self._orders_by_customer.setdefault(order.customer_id, []).append(order)
+            self._orders_by_amount.setdefault(order.amount.kobo, []).append(order)
 
     def add_dedicated_accounts(self, rows: Iterable[dict[str, Any]]) -> None:
         for row in rows:

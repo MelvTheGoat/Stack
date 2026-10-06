@@ -1,14 +1,11 @@
 """Talking to Paystack.
 
-Two calls. `verify_transaction` is the one that matters most: a webhook tells
-you something happened; a verify call tells you what actually happened, from
-the source. We never write a payment into the books on the strength of the
-webhook body alone, because a webhook body is something anyone who learns your
-endpoint can POST at you, and the signature check is the only thing standing
-between the two. Belt and braces: check the signature, then go and ask.
-
-`list_transactions` is for catching up: everything Paystack already has, for
-the days before the webhook was pointed here, or for a day it was down.
+Only one call matters here: `verify_transaction`. A webhook tells you something
+happened; a verify call tells you what actually happened, from the source. We
+never write a payment into the books on the strength of the webhook body alone,
+because a webhook body is something anyone who learns your endpoint can POST at
+you, and the signature check is the only thing standing between the two. Belt
+and braces: check the signature, then go and ask.
 
 The client is deliberately synchronous. The webhook endpoint answers Paystack
 immediately and hands the work to a background thread, so nothing here is on
@@ -17,8 +14,7 @@ the request's critical path.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from datetime import date
+from dataclasses import dataclass
 from typing import Any
 
 import httpx
@@ -27,31 +23,9 @@ from recon.config import Settings, get_settings
 from recon.enums import TransactionStatus
 from recon.money import Money
 
-#: The most pages one catch-up will fetch. At 100 a page that is 5,000
-#: transactions, far more than a small business takes in a month, and a limit
-#: that is hit is reported, never silently stopped at.
-MAX_PAGES = 50
-PER_PAGE = 100
 
-
-class PaystackUnavailableError(RuntimeError):
-    """We could not get an answer from Paystack."""
-
-
-class VerifyUnavailableError(PaystackUnavailableError):
+class VerifyUnavailableError(RuntimeError):
     """We could not reach Paystack. Not the same as "Paystack said no"."""
-
-
-class KeyRefusedError(PaystackUnavailableError):
-    """Paystack answered, and the answer was that the secret key is wrong."""
-
-
-@dataclass
-class Listing:
-    """Transactions as Paystack lists them, and whether that was all of them."""
-
-    rows: list[dict[str, Any]] = field(default_factory=list)
-    complete: bool = True
 
 
 @dataclass(frozen=True, slots=True)
@@ -121,53 +95,11 @@ class PaystackClient:
 
         return VerifiedTransaction(
             reference=str(data.get("reference") or reference),
-            status=status_of(str(data.get("status") or "")),
+            status=_status(str(data.get("status") or "")),
             amount=_kobo(data.get("amount")),
             fees=_kobo(data.get("fees")),
             raw=data,
         )
-
-    def list_transactions(
-        self, since: date, until: date | None = None, *, max_pages: int = MAX_PAGES
-    ) -> Listing:
-        """Every transaction Paystack holds for this key from `since` on.
-
-        Read page by page until Paystack says there are no more pages, or until
-        `max_pages`, in which case the listing says it is incomplete.
-        """
-        if self.offline:
-            raise PaystackUnavailableError("RECON_OFFLINE is on, so Paystack is not called")
-
-        listing = Listing()
-        for page in range(1, max_pages + 1):
-            params: dict[str, str | int] = {
-                "perPage": PER_PAGE,
-                "page": page,
-                "from": since.isoformat(),
-            }
-            if until is not None:
-                params["to"] = until.isoformat()
-            try:
-                response = self._http().get("/transaction", params=params)
-            except httpx.HTTPError as exc:
-                raise PaystackUnavailableError(f"could not reach Paystack: {exc}") from exc
-            if response.status_code == 401:
-                raise KeyRefusedError("Paystack did not accept PAYSTACK_SECRET_KEY")
-            if response.status_code != 200:
-                raise PaystackUnavailableError(f"Paystack returned {response.status_code}")
-
-            body: Any = response.json()
-            data = body.get("data") if isinstance(body, dict) else None
-            rows = [row for row in data if isinstance(row, dict)] if isinstance(data, list) else []
-            listing.rows.extend(rows)
-
-            meta = body.get("meta") if isinstance(body, dict) else None
-            page_count = meta.get("pageCount") if isinstance(meta, dict) else None
-            if not rows or not isinstance(page_count, int) or page >= page_count:
-                return listing
-
-        listing.complete = False
-        return listing
 
     def close(self) -> None:
         if self._client is not None:
@@ -175,8 +107,7 @@ class PaystackClient:
             self._client = None
 
 
-def status_of(word: str) -> TransactionStatus:
-    """Paystack's status word, in ours. Anything still in flight is pending."""
+def _status(word: str) -> TransactionStatus:
     lowered = word.lower()
     if lowered == "success":
         return TransactionStatus.SUCCESS

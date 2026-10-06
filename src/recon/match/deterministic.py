@@ -25,7 +25,6 @@ measured against.
 from __future__ import annotations
 
 import re
-from collections.abc import Mapping
 from dataclasses import dataclass, field
 from datetime import timedelta
 
@@ -38,16 +37,6 @@ from recon.match.result import Match, unresolved
 #: against the real ledger* before it is believed, so a false positive would
 #: need to be a string that is character-for-character a live invoice number.
 REFERENCE_PATTERN = re.compile(r"\b([A-Z]{2,6}[-/ ]?\d{3,8})\b", re.IGNORECASE)
-
-
-def canonical_reference(raw: str) -> str:
-    """One spelling per invoice number: "inv/0042" and "INV 0042" are INV-0042.
-
-    Uploads store references this way too, so what a payer types and what the
-    ledger holds meet in the middle.
-    """
-    return raw.strip().upper().replace("/", "-").replace(" ", "-")
-
 
 #: How long after an invoice is issued a payment can still be matched to it on
 #: amount alone. Ten days covers "I'll pay you next week" without stretching so
@@ -70,32 +59,10 @@ class DeterministicMatcher:
     #: (amount, payer fingerprint) -> (payment reference, when)
     _seen: dict[tuple[int, str], list[TxnRow]] = field(default_factory=dict, repr=False)
 
-    def match_all(
-        self, transactions: list[TxnRow], decided: Mapping[str, Match] | None = None
-    ) -> list[Match]:
-        """Work through a batch oldest first, so "already seen" means something.
-
-        `decided` holds the payments a person has already ruled on. Their answer
-        is used as given, and the invoices they assigned are claimed before the
-        first payment is looked at, so an earlier payment cannot take an invoice
-        a person has already given to a later one.
-        """
-        decided = decided or {}
-        for match in decided.values():
-            for reference in match.order_references:
-                self._claimed.setdefault(reference, match.transaction_reference)
-
+    def match_all(self, transactions: list[TxnRow]) -> list[Match]:
+        """Work through a batch oldest first, so "already seen" means something."""
         ordered = sorted(transactions, key=lambda t: (t.paid_at, t.reference))
-        out: list[Match] = []
-        for txn in ordered:
-            ruled = decided.get(txn.reference)
-            if ruled is None:
-                out.append(self.match(txn))
-            else:
-                # Still remembered, so a repeat of it is still caught.
-                self._remember(txn, ruled)
-                out.append(ruled)
-        return out
+        return [self.match(txn) for txn in ordered]
 
     def match(self, txn: TxnRow) -> Match:
         for rule in (
@@ -184,9 +151,9 @@ class DeterministicMatcher:
         """An invoice number we can look up, either structured or in the text."""
         candidates: list[tuple[str, str]] = []
 
-        stated = canonical_reference(txn.stated_reference) if txn.stated_reference else None
-        if stated is not None and self.ledger.knows_reference(stated):
-            candidates.append((stated, "stated_reference"))
+        if self.ledger.knows_reference(txn.stated_reference):
+            assert txn.stated_reference is not None
+            candidates.append((txn.stated_reference, "stated_reference"))
 
         for found in self._references_in(txn.narration):
             candidates.append((found, "narration"))
@@ -220,7 +187,7 @@ class DeterministicMatcher:
         """Pull invoice-shaped tokens out of free text, keeping only real ones."""
         found: list[str] = []
         for raw in REFERENCE_PATTERN.findall(text or ""):
-            normalised = canonical_reference(raw)
+            normalised = raw.upper().replace("/", "-").replace(" ", "-")
             if self.ledger.knows_reference(normalised):
                 found.append(normalised)
         return found

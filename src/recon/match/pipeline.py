@@ -8,7 +8,6 @@ at.
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 from dataclasses import dataclass, field
 
 from recon.enums import DETERMINISTIC_LAYERS, Layer
@@ -16,9 +15,6 @@ from recon.match.deterministic import DeterministicMatcher
 from recon.match.ledger import Ledger, TxnRow
 from recon.match.probabilistic import ProbabilisticMatcher
 from recon.match.result import Match
-
-#: Statuses that mean no money arrived.
-NEVER_WENT_THROUGH: frozenset[str] = frozenset({"pending", "failed"})
 
 
 @dataclass
@@ -37,29 +33,17 @@ class Pipeline:
             probabilistic=probabilistic,
         )
 
-    def run(
-        self, transactions: list[TxnRow], decided: Mapping[str, Match] | None = None
-    ) -> list[Match]:
+    def run(self, transactions: list[TxnRow]) -> list[Match]:
         """Both layers, oldest payment first.
 
         Order matters: an invoice settled by an earlier payment is off the table
         for a later one, and that is often what breaks a tie further down the
         evening.
-
-        A payment that never went through (pending, failed, abandoned at the
-        checkout) pays nothing and is not matched at all. Left in, it could
-        claim an invoice on amount alone and leave the real payment for that
-        invoice with nothing to match.
-
-        `decided` is what a person has already ruled on. Those answers stand.
         """
-        ordered = sorted(
-            (t for t in transactions if t.status not in NEVER_WENT_THROUGH),
-            key=lambda t: (t.paid_at, t.reference),
-        )
+        ordered = sorted(transactions, key=lambda t: (t.paid_at, t.reference))
         by_reference = {t.reference: t for t in ordered}
 
-        first_pass = self.deterministic.match_all(ordered, decided)
+        first_pass = self.deterministic.match_all(ordered)
         self._claimed = {reference for match in first_pass for reference in match.order_references}
 
         if self.probabilistic is None:
@@ -89,7 +73,7 @@ def layer_mix(matches: list[Match]) -> dict[str, float]:
     total = len(matches) or 1
     counts: dict[str, int] = {"deterministic": 0, "probabilistic": 0, "human": 0}
     for match in matches:
-        if match.needs_human or match.layer in (Layer.UNRESOLVED, Layer.HUMAN):
+        if match.needs_human or match.layer is Layer.UNRESOLVED:
             counts["human"] += 1
         elif match.layer in DETERMINISTIC_LAYERS:
             counts["deterministic"] += 1

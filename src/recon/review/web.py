@@ -5,9 +5,9 @@ rendered HTML with no JavaScript, because this gets used on a phone in a shop
 with bad signal, and a page that works is worth more than a page that is
 pleasant on a good connection.
 
-State lives in `recon.state`, which holds the books, the fitted matcher and the
-current matches, from the database or from the demo corpus. The templates do not
-care which.
+State lives in `recon.state`, which holds the corpus, the fitted matcher and the
+current matches. In a deployment that reads from Postgres the same pages would
+read from there instead; the templates do not care.
 """
 
 from __future__ import annotations
@@ -16,25 +16,21 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, Form, Request
+from fastapi import APIRouter, Form, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from recon import state
-from recon.config import get_settings
 from recon.db import session_scope
 from recon.enums import RejectReason
 from recon.match.threshold import reviews_in_an_evening
 from recon.models import MatchDecision
 from recon.report import settlement
 from recon.review import queue as review_queue
-from recon.review.access import reviewer
 from recon.state import workspace
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
-templates.env.globals["demo"] = lambda: get_settings().demo
 
-router = APIRouter(dependencies=[Depends(reviewer)])
+router = APIRouter()
 
 REASON_LABELS: tuple[tuple[str, str], ...] = (
     (RejectReason.WRONG_CUSTOMER.value, "Wrong customer"),
@@ -72,39 +68,32 @@ def review_page(request: Request) -> Any:
             "remainder": remainder,
             "top_share": f"{share:.0%}",
             "reasons": REASON_LABELS,
-            "has_payments": bool(space.transactions),
         },
     )
 
 
 @router.post("/review/{reference}/approve")
-def approve(
-    reference: str, orders: str = Form(default=""), who: str = Depends(reviewer)
-) -> RedirectResponse:
+def approve(reference: str, orders: str = Form(default="")) -> RedirectResponse:
     space = workspace()
     item = space.item(reference)
     chosen = [part for part in orders.split(",") if part]
     if item is not None:
         with session_scope() as session:
-            review_queue.approve(session, item, chosen, who=who)
+            review_queue.approve(session, item, chosen, who=space.reviewer)
         space.mark_decided(reference)
-        state.changed()
     return RedirectResponse("/review", status_code=303)
 
 
 @router.post("/review/{reference}/reject")
 def reject(
-    reference: str,
-    reason: str = Form(default=RejectReason.OTHER.value),
-    who: str = Depends(reviewer),
+    reference: str, reason: str = Form(default=RejectReason.OTHER.value)
 ) -> RedirectResponse:
     space = workspace()
     item = space.item(reference)
     if item is not None:
         with session_scope() as session:
-            review_queue.reject(session, item, RejectReason(reason), who=who)
+            review_queue.reject(session, item, RejectReason(reason), who=space.reviewer)
         space.mark_decided(reference)
-        state.changed()
     return RedirectResponse("/review", status_code=303)
 
 
@@ -113,11 +102,7 @@ def report_page(request: Request, day: str | None = None) -> Any:
     space = workspace()
     on = date.fromisoformat(day) if day else space.last_trading_day()
     built = settlement.build(on, space.transactions, space.matches, space.settlements)
-    return templates.TemplateResponse(
-        request,
-        "report.html",
-        {"r": settlement.summarise(built), "has_payments": bool(space.transactions)},
-    )
+    return templates.TemplateResponse(request, "report.html", {"r": settlement.summarise(built)})
 
 
 @router.get("/api/report")

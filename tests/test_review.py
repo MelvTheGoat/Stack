@@ -180,7 +180,7 @@ class TestDecisions:
 
 class TestThePages:
     @pytest.fixture
-    def client(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Iterator[TestClient]:
+    def client(self, tmp_path: Path) -> Iterator[TestClient]:
         from recon import db as db_module
         from recon import state
         from recon.app import app
@@ -189,7 +189,6 @@ class TestThePages:
         os.environ["RECON_DATABASE_URL"] = f"sqlite+pysqlite:///{tmp_path / 'review.db'}"
         os.environ["PAYSTACK_SECRET_KEY"] = "sk_test_review"
         os.environ["RECON_OFFLINE"] = "1"
-        monkeypatch.setenv("RECON_DEMO", "1")
         get_settings.cache_clear()
         db_module.reset_engine()
         state.reset()

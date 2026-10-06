@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from functools import lru_cache
 
-from pydantic import AliasChoices, Field, field_validator
+from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -29,22 +29,9 @@ class Settings(BaseSettings):
 
     paystack_secret_key: str = Field(default="sk_test_unset", alias="PAYSTACK_SECRET_KEY")
     paystack_base_url: str = Field(default="https://api.paystack.co", alias="PAYSTACK_BASE_URL")
-    database_url: str = Field(
-        default="sqlite+pysqlite:///./recon.db",
-        alias="RECON_DATABASE_URL",
-        validation_alias=AliasChoices("RECON_DATABASE_URL", "DATABASE_URL"),
-    )
-    """Where the books are kept. `DATABASE_URL` is read too, because that is the
-    name Railway, Heroku and Render give the Postgres they attach."""
+    database_url: str = Field(default="sqlite+pysqlite:///./recon.db", alias="RECON_DATABASE_URL")
     offline: bool = Field(default=False, alias="RECON_OFFLINE")
     """When true, skip the live verify call. Used by tests and the demo corpus."""
-
-    demo: bool = Field(default=False, alias="RECON_DEMO")
-    """When true, the pages show the generated practice books in `fixtures/`
-    instead of the business's own, which live in the database."""
-
-    password: str = Field(default="", alias="RECON_PASSWORD", repr=False)
-    """The password in front of the pages. Required on your own books."""
 
     verify_timeout_seconds: float = Field(default=10.0, alias="RECON_VERIFY_TIMEOUT")
 
@@ -61,15 +48,6 @@ class Settings(BaseSettings):
                 f"PAYSTACK_SECRET_KEY does not look like a Paystack secret key "
                 f"(got {value[:7]!r}...). It should start with sk_test_."
             )
-        return value
-
-    @field_validator("database_url")
-    @classmethod
-    def use_the_installed_driver(cls, value: str) -> str:
-        """Hosts hand out `postgres://...`. SQLAlchemy wants the driver named."""
-        for prefix in ("postgres://", "postgresql://"):
-            if value.startswith(prefix):
-                return "postgresql+psycopg://" + value[len(prefix) :]
         return value
 
 

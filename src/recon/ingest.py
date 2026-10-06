@@ -19,8 +19,7 @@ on the event key; a retry of the same event collides with that key, is answered
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass, replace
-from datetime import date
+from dataclasses import dataclass
 from typing import Any
 
 from sqlalchemy.exc import IntegrityError
@@ -30,13 +29,7 @@ from recon import audit
 from recon.config import Settings, get_settings
 from recon.enums import STATUS_RANK, TransactionStatus
 from recon.models import Transaction, WebhookEvent, utcnow
-from recon.paystack.client import (
-    MAX_PAGES,
-    PER_PAGE,
-    PaystackClient,
-    VerifyUnavailableError,
-    status_of,
-)
+from recon.paystack.client import PaystackClient, VerifyUnavailableError
 from recon.paystack.events import EventError, apply_event, parse_event
 from recon.paystack.signature import verify_signature
 
@@ -216,119 +209,3 @@ def _confirm_against_paystack(session: Session, txn: Transaction, client: Paysta
                 "note": "Paystack wins",
             },
         )
-
-
-# ------------------------------------------------------------- catching up
-
-
-class UnreadableListingError(ValueError):
-    """Paystack listed something we will not guess at, such as an amount that
-    is not whole kobo. Nothing from that pull is kept."""
-
-    def __init__(self, problems: list[str]) -> None:
-        super().__init__("; ".join(problems[:5]) + (" ..." if len(problems) > 5 else ""))
-        self.problems = problems
-
-
-@dataclass
-class Pulled:
-    """What a catch-up from Paystack did."""
-
-    listed: int = 0
-    added: int = 0
-    updated: int = 0
-    never_paid: int = 0
-    complete: bool = True
-
-    def summary(self) -> str:
-        text = f"Paystack listed {self.listed}: {self.added} new, {self.updated} brought up to date"
-        if self.never_paid:
-            text += f", {self.never_paid} never paid (failed or abandoned, left out)"
-        text += "."
-        if not self.complete:
-            text += (
-                f" Paystack had more than {MAX_PAGES * PER_PAGE:,} in that range, so this"
-                " stopped short. Start from a later date to get them all."
-            )
-        return text
-
-
-def pull_from_paystack(
-    session: Session, since: date, client: PaystackClient | None = None, *, who: str = "system"
-) -> Pulled:
-    """Fold every transaction Paystack lists since a date into the books.
-
-    Through the same `apply_event` as a webhook, so the same rules hold: keyed
-    on the reference, so pulling twice adds nothing, and a payment only ever
-    moves forward. A refund that came in by webhook is not undone by a list
-    that still says "success".
-
-    Each one is marked verified. A list from Paystack, fetched with our own
-    key, is the same answer a verify call gives, for many payments at once.
-
-    A checkout that failed or was abandoned is left out unless it is already
-    in the books. Those are most of a busy list and none of the money.
-
-    Anything unreadable stops the whole pull, after every row has been looked
-    at so all the problems are reported at once. The caller's session then
-    rolls back, and nothing from that list is kept.
-    """
-    listing = (client or PaystackClient()).list_transactions(since)
-    pulled = Pulled(listed=len(listing.rows), complete=listing.complete)
-    problems: list[str] = []
-
-    for data in listing.rows:
-        try:
-            event = parse_event({"event": "charge.success", "data": data})
-        except EventError as exc:
-            problems.append(f"{data.get('reference') or data.get('id') or '?'}: {exc}")
-            continue
-        status = status_of(str(data.get("status") or ""))
-        event = replace(event, event_type=LISTED_EVENT, status=status)
-        if event.reference is None:
-            problems.append(f"transaction {data.get('id')} has no reference")
-            continue
-
-        existing = session.get(Transaction, event.reference)
-        if existing is None and status is TransactionStatus.FAILED:
-            pulled.never_paid += 1
-            continue
-
-        before = None if existing is None else _snapshot(existing)
-        txn = apply_event(session, event)
-        if txn is None:
-            continue
-        txn.verified = True
-        if before is None:
-            pulled.added += 1
-        elif _snapshot(txn) != before:
-            pulled.updated += 1
-
-    if problems:
-        raise UnreadableListingError(problems)
-
-    audit.record(
-        session,
-        action="pulled_from_paystack",
-        subject_type="upload",
-        subject_id="paystack",
-        actor=who,
-        inputs={"since": since.isoformat()},
-        evidence={
-            "listed": pulled.listed,
-            "added": pulled.added,
-            "updated": pulled.updated,
-            "never_paid": pulled.never_paid,
-            "complete": pulled.complete,
-        },
-    )
-    return pulled
-
-
-#: The event type a listed transaction is folded in under. Not a real Paystack
-#: event, and never stored as one; it only marks where the row came from.
-LISTED_EVENT = "transaction.listed"
-
-
-def _snapshot(txn: Transaction) -> tuple[Any, ...]:
-    return (str(txn.status), txn.amount_kobo, txn.fees_kobo, txn.refunded_kobo, txn.verified)

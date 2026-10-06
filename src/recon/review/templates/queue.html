@@ -2,8 +2,8 @@
 {% block title %}Review queue{% endblock %}
 {% block body %}
 <p class="lede">
-  {{ queue.items|length }} {{ 'payment needs' if queue.items|length == 1 else 'payments need' }}
-  a person. Biggest first, because that is where an evening is best spent.
+  {{ queue.items|length }} payments need a person. Biggest first, because that is
+  where an evening is best spent.
 </p>
 
 <div class="tiles">
@@ -16,10 +16,7 @@
   <div class="tile"><div class="k">Decided so far</div><div class="n">{{ decided }}</div></div>
 </div>
 
-{% if not has_payments %}
-  <p class="lede">No payments yet. <a href="/setup">Bring in your invoices and payments</a> and
-  anything Reckon is not sure about will wait for you here.</p>
-{% elif not queue.items %}
+{% if not queue.items %}
   <p class="done">Nothing waiting. The books are closed.</p>
 {% endif %}
 

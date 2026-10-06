@@ -63,26 +63,6 @@ def test_health(client: TestClient) -> None:
     assert client.get("/health").json()["status"] == "ok"
 
 
-def test_health_says_whose_books_are_on_show(client: TestClient) -> None:
-    assert client.get("/health").json()["books"] == "own"
-
-
-def test_the_bare_address_goes_to_the_queue(client: TestClient) -> None:
-    response = client.get("/", follow_redirects=False)
-    assert response.status_code == 307
-    assert response.headers["location"] == "/review"
-
-
-def test_a_webhook_shows_up_on_the_pages_without_a_restart(client: TestClient) -> None:
-    from recon import state
-
-    state.reset()
-    assert state.workspace().transactions == []
-    post(client, factories.charge_success())
-    assert [txn.reference for txn in state.workspace().transactions] == ["ref_card_1"]
-    state.reset()
-
-
 def test_a_signed_webhook_gets_a_200_and_becomes_a_transaction(client: TestClient) -> None:
     response = post(client, factories.charge_success())
     assert response.status_code == 200
