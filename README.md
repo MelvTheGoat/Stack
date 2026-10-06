@@ -21,6 +21,34 @@ gets a URL when it goes up._
 
 ---
 
+## Using it on your own books
+
+Reckon starts empty. It fills up from three places, all on its **Your data**
+page:
+
+1. **Your invoices.** A spreadsheet of what customers owe you, saved as CSV.
+2. **Paystack.** Paste the address the page shows into your Paystack dashboard,
+   and new payments arrive by themselves. Older ones come in with **Pull from
+   Paystack**.
+3. **Your bank statement.** Transfers straight into your account never touch
+   Paystack. Download the statement as CSV and upload it as it is. Cash goes in
+   the same way.
+
+Then open the **Review queue**. Anything Reckon could prove is already closed.
+Anything it could not is waiting for you, biggest money first.
+
+To run your own copy, set three things: `PAYSTACK_SECRET_KEY` (your `sk_test_`
+key), `RECON_PASSWORD` (the pages show customers' names, so they stay shut
+without one), and a Postgres database, so the books survive a redeploy.
+[`docs/DEPLOY.md`](docs/DEPLOY.md) has it step by step. To look around with
+made-up data first, run `make demo`.
+
+On your own books the model suggests, but it does not close anything by itself.
+It learned on practice data, so how sure it says it is has never been checked
+against your customers. The certain rules work exactly as they do below.
+
+---
+
 ## The problem, in plain terms
 
 Money arrives four ways:
@@ -96,6 +124,8 @@ day rather than guessed at.
 
 All of these come out of `make eval`, which rebuilds the corpus, refits the
 model and re-scores everything from scratch. Nothing here is typed in by hand.
+They are measured on the practice data, the same month `make demo` shows,
+because that is the only data with an answer key.
 
 **439 payments over one month, worth ₦37,181,750.67.**
 
@@ -251,9 +281,28 @@ a way to drift somewhere strange without anyone noticing.
 weeks stays at the bottom forever, because the ordering is purely by money. That
 is right for the books and wrong for the customer waiting on it.
 
-**Settlement batches are read from the corpus, not from Paystack.** Against a
-live account you would pull them from the settlement endpoints on a schedule.
-That is not built.
+**Settlement batches are not pulled from Paystack.** The practice data has them;
+your own books do not, so on the daily report the "landed in the bank today"
+half stays empty. Pulling them from the settlement endpoints is not built.
+
+**Some Paystack payments are counted as already in your bank.** Card and
+dedicated-account money is known to settle next working day. Paystack's
+pay-with-transfer, USSD and QR payments come in as a bank transfer or an unknown
+channel, and the report treats both as money already in hand.
+
+**On your own books the model closes nothing by itself.** Every case it would
+have closed on the practice data waits for a person instead, with its suggestion
+attached: on the practice month that is 27 more cases in the queue. The fix is
+to retrain on your own decisions, and nothing does that yet.
+
+**Invoice numbers have to look like invoice numbers to be read from a
+narration.** A few letters and then digits, like `INV-0042` or `ORD12345`. An
+invoice numbered just `1042` is still matched when it arrives as structured data
+or by its amount, but not when a payer types it into a transfer.
+
+**One shared password.** Anyone with it can log in under any name, and that name
+goes on their decisions. Right for a shop with three people at the till; anything
+bigger wants real accounts.
 
 **The model layer's own number is not in this README yet.** The reader is
 implemented against the Anthropic SDK and tested against a stubbed client, and
@@ -276,8 +325,10 @@ adapter that exists — nobody has written a second one, so the seam between
 implementation. The fee model and settlement calendar are Paystack's Nigerian
 rates specifically.
 
-**It is one process holding everything in memory.** Fine for one shop and one
-bookkeeper. Point `RECON_DATABASE_URL` at Postgres for anything larger.
+**It is one process, and it re-matches everything when anything changes.** The
+books live in the database; the matches are rebuilt in memory after every
+upload, webhook and decision. That takes under a second for a month of a small
+shop's payments and grows with the books. Fine for one shop. Not a cluster.
 
 **The container image has not been built yet.** There was no Docker daemon on
 the machine this was developed on. What *has* been verified is everything the
@@ -297,7 +348,7 @@ time `make deploy` runs.
 | --- | --- |
 | `recon.money` | Every amount, as a whole number of kobo. There is no float in the money path. |
 | `recon.fees` | Paystack's Nigerian rates and the T+1 settlement gap. |
-| `recon.paystack` | Webhook signature check, the six events we handle, and the verify call we actually believe. |
+| `recon.paystack` | Webhook signature check, the six events we handle, the verify call we actually believe, and the list for catching up. |
 | `recon.ingest` / `recon.app` | The endpoint: signature, idempotency, 200 straight away, work in the background. |
 | `recon.corpus` | Generates the month of payments *and* the answer key that says what each one really was. |
 | `recon.match.deterministic` | The four certain rules, and the duplicate guard. |
@@ -305,7 +356,9 @@ time `make deploy` runs.
 | `recon.match.model` / `.calibration` / `.threshold` | Eighteen named features, a logistic fit written out longhand, and a line drawn from a cost matrix. |
 | `recon.intake` | Reads payment reports written by people, or refuses. Patterns first. |
 | `recon.intake.anthropic_reader` | The last layer: Claude, constrained to a schema generated from the Pydantic model, allowed to say no, never asked twice. |
-| `recon.review` | The queue, the decisions, and the labels they produce. |
+| `recon.review` | The queue, the decisions, the labels they produce, the setup page and the password. |
+| `recon.imports` | Invoices and bank-statement payments from CSV. One bad row and nothing goes in. |
+| `recon.books` | Your own books, read out of the database in the shapes the matcher already takes. |
 | `recon.report.settlement` | The daily report: gross, fees and timing shown separately rather than netted into one unexplained difference. |
 | `recon.evaluation.harness` | `make eval`. Regenerates every number above. |
 
@@ -319,8 +372,11 @@ cp .env.example .env    # put your sk_test_ key in it
 make corpus             # build the month of payments
 make train              # fit the matcher
 make eval               # every number above
-make serve              # http://localhost:8000/review
+make demo               # the practice data, at http://localhost:8000/review
+make serve              # your own books, at http://localhost:8000/setup
 ```
+
+`make serve` needs `RECON_PASSWORD` in `.env`; the pages stay shut without it.
 
 To score the model layer as well:
 
@@ -330,7 +386,7 @@ export ANTHROPIC_API_KEY=sk-ant-...
 make eval-llm           # rules-only vs rules+Claude, side by side
 ```
 
-Full instructions, including Cloud Run, in [`docs/DEPLOY.md`](docs/DEPLOY.md).
+Full instructions, including Railway and Cloud Run, in [`docs/DEPLOY.md`](docs/DEPLOY.md).
 The design decisions, each with what was rejected and what it costs, are in
 [`docs/DECISIONS.md`](docs/DECISIONS.md).
 
