@@ -42,6 +42,9 @@ class ProbabilisticMatcher:
     calibrator: Calibrator = field(default_factory=IdentityCalibrator)
     threshold: float = 0.9
     history: PayerHistory = field(default_factory=PayerHistory)
+    #: False means every answer goes to a person, however sure. Used on a
+    #: business's own books until the model has been checked against them.
+    auto_clear: bool = True
 
     def score_candidates(self, txn: TxnRow, claimed: set[str]) -> list[Scored]:
         candidates = shortlist(self.ledger, txn, claimed)
@@ -91,7 +94,8 @@ class ProbabilisticMatcher:
         best = scored[0]
         evidence = _evidence(self.ledger, txn, scored)
 
-        if best.probability >= self.threshold:
+        above_the_line = best.probability >= self.threshold
+        if above_the_line and self.auto_clear:
             self.history.record(best.candidate.customer_id, observed_name(txn))
             return Match(
                 transaction_reference=txn.reference,
@@ -109,14 +113,21 @@ class ProbabilisticMatcher:
             confidence=best.probability,
             evidence={
                 "rule": "unresolved",
-                "reason": (
-                    f"best guess is {best.probability:.0%}, below the {self.threshold:.0%} line"
-                ),
+                "reason": _why_it_waits(best.probability, self.threshold, above_the_line),
                 **evidence,
             },
             needs_human=True,
             money_at_risk=txn.amount,
         )
+
+
+def _why_it_waits(probability: float, threshold: float, above_the_line: bool) -> str:
+    if above_the_line:
+        return (
+            f"best guess is {probability:.0%}. The model learned on practice data, "
+            "so on these books a person checks it"
+        )
+    return f"best guess is {probability:.0%}, below the {threshold:.0%} line"
 
 
 def _evidence(ledger: Ledger, txn: TxnRow, scored: list[Scored]) -> dict[str, Any]:

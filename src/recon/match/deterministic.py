@@ -25,6 +25,7 @@ measured against.
 from __future__ import annotations
 
 import re
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from datetime import timedelta
 
@@ -59,10 +60,32 @@ class DeterministicMatcher:
     #: (amount, payer fingerprint) -> (payment reference, when)
     _seen: dict[tuple[int, str], list[TxnRow]] = field(default_factory=dict, repr=False)
 
-    def match_all(self, transactions: list[TxnRow]) -> list[Match]:
-        """Work through a batch oldest first, so "already seen" means something."""
+    def match_all(
+        self, transactions: list[TxnRow], decided: Mapping[str, Match] | None = None
+    ) -> list[Match]:
+        """Work through a batch oldest first, so "already seen" means something.
+
+        `decided` holds the payments a person has already ruled on. Their answer
+        is used as given, and the invoices they assigned are claimed before the
+        first payment is looked at, so an earlier payment cannot take an invoice
+        a person has already given to a later one.
+        """
+        decided = decided or {}
+        for match in decided.values():
+            for reference in match.order_references:
+                self._claimed.setdefault(reference, match.transaction_reference)
+
         ordered = sorted(transactions, key=lambda t: (t.paid_at, t.reference))
-        return [self.match(txn) for txn in ordered]
+        out: list[Match] = []
+        for txn in ordered:
+            ruled = decided.get(txn.reference)
+            if ruled is None:
+                out.append(self.match(txn))
+            else:
+                # Still remembered, so a repeat of it is still caught.
+                self._remember(txn, ruled)
+                out.append(ruled)
+        return out
 
     def match(self, txn: TxnRow) -> Match:
         for rule in (

@@ -5,9 +5,9 @@ rendered HTML with no JavaScript, because this gets used on a phone in a shop
 with bad signal, and a page that works is worth more than a page that is
 pleasant on a good connection.
 
-State lives in `recon.state`, which holds the corpus, the fitted matcher and the
-current matches. In a deployment that reads from Postgres the same pages would
-read from there instead; the templates do not care.
+State lives in `recon.state`, which holds the books, the fitted matcher and the
+current matches, from the database or from the demo corpus. The templates do not
+care which.
 """
 
 from __future__ import annotations
@@ -20,6 +20,7 @@ from fastapi import APIRouter, Form, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
+from recon import state
 from recon.db import session_scope
 from recon.enums import RejectReason
 from recon.match.threshold import reviews_in_an_evening
@@ -81,6 +82,7 @@ def approve(reference: str, orders: str = Form(default="")) -> RedirectResponse:
         with session_scope() as session:
             review_queue.approve(session, item, chosen, who=space.reviewer)
         space.mark_decided(reference)
+        state.changed()
     return RedirectResponse("/review", status_code=303)
 
 
@@ -94,6 +96,7 @@ def reject(
         with session_scope() as session:
             review_queue.reject(session, item, RejectReason(reason), who=space.reviewer)
         space.mark_decided(reference)
+        state.changed()
     return RedirectResponse("/review", status_code=303)
 
 

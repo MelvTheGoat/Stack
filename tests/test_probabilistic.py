@@ -14,6 +14,7 @@ from recon.match.ledger import Ledger, TxnRow
 from recon.match.model import LogisticModel
 from recon.match.pipeline import Pipeline, layer_mix
 from recon.match.probabilistic import ProbabilisticMatcher
+from recon.match.result import Match
 from recon.money import Money
 
 DAY = datetime(2024, 5, 17, 10, 0, tzinfo=UTC)
@@ -206,6 +207,16 @@ class TestMatching:
         assert match.evidence["candidates"], "a person needs to see what we were weighing"
         assert "below the" in match.evidence["reason"]
 
+    def test_with_auto_clear_off_even_a_confident_guess_goes_to_a_person(self) -> None:
+        ledger = build_ledger([("INV-1", "C1", "5000", 2)], [("C1", "Ada Okonkwo")])
+        matcher = self.matcher(ledger, threshold=0.5)
+        matcher.auto_clear = False
+        match = matcher.match(payment(payer="OKONKWO ADA"), set())
+        assert match.needs_human
+        assert match.order_references == ()
+        assert match.evidence["candidates"][0]["orders"] == ["INV-1"], "still suggested"
+        assert "practice data" in match.evidence["reason"]
+
     def test_the_evidence_is_written_in_words_a_bookkeeper_can_check(self) -> None:
         ledger = build_ledger([("INV-1", "C1", "5000", 2)], [("C1", "Ada Okonkwo")])
         match = self.matcher(ledger, threshold=0.999).match(payment(payer="OKONKWO ADA"), set())
@@ -264,6 +275,36 @@ class TestPipelineOrder:
         by_reference = {m.transaction_reference: m for m in matches}
         assert by_reference["T1"].order_references == ("INV-1",)
         assert "INV-1" not in by_reference["T2"].order_references
+
+    def test_a_payment_that_never_went_through_claims_nothing(self) -> None:
+        """An abandoned checkout for the right amount must not take the invoice
+        from the real payment that follows it."""
+        ledger = build_ledger([("INV-1", "C1", "5000", 2)], [("C1", "Ada Okonkwo")])
+        failed = TxnRow(
+            reference="T0",
+            channel="card",
+            status="failed",
+            amount=Money.from_naira("5000"),
+            fees=Money.zero(),
+            paid_at=DAY - timedelta(minutes=5),
+        )
+        matches = Pipeline.build(ledger).run([failed, payment("T1")])
+        assert [m.transaction_reference for m in matches] == ["T1"]
+        assert matches[0].order_references == ("INV-1",)
+
+    def test_a_persons_answer_stands_and_claims_its_invoice_from_the_start(self) -> None:
+        """T2 is later than T1, but a person gave INV-1 to T2. T1 would have
+        taken it on amount alone if the claim only started at T2."""
+        ledger = build_ledger([("INV-1", "C1", "5000", 2)], [("C1", "Ada Okonkwo")])
+        ruled = Match("T2", ("INV-1",), Layer.HUMAN, 1.0, money_at_risk=Money.from_naira("5000"))
+        matches = Pipeline.build(ledger).run(
+            [payment("T1", payer="MUSA"), payment("T2", payer="ADA", minutes=30)],
+            decided={"T2": ruled},
+        )
+        by_payment = {m.transaction_reference: m for m in matches}
+        assert by_payment["T2"] is ruled
+        assert by_payment["T1"].order_references == ()
+        assert by_payment["T1"].needs_human
 
     def test_the_layer_mix_adds_up(self) -> None:
         ledger = build_ledger([("INV-1", "C1", "5000", 2)], [("C1", "Ada Okonkwo")])

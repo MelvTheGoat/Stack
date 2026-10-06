@@ -1,7 +1,7 @@
 """The HTTP surface.
 
-Just the webhook endpoint and a health check for now. The review queue and the
-daily report get mounted onto this same app later.
+The webhook endpoint, a health check, and the pages a person uses (mounted from
+`recon.review.web`).
 """
 
 from __future__ import annotations
@@ -12,9 +12,10 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import BackgroundTasks, Depends, FastAPI, Header, Request, Response
+from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 
-from recon import ingest
+from recon import ingest, state
 from recon.config import Settings, get_settings
 from recon.db import init_db, session_scope
 from recon.paystack.signature import SIGNATURE_HEADER
@@ -38,9 +39,14 @@ def db() -> Iterator[Session]:
         yield session
 
 
+@app.get("/")
+def home() -> RedirectResponse:
+    return RedirectResponse("/review", status_code=307)
+
+
 @app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok", "mode": "test"}
+def health(settings: Settings = Depends(get_settings)) -> dict[str, str]:
+    return {"status": "ok", "mode": "test", "books": "demo" if settings.demo else "own"}
 
 
 @app.post("/webhooks/paystack")
@@ -93,3 +99,5 @@ def _process_in_background(event_key: str) -> None:
             ingest.process(session, event_key)
     except Exception:
         log.exception("processing webhook %s failed", event_key)
+    finally:
+        state.changed()

@@ -33,6 +33,10 @@ class Settings(BaseSettings):
     offline: bool = Field(default=False, alias="RECON_OFFLINE")
     """When true, skip the live verify call. Used by tests and the demo corpus."""
 
+    demo: bool = Field(default=False, alias="RECON_DEMO")
+    """When true, the pages show the generated practice books in `fixtures/`
+    instead of the business's own, which live in the database."""
+
     verify_timeout_seconds: float = Field(default=10.0, alias="RECON_VERIFY_TIMEOUT")
 
     @field_validator("paystack_secret_key")
