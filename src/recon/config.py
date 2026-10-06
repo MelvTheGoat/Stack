@@ -31,6 +31,7 @@ class Settings(BaseSettings):
     paystack_base_url: str = Field(default="https://api.paystack.co", alias="PAYSTACK_BASE_URL")
     database_url: str = Field(
         default="sqlite+pysqlite:///./recon.db",
+        alias="RECON_DATABASE_URL",
         validation_alias=AliasChoices("RECON_DATABASE_URL", "DATABASE_URL"),
     )
     """Where the books are kept. `DATABASE_URL` is read too, because that is the
