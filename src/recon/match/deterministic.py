@@ -39,6 +39,16 @@ from recon.match.result import Match, unresolved
 #: need to be a string that is character-for-character a live invoice number.
 REFERENCE_PATTERN = re.compile(r"\b([A-Z]{2,6}[-/ ]?\d{3,8})\b", re.IGNORECASE)
 
+
+def canonical_reference(raw: str) -> str:
+    """One spelling per invoice number: "inv/0042" and "INV 0042" are INV-0042.
+
+    Uploads store references this way too, so what a payer types and what the
+    ledger holds meet in the middle.
+    """
+    return raw.strip().upper().replace("/", "-").replace(" ", "-")
+
+
 #: How long after an invoice is issued a payment can still be matched to it on
 #: amount alone. Ten days covers "I'll pay you next week" without stretching so
 #: far that every old invoice becomes a candidate.
@@ -174,9 +184,9 @@ class DeterministicMatcher:
         """An invoice number we can look up, either structured or in the text."""
         candidates: list[tuple[str, str]] = []
 
-        if self.ledger.knows_reference(txn.stated_reference):
-            assert txn.stated_reference is not None
-            candidates.append((txn.stated_reference, "stated_reference"))
+        stated = canonical_reference(txn.stated_reference) if txn.stated_reference else None
+        if stated is not None and self.ledger.knows_reference(stated):
+            candidates.append((stated, "stated_reference"))
 
         for found in self._references_in(txn.narration):
             candidates.append((found, "narration"))
@@ -210,7 +220,7 @@ class DeterministicMatcher:
         """Pull invoice-shaped tokens out of free text, keeping only real ones."""
         found: list[str] = []
         for raw in REFERENCE_PATTERN.findall(text or ""):
-            normalised = raw.upper().replace("/", "-").replace(" ", "-")
+            normalised = canonical_reference(raw)
             if self.ledger.knows_reference(normalised):
                 found.append(normalised)
         return found
