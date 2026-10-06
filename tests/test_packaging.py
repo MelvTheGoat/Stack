@@ -29,13 +29,23 @@ def test_every_template_the_code_renders_actually_exists() -> None:
 
 
 def test_the_dockerfile_ships_the_corpus_and_the_model() -> None:
-    """The image has to boot into a working queue with no database and no
-    training step."""
+    """The image has to boot into a working queue with no training step."""
     dockerfile = (ROOT / "Dockerfile").read_text()
     assert "COPY fixtures" in dockerfile
     assert "COPY models" in dockerfile
     assert "USER recon" in dockerfile, "do not run as root"
-    assert "${PORT}" in dockerfile, "Cloud Run picks the port"
+    assert "${PORT}" in dockerfile, "the host picks the port"
+
+
+def test_the_image_can_reach_a_hosts_postgres() -> None:
+    """A database URL baked into the image would win over the DATABASE_URL a
+    host sets when it attaches Postgres, and the books would quietly stay in a
+    file the next redeploy deletes."""
+    dockerfile = (ROOT / "Dockerfile").read_text()
+    assert '".[postgres]"' in dockerfile
+    assert "RECON_DATABASE_URL" not in dockerfile
+    assert "RECON_OFFLINE=1" not in dockerfile, "real payments must be verified"
+    assert "--proxy-headers" in dockerfile, "the webhook address must come out as https"
 
 
 def test_the_env_example_exists_and_carries_no_real_key() -> None:

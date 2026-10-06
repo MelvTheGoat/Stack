@@ -4,10 +4,15 @@
 # The smoke test is a build step on purpose. A container can boot cleanly and
 # still 500 on the review queue, so nothing deploys until the real pages have
 # been opened against the real image.
+#
+# This deploys the practice data (_DEMO=1), open to anyone. To run it on your
+# own books instead, set _DEMO=0 and give the service a RECON_PASSWORD secret
+# and a DATABASE_URL; docs/DEPLOY.md has the steps.
 substitutions:
   _SERVICE: reckon
   _REGION: europe-west1
   _SECRET: paystack-test-key
+  _DEMO: "1"
 
 options:
   logging: CLOUD_LOGGING_ONLY
@@ -36,6 +41,7 @@ steps:
         docker run -d --name smoke \
           -e PAYSTACK_SECRET_KEY=sk_test_smoke \
           -e RECON_OFFLINE=1 \
+          -e RECON_DEMO=1 \
           gcr.io/$PROJECT_ID/$_SERVICE:$SHORT_SHA
         docker cp scripts/smoke.py smoke:/tmp/smoke.py
         docker exec smoke python /tmp/smoke.py http://localhost:8080
@@ -56,5 +62,5 @@ steps:
       - --cpu=1
       - --min-instances=0
       - --max-instances=3
-      - --set-env-vars=RECON_OFFLINE=0
+      - --set-env-vars=RECON_OFFLINE=0,RECON_DEMO=$_DEMO
       - --set-secrets=PAYSTACK_SECRET_KEY=$_SECRET:latest

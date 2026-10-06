@@ -1,5 +1,5 @@
 # Reckon - developer tasks. `make check` runs everything CI runs.
-.PHONY: install lint fmt types test check corpus train eval eval-llm serve deploy clean
+.PHONY: install lint fmt types test check corpus train eval eval-llm serve demo deploy clean
 
 install:
 	pip install -e ".[dev]"
@@ -41,9 +41,13 @@ eval:
 eval-llm:
 	python -m recon.evaluation.harness --fixtures fixtures --out out --with-model
 
-# The review queue and the daily report, at http://localhost:8000/review
+# Your own books, at http://localhost:8000/setup. Needs RECON_PASSWORD in .env.
 serve:
 	uvicorn recon.app:app --reload --port 8000
+
+# The practice data, at http://localhost:8000/review. No password, no setup.
+demo:
+	RECON_DEMO=1 RECON_OFFLINE=1 uvicorn recon.app:app --reload --port 8000
 
 # Build, smoke-test and deploy to Cloud Run. Needs gcloud and a project.
 deploy:
