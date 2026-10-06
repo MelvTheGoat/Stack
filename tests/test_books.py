@@ -223,9 +223,14 @@ class TestTheCorpusReadFromTheDatabase:
                 ), reference
             assert ours.layer is not Layer.PROBABILISTIC
 
-        cleared_by_the_model = sum(1 for m in demo.matches if m.layer is Layer.PROBABILISTIC)
-        assert cleared_by_the_model > 0
-        assert len(own.queue.items) == len(demo.queue.items) + cleared_by_the_model
+        cleared_by_the_model = [m for m in demo.matches if m.layer is Layer.PROBABILISTIC]
+        assert cleared_by_the_model
+        assert len(own.queue.items) == len(demo.queue.items) + len(cleared_by_the_model)
+
+        # What waits for a person instead still has the right answer on top.
+        for theirs in cleared_by_the_model:
+            first = own_by_payment[theirs.transaction_reference].evidence["candidates"][0]
+            assert first["orders"] == list(theirs.order_references), theirs.transaction_reference
 
     def test_the_settlement_batches_come_back_with_their_counts(self) -> None:
         with session_scope() as session:
