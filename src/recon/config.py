@@ -37,6 +37,9 @@ class Settings(BaseSettings):
     """When true, the pages show the generated practice books in `fixtures/`
     instead of the business's own, which live in the database."""
 
+    password: str = Field(default="", alias="RECON_PASSWORD", repr=False)
+    """The password in front of the pages. Required on your own books."""
+
     verify_timeout_seconds: float = Field(default=10.0, alias="RECON_VERIFY_TIMEOUT")
 
     @field_validator("paystack_secret_key")

@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Form, Request
+from fastapi import APIRouter, Depends, Form, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
@@ -27,11 +27,12 @@ from recon.match.threshold import reviews_in_an_evening
 from recon.models import MatchDecision
 from recon.report import settlement
 from recon.review import queue as review_queue
+from recon.review.access import reviewer
 from recon.state import workspace
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(reviewer)])
 
 REASON_LABELS: tuple[tuple[str, str], ...] = (
     (RejectReason.WRONG_CUSTOMER.value, "Wrong customer"),
@@ -74,13 +75,15 @@ def review_page(request: Request) -> Any:
 
 
 @router.post("/review/{reference}/approve")
-def approve(reference: str, orders: str = Form(default="")) -> RedirectResponse:
+def approve(
+    reference: str, orders: str = Form(default=""), who: str = Depends(reviewer)
+) -> RedirectResponse:
     space = workspace()
     item = space.item(reference)
     chosen = [part for part in orders.split(",") if part]
     if item is not None:
         with session_scope() as session:
-            review_queue.approve(session, item, chosen, who=space.reviewer)
+            review_queue.approve(session, item, chosen, who=who)
         space.mark_decided(reference)
         state.changed()
     return RedirectResponse("/review", status_code=303)
@@ -88,13 +91,15 @@ def approve(reference: str, orders: str = Form(default="")) -> RedirectResponse:
 
 @router.post("/review/{reference}/reject")
 def reject(
-    reference: str, reason: str = Form(default=RejectReason.OTHER.value)
+    reference: str,
+    reason: str = Form(default=RejectReason.OTHER.value),
+    who: str = Depends(reviewer),
 ) -> RedirectResponse:
     space = workspace()
     item = space.item(reference)
     if item is not None:
         with session_scope() as session:
-            review_queue.reject(session, item, RejectReason(reason), who=space.reviewer)
+            review_queue.reject(session, item, RejectReason(reason), who=who)
         space.mark_decided(reference)
         state.changed()
     return RedirectResponse("/review", status_code=303)

@@ -42,7 +42,6 @@ class Workspace:
     matches: list[Match]
     settlements: list[dict[str, Any]]
     queue: review_queue.Queue
-    reviewer: str = "melvyn"
     decided: set[str] = field(default_factory=set)
     demo: bool = True
 
