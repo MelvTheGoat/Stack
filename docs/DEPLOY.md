@@ -2,9 +2,10 @@
 
 Reckon runs in one of two ways:
 
-- **On your own books** (the default). Pages read from the database and stay
-  shut until `RECON_PASSWORD` is set. Empty until you bring data in on the
-  **Your data** page (`/setup`).
+- **On your own books** (the default). Pages read from the database and need a
+  login. They stay shut until there is an admin (`RECON_ADMIN_EMAIL` and
+  `RECON_PASSWORD`). Empty until you bring data in on the **Your data** page
+  (`/setup`).
 - **On the practice data** (`RECON_DEMO=1`). A generated month of payments,
   open to anyone, nothing to set up.
 
@@ -12,7 +13,7 @@ Reckon runs in one of two ways:
 
 ```bash
 make install          # dependencies and the pre-commit hooks
-cp .env.example .env  # then put your sk_test_ key and a RECON_PASSWORD in it
+cp .env.example .env  # your sk_test_ key, RECON_ADMIN_EMAIL and RECON_PASSWORD
 make corpus           # build the month of fake payments
 make train            # fit the matcher, writes models/
 make eval             # every number in the README
@@ -29,7 +30,8 @@ time, on purpose: a number you cannot regenerate is a number you cannot trust.
 docker build -t reckon .
 
 # your own books
-docker run -p 8080:8080 -e PAYSTACK_SECRET_KEY=sk_test_xxx -e RECON_PASSWORD=pick-one \
+docker run -p 8080:8080 -e PAYSTACK_SECRET_KEY=sk_test_xxx \
+  -e RECON_ADMIN_EMAIL=you@example.com -e RECON_PASSWORD=at-least-ten-chars \
   -e DATABASE_URL=postgresql://user:pass@host:5432/reckon reckon
 
 # the practice data
@@ -53,15 +55,18 @@ This is the shortest way to run it on your own books.
    | Variable | Value |
    | --- | --- |
    | `PAYSTACK_SECRET_KEY` | your `sk_test_` key, from Paystack's Settings → API Keys & Webhooks |
-   | `RECON_PASSWORD` | anything long; you log in with any name and this |
+   | `RECON_ADMIN_EMAIL` | your email; this account is the admin |
+   | `RECON_PASSWORD` | your admin password the first time, at least 10 characters |
    | `DATABASE_URL` | `${{Postgres.DATABASE_URL}}`, a reference to the database from step 2 |
 
    If Railway offered the variables from `.env.example` and you accepted them,
    delete `RECON_DATABASE_URL` and `RECON_OFFLINE`. The first would keep your
    books in a file the next deploy wipes, and the second would skip checking
    payments with Paystack.
-4. **Generate a domain** under the service's Networking settings, open it, log
-   in, and go to **Your data**. Copy the webhook address it shows into Paystack
+4. **Generate a domain** under the service's Networking settings, open it, and
+   log in with your email and that password. Change the password straight away
+   from your name in the top bar: after the first start, `RECON_PASSWORD` is
+   never read again. Then go to **Your data**. Copy the webhook address it shows into Paystack
    (next section), upload your invoices, and pull your past payments.
 
 Every push to the branch Railway watches redeploys. With Postgres attached, your
@@ -71,7 +76,8 @@ books and every decision survive it.
 
 One command. As written it deploys the practice data, open to anyone. To run it
 on your own books, set `_DEMO` to `0` in `cloudbuild.yaml`, create secrets for
-`RECON_PASSWORD` and `DATABASE_URL` the same way as the Paystack key below, and
+`RECON_ADMIN_EMAIL`, `RECON_PASSWORD` and `DATABASE_URL` the same way as the
+Paystack key below, and
 add both to the `--set-secrets` line of the deploy step.
 
 ```bash
@@ -92,10 +98,11 @@ the HTML templates were left out of the wheel — so a health endpoint is not
 enough of a gate.
 
 `scripts/smoke.py` is the same check, and you can point it at anything. On your
-own books, give it the password so it can log in:
+own books, give it the admin login:
 
 ```bash
-RECON_PASSWORD=pick-one python3 scripts/smoke.py https://reckon-xxxx.a.run.app
+RECON_ADMIN_EMAIL=you@example.com RECON_PASSWORD=your-password \
+  python3 scripts/smoke.py https://reckon-xxxx.a.run.app
 ```
 
 The key goes in Secret Manager, never in `--set-env-vars`. Environment variables
@@ -129,6 +136,20 @@ event into dozens.
 * `GET /api/queue` — what is waiting for a person.
 * The `webhook_events` table — any row with `signature_ok = false` is somebody
   POSTing at your endpoint who does not have your secret key.
+
+## People
+
+Anyone can open `/signup` and make an account. It waits, and can do nothing,
+until an admin lets it in from **People**. Admins can also remove someone (their
+logins end on their next click; their name stays on what they already did),
+make someone else an admin, or step down once there is another admin. The app
+refuses any change that would leave no active admin, and on every start it
+makes the `RECON_ADMIN_EMAIL` account an active admin again, so the person
+running the deployment cannot be locked out of it.
+
+**Activity** is the audit log, newest first: sign-ups, approvals, uploads,
+pulls from Paystack and every decision, with who did it. Nothing on that page,
+or anywhere else, can change or delete an entry.
 
 ## Notes on state
 

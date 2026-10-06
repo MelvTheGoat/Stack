@@ -37,9 +37,15 @@ page:
 Then open the **Review queue**. Anything Reckon could prove is already closed.
 Anything it could not is waiting for you, biggest money first.
 
-To run your own copy, set three things: `PAYSTACK_SECRET_KEY` (your `sk_test_`
-key), `RECON_PASSWORD` (the pages show customers' names, so they stay shut
-without one), and a Postgres database, so the books survive a redeploy.
+Everyone who works the books gets their own login. They sign up, and an admin
+lets them in. The admin also sees a **People** page (who has access, who is
+waiting) and an **Activity** page (everything anybody did, newest first, from
+the audit log). Every decision is signed with the email of whoever made it.
+
+To run your own copy, set four things: `PAYSTACK_SECRET_KEY` (your `sk_test_`
+key), `RECON_ADMIN_EMAIL` and `RECON_PASSWORD` (your admin login: the pages
+show customers' names, so they stay shut until there is an admin), and a
+Postgres database, so the books survive a redeploy.
 [`docs/DEPLOY.md`](docs/DEPLOY.md) has it step by step. To look around with
 made-up data first, run `make demo`.
 
@@ -300,9 +306,11 @@ narration.** A few letters and then digits, like `INV-0042` or `ORD12345`. An
 invoice numbered just `1042` is still matched when it arrives as structured data
 or by its amount, but not when a payer types it into a transfer.
 
-**One shared password.** Anyone with it can log in under any name, and that name
-goes on their decisions. Right for a shop with three people at the till; anything
-bigger wants real accounts.
+**Two kinds of account, and nothing finer.** Staff can do everything with the
+books, including uploads; admins can also let people in and read the activity
+log. There is no read-only account, no email check that the address is real,
+and no way to reset a forgotten password except an admin removing the account
+and the person signing up again.
 
 **The model layer's own number is not in this README yet.** The reader is
 implemented against the Anthropic SDK and tested against a stubbed client, and
@@ -356,7 +364,8 @@ time `make deploy` runs.
 | `recon.match.model` / `.calibration` / `.threshold` | Eighteen named features, a logistic fit written out longhand, and a line drawn from a cost matrix. |
 | `recon.intake` | Reads payment reports written by people, or refuses. Patterns first. |
 | `recon.intake.anthropic_reader` | The last layer: Claude, constrained to a schema generated from the Pydantic model, allowed to say no, never asked twice. |
-| `recon.review` | The queue, the decisions, the labels they produce, the setup page and the password. |
+| `recon.review` | The queue, the decisions, the labels they produce, the setup page, and the login and admin pages. |
+| `recon.accounts` | Sign-up, approval, scrypt-hashed passwords, logins, and the rule that there is always an admin. |
 | `recon.imports` | Invoices and bank-statement payments from CSV. One bad row and nothing goes in. |
 | `recon.books` | Your own books, read out of the database in the shapes the matcher already takes. |
 | `recon.report.settlement` | The daily report: gross, fees and timing shown separately rather than netted into one unexplained difference. |
@@ -376,7 +385,8 @@ make demo               # the practice data, at http://localhost:8000/review
 make serve              # your own books, at http://localhost:8000/setup
 ```
 
-`make serve` needs `RECON_PASSWORD` in `.env`; the pages stay shut without it.
+`make serve` needs `RECON_ADMIN_EMAIL` and `RECON_PASSWORD` in `.env`; that is
+your admin login, and the pages stay shut until it exists.
 
 To score the model layer as well:
 

@@ -6,8 +6,8 @@
 # been opened against the real image.
 #
 # This deploys the practice data (_DEMO=1), open to anyone. To run it on your
-# own books instead, set _DEMO=0 and give the service a RECON_PASSWORD secret
-# and a DATABASE_URL; docs/DEPLOY.md has the steps.
+# own books instead, set _DEMO=0 and give the service RECON_ADMIN_EMAIL,
+# RECON_PASSWORD and DATABASE_URL secrets; docs/DEPLOY.md has the steps.
 substitutions:
   _SERVICE: reckon
   _REGION: europe-west1

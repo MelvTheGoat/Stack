@@ -285,22 +285,28 @@ fit the model again on the business's own decisions, which nothing does yet.
 
 ---
 
-## 14. One shared password, and the name typed at login goes on the decision
+## 14. Everyone gets their own login, and an admin lets them in
 
-**Picked:** HTTP basic auth with one password from `RECON_PASSWORD`, any name,
-and the pages shut entirely on your own books until it is set.
+**Picked:** accounts with an email and a scrypt-hashed password. Anyone can
+sign up; nobody gets in until an admin approves them. Two roles, staff and
+admin. The admin is named by `RECON_ADMIN_EMAIL` and is restored on every
+start. Logins are a random cookie, of which only a hash is stored, checked
+against the account on every request.
 
-**Rejected:** leaving the pages open, as they were on the practice data. Also
-rejected for now: user accounts.
+**Rejected:** one shared password with any name typed at the login box, which
+is what this replaced. Also rejected: open sign-up with no approval, and
+invite links.
 
-**Why:** the queue shows customers' names, amounts and narrations, and the
-deployed address is not a secret. Open was fine while every customer was
-invented. Accounts are the right answer for a bigger team and a lot more code
-than a shop with three people at the till needs; a name at the login box still
-puts a name on every decision, which is what the audit log is for.
+**Why:** with a shared password the name on a decision was whatever was typed,
+so the audit log recorded a claim, not a person. Open sign-up lets a stranger
+who finds the address read the customers' names. Invite links need email
+sending, which this does not have. A cookie checked against the database on
+every click means removing someone takes effect immediately, which a signed
+cookie on its own cannot do.
 
-**What it costs:** anyone with the password can type someone else's name. The
-audit log records what they typed, not who they are.
+**What it costs:** a table of people to look after. No email is ever sent, so
+an address is not proved to be real and a forgotten password needs an admin.
+Failed logins are counted in memory, so a restart forgets them.
 
 ---
 
