@@ -22,6 +22,8 @@ dependencies = [
 # The last extraction layer. Kept out of the core install so the service runs,
 # and the whole test suite passes, with no model provider at all.
 llm = ["anthropic>=1.0"]
+# For keeping the books in Postgres. The Docker image installs it.
+postgres = ["psycopg[binary]>=3.1"]
 dev = [
     "pytest>=8.0",
     "pytest-cov>=4.1",
