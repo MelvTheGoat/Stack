@@ -103,3 +103,29 @@ def test_a_webhook_lands_in_postgres_and_on_the_pages() -> None:
         )
     assert response.json()["status"] == "accepted"
     assert [txn.reference for txn in state.workspace().transactions] == ["ref_pg"]
+
+
+def test_an_account_signs_up_is_let_in_and_logs_in() -> None:
+    from recon import accounts
+    from recon.config import Settings
+
+    with session_scope() as session:
+        boss = accounts.ensure_admin(
+            session,
+            Settings(
+                PAYSTACK_SECRET_KEY="sk_test_postgres",
+                RECON_ADMIN_EMAIL="boss@example.com",
+                RECON_PASSWORD="a long enough password",
+            ),
+        )
+        assert boss is not None
+        ada = accounts.sign_up(
+            session, name="Ada Okonkwo", email="ada@example.com", password="ada's password!"
+        )
+        accounts.change(session, boss, ada.id, "approve")
+
+    with session_scope() as session:
+        _, token = accounts.log_in(session, email="ada@example.com", password="ada's password!")
+    with session_scope() as session:
+        user = accounts.user_for(session, token)
+        assert user is not None and user.email == "ada@example.com"

@@ -7,6 +7,12 @@
   Every decision you make is signed with your email.</p>
 {% if problem %}<div class="problem">{{ problem }}</div>{% endif %}
 {% if me.id %}
+<h2>Your name</h2>
+<form method="post" action="/account/name" class="block">
+  <label for="name">What other people see</label>
+  <input id="name" name="name" value="{{ me.name }}" autocomplete="name" required>
+  <button class="yes" type="submit">Save name</button>
+</form>
 <h2>Change your password</h2>
 <form method="post" action="/account/password" class="block">
   <label for="current">Current password</label>

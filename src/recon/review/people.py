@@ -108,6 +108,24 @@ def account_page(request: Request, viewer: Viewer = Depends(current_viewer)) -> 
     return templates.TemplateResponse(request, "account.html", {"me": viewer})
 
 
+@router.post("/account/name", response_class=HTMLResponse)
+def change_name(
+    request: Request, name: str = Form(default=""), viewer: Viewer = Depends(current_viewer)
+) -> Any:
+    if viewer.id is None:
+        return RedirectResponse("/account", status_code=303)
+    try:
+        with session_scope() as session:
+            user = session.get(User, viewer.id)
+            assert user is not None
+            accounts.rename(session, user, name)
+    except AccountError as exc:
+        return templates.TemplateResponse(
+            request, "account.html", {"me": viewer, "problem": str(exc)}, status_code=400
+        )
+    return RedirectResponse("/account", status_code=303)
+
+
 @router.post("/account/password", response_class=HTMLResponse)
 def change_password(
     request: Request,

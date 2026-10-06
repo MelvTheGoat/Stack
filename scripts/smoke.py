@@ -9,39 +9,62 @@ It checks more than a health endpoint. A container can boot cleanly and still
 were left out of the wheel — so this opens the real pages and checks the day's
 report actually balances.
 
-An instance on its own books has its pages behind RECON_PASSWORD. Put the same
-password in this shell's environment and the check logs in with it.
+An instance on its own books has its pages behind a login. Put the admin's
+email and password in this shell (RECON_ADMIN_EMAIL, RECON_PASSWORD) and the
+check logs in with them first.
 """
 
 from __future__ import annotations
 
-import base64
+import http.cookiejar
 import json
 import os
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 PAGES = ("/health", "/review", "/report", "/setup", "/api/queue", "/api/report")
 
+#: Keeps the login cookie between requests, the way a browser would.
+_browser = urllib.request.build_opener(
+    urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar())
+)
+
+LOCKED = (
+    "is locked. Set RECON_ADMIN_EMAIL and RECON_PASSWORD on the service, and the "
+    "same two in this shell so the smoke test can log in."
+)
+
 
 def fetch(base: str, path: str, timeout: float = 15.0) -> tuple[int, bytes]:
-    request = urllib.request.Request(f"{base}{path}")
-    password = os.environ.get("RECON_PASSWORD")
-    if password:
-        token = base64.b64encode(f"smoke:{password}".encode()).decode()
-        request.add_header("Authorization", f"Basic {token}")
     try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
+        with _browser.open(f"{base}{path}", timeout=timeout) as response:
+            # A page that needs a login answers with the login box, which is a
+            # 200. Landing there means the page itself was never seen.
+            if path != "/login" and urllib.parse.urlparse(response.geturl()).path == "/login":
+                raise SystemExit(f"{path} {LOCKED}")
             return response.status, response.read()
     except urllib.error.HTTPError as exc:
         if exc.code in (401, 503):
-            raise SystemExit(
-                f"{path} is locked ({exc.code}). Set RECON_PASSWORD on the service, "
-                "and in this shell so the smoke test can log in."
-            ) from exc
+            raise SystemExit(f"{path} ({exc.code}) {LOCKED}") from exc
         raise
+
+
+def log_in(base: str) -> bool:
+    email = os.environ.get("RECON_ADMIN_EMAIL")
+    password = os.environ.get("RECON_PASSWORD")
+    if not (email and password):
+        return False
+    form = urllib.parse.urlencode({"email": email, "password": password}).encode()
+    try:
+        with _browser.open(f"{base}/login", data=form, timeout=15) as response:
+            if urllib.parse.urlparse(response.geturl()).path == "/login":
+                raise SystemExit("logging in failed: check RECON_ADMIN_EMAIL and RECON_PASSWORD")
+    except urllib.error.HTTPError as exc:
+        raise SystemExit(f"logging in failed ({exc.code}): check the email and password") from exc
+    return True
 
 
 def wait_for(base: str, seconds: int = 60) -> None:
@@ -62,6 +85,8 @@ def main(argv: list[str]) -> int:
     wait_for(base)
     _, raw = fetch(base, "/health")
     demo = json.loads(raw).get("books") == "demo"
+    if log_in(base):
+        print("  logged in")
 
     for path in PAGES:
         status, body = fetch(base, path)

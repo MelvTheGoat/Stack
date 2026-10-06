@@ -260,6 +260,24 @@ def log_out(session: Session, token: str | None) -> None:
         login = session.get(LoginSession, _token_hash(token))
         if login is not None:
             session.delete(login)
+            # Written now, so nothing later in this request still finds it.
+            session.flush()
+
+
+def rename(session: Session, user: User, name: str) -> None:
+    """What other people see. Decisions stay signed with the email."""
+    clean = " ".join(name.split())[:100]
+    if not clean:
+        raise AccountError("A name cannot be blank.")
+    audit.record(
+        session,
+        action="renamed",
+        subject_type="user",
+        subject_id=user.email,
+        actor=user.email,
+        evidence={"from": user.name, "to": clean},
+    )
+    user.name = clean
 
 
 def change_password(session: Session, user: User, *, current: str, new: str) -> None:

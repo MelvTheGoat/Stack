@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterator
 from typing import Any
 
 import httpx
@@ -17,18 +16,10 @@ from recon.models import Order, Transaction
 from recon.paystack.client import PaystackClient
 from tests import factories
 
-PASSWORD = "correct horse"
-
 
 @pytest.fixture
-def client(own_books: None, monkeypatch: pytest.MonkeyPatch) -> Iterator[TestClient]:
-    from recon.app import app
-
-    monkeypatch.setenv("RECON_PASSWORD", PASSWORD)
-    get_settings.cache_clear()
-    with TestClient(app) as test_client:
-        test_client.auth = ("ada", PASSWORD)
-        yield test_client
+def client(admin_client: TestClient) -> TestClient:
+    return admin_client
 
 
 def upload(client: TestClient, path: str, body: str | bytes) -> Any:
