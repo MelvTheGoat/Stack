@@ -33,11 +33,13 @@ from sqlalchemy import (
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 from recon.enums import (
+    AccountStatus,
     Channel,
     DecisionStatus,
     Layer,
     OrderStatus,
     RejectReason,
+    Role,
     TransactionStatus,
 )
 from recon.money import Money
@@ -314,3 +316,51 @@ class AuditRecord(Base):
     actor: Mapped[str] = mapped_column(String(64), default="system")
     inputs_json: Mapped[str] = _json_column(default="{}")
     evidence_json: Mapped[str] = _json_column(default="{}")
+
+
+class User(Base):
+    """A person who can log in.
+
+    Never deleted. Their email is on decisions and in the audit log, and a
+    removed account has to still explain who that was.
+    """
+
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    #: Lower-cased. What they log in with, and what goes on their decisions.
+    email: Mapped[str] = mapped_column(String(64), unique=True, index=True)
+    name: Mapped[str] = mapped_column(String(100))
+    password_hash: Mapped[str] = mapped_column(String(255))
+    role: Mapped[Role] = mapped_column(_enum_column(Role), default=Role.STAFF)
+    status: Mapped[AccountStatus] = mapped_column(
+        _enum_column(AccountStatus), default=AccountStatus.PENDING, index=True
+    )
+    created_at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow)
+    decided_at: Mapped[datetime | None] = mapped_column(UtcDateTime(), default=None)
+    decided_by: Mapped[str | None] = mapped_column(String(64), default=None)
+    last_login_at: Mapped[datetime | None] = mapped_column(UtcDateTime(), default=None)
+
+    @property
+    def is_admin(self) -> bool:
+        return self.role is Role.ADMIN
+
+    @property
+    def is_active(self) -> bool:
+        return self.status is AccountStatus.ACTIVE
+
+
+class LoginSession(Base):
+    """One logged-in browser.
+
+    Only a hash of the cookie is stored, so a copy of this table does not log
+    anybody in. Every request re-checks the account, so removing someone ends
+    their sessions at once rather than when the cookie runs out.
+    """
+
+    __tablename__ = "login_sessions"
+
+    token_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    created_at: Mapped[datetime] = mapped_column(UtcDateTime(), default=utcnow)
+    expires_at: Mapped[datetime] = mapped_column(UtcDateTime(), index=True)

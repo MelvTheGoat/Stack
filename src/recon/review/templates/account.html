@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Your account{% endblock %}
+{% block body %}
+<div class="narrow">
+<h2>{{ me.name }}</h2>
+<p class="lede">{{ me.email }} · {{ 'admin' if me.is_admin else 'staff' }}.
+  Every decision you make is signed with your email.</p>
+{% if problem %}<div class="problem">{{ problem }}</div>{% endif %}
+{% if me.id %}
+<h2>Change your password</h2>
+<form method="post" action="/account/password" class="block">
+  <label for="current">Current password</label>
+  <input id="current" name="current" type="password" autocomplete="current-password" required>
+  <label for="new">New password (at least 10 characters)</label>
+  <input id="new" name="new" type="password" minlength="10" autocomplete="new-password" required>
+  <button class="yes" type="submit">Change password</button>
+</form>
+<p class="lede">You will be logged out everywhere and asked to log in again.</p>
+{% endif %}
+</div>
+{% endblock %}

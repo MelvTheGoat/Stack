@@ -43,8 +43,13 @@ class Settings(BaseSettings):
     """When true, the pages show the generated practice books in `fixtures/`
     instead of the business's own, which live in the database."""
 
+    admin_email: str = Field(default="", alias="RECON_ADMIN_EMAIL")
+    """The admin's email. On startup this account is made (or kept) an active
+    admin, so whoever runs the deployment can never be locked out of it."""
+
     password: str = Field(default="", alias="RECON_PASSWORD", repr=False)
-    """The password in front of the pages. Required on your own books."""
+    """The admin's first password, used only when that account is created.
+    Change it afterwards from the account page; this value is then ignored."""
 
     verify_timeout_seconds: float = Field(default=10.0, alias="RECON_VERIFY_TIMEOUT")
 

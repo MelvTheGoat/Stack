@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}People{% endblock %}
+{% macro act(id, action, label, cls='') -%}
+<form method="post" action="/admin/people/{{ id }}/{{ action }}"><button type="submit" class="{{ cls }}">{{ label }}</button></form>
+{%- endmacro %}
+{% block body %}
+<p class="lede">
+  Who can get in. New sign-ups wait here until you let them in. Removing someone
+  logs them out straight away; their name stays on what they already did.
+</p>
+{% if problem %}<div class="problem">{{ problem }}</div>{% endif %}
+<div class="scroll">
+<table>
+  <tr><th>Person</th><th>Access</th><th>Joined</th><th>Last log in</th>
+      <th class="num">Decisions</th><th></th></tr>
+  {% for p in people %}
+  <tr>
+    <td><strong>{{ p.name }}</strong><br><span class="small">{{ p.email }}</span></td>
+    <td><span class="tag {{ p.status }}">{{ p.status }}</span> {{ p.role }}</td>
+    <td class="small">{{ p.joined }}</td>
+    <td class="small">{{ p.last_login }}</td>
+    <td class="num">{{ p.decisions }}</td>
+    <td>
+      {% if p.status == 'pending' %}
+        {{ act(p.id, 'approve', 'Let in', 'yes') }} {{ act(p.id, 'remove', 'Turn away') }}
+      {% elif p.status == 'active' %}
+        {% if not p.is_the_deployment_admin %}
+          {% if p.role == 'staff' %}{{ act(p.id, 'make_admin', 'Make admin') }}{% else %}{{ act(p.id, 'make_staff', 'Make staff') }}{% endif %}
+          {{ act(p.id, 'remove', 'Remove') }}
+        {% else %}
+          <span class="small">set by RECON_ADMIN_EMAIL</span>
+        {% endif %}
+      {% else %}
+        {{ act(p.id, 'restore', 'Let back in') }}
+      {% endif %}
+      <a class="small" href="/admin/activity?who={{ p.email|urlencode }}">activity</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<p class="lede" style="margin-top:14px">Admins see this page and the activity log, and can let people in.
+Staff work the queue, the report and the uploads.</p>
+{% endblock %}

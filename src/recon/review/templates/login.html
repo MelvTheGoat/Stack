@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Log in{% endblock %}
+{% block body %}
+<div class="narrow">
+<h2>Log in</h2>
+{% if problem %}<div class="problem">{{ problem }}</div>{% endif %}
+{% if request.query_params.get('changed') %}<div class="note">Password changed. Log in with the new one.</div>{% endif %}
+<form method="post" action="/login" class="block">
+  <input type="hidden" name="next" value="{{ next }}">
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" value="{{ email or '' }}" autocomplete="username" required autofocus>
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password" autocomplete="current-password" required>
+  <button class="yes" type="submit">Log in</button>
+</form>
+<p class="lede">No account yet? <a href="/signup">Sign up</a>. An admin lets you in.</p>
+</div>
+{% endblock %}

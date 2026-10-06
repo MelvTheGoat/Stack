@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Activity{% endblock %}
+{% block body %}
+<p class="lede">
+  Everything anybody did, newest first, straight from the audit log. Nothing in
+  it can be changed or deleted, from this page or any other.
+</p>
+<form method="get" action="/admin/activity" class="block">
+  <select name="who">
+    <option value="">Everyone</option>
+    {% for actor, name in actors %}<option value="{{ actor }}" {% if actor == who %}selected{% endif %}>{{ name }}</option>{% endfor %}
+  </select>
+  <button type="submit">Show</button>
+  <span class="small">{{ total }} entries</span>
+</form>
+<div class="scroll">
+<table>
+  <tr><th>When (UTC)</th><th>Who</th><th>What</th><th>On</th><th>Detail</th></tr>
+  {% for e in entries %}
+  <tr>
+    <td class="small">{{ e.at }}</td>
+    <td>{{ e.who }}</td>
+    <td>{{ e.what }}</td>
+    <td class="small">{{ e.subject }}</td>
+    <td class="small">{{ e.detail }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="5" class="small">Nothing yet.</td></tr>
+  {% endfor %}
+</table>
+</div>
+{% if pages > 1 %}
+<p class="lede">
+  Page {{ page }} of {{ pages }}.
+  {% if page > 1 %}<a href="?who={{ who|urlencode }}&page={{ page - 1 }}">Newer</a>{% endif %}
+  {% if page < pages %}<a href="?who={{ who|urlencode }}&page={{ page + 1 }}">Older</a>{% endif %}
+</p>
+{% endif %}
+{% endblock %}

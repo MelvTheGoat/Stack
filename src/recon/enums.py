@@ -99,3 +99,22 @@ class RejectReason(StrEnum):
     NOT_A_PAYMENT = "not_a_payment"
     ALREADY_SETTLED = "already_settled"
     OTHER = "other"
+
+
+class Role(StrEnum):
+    """What a person may do."""
+
+    STAFF = "staff"
+    """Works the books: the queue, the report, the uploads."""
+
+    ADMIN = "admin"
+    """Everything staff can do, plus who gets in and what everybody did."""
+
+
+class AccountStatus(StrEnum):
+    PENDING = "pending"
+    """Signed up, waiting for an admin to let them in."""
+
+    ACTIVE = "active"
+    DISABLED = "disabled"
+    """Let go, or never let in. Kept, because their name is on decisions."""

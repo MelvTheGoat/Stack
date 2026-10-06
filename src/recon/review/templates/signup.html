@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Sign up{% endblock %}
+{% block body %}
+<div class="narrow">
+<h2>Sign up</h2>
+{% if done %}
+<div class="note">
+  <strong>Your account is made.</strong> An admin has to let you in before you can log in.
+  Once they have, <a href="/login">log in here</a>.
+</div>
+{% else %}
+{% if problem %}<div class="problem">{{ problem }}</div>{% endif %}
+<form method="post" action="/signup" class="block">
+  <label for="name">Your name</label>
+  <input id="name" name="name" value="{{ name or '' }}" autocomplete="name" required autofocus>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" value="{{ email or '' }}" autocomplete="username" required>
+  <label for="password">Password (at least 10 characters)</label>
+  <input id="password" name="password" type="password" minlength="10" autocomplete="new-password" required>
+  <button class="yes" type="submit">Sign up</button>
+</form>
+<p class="lede">Already have an account? <a href="/login">Log in</a>.</p>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,56 +1,82 @@
-"""Who may open the pages.
+"""Who is looking at the page, and what they may see.
 
-On the demo, anyone: the customers are made up. On a business's own books the
-pages show real customers' names and real money, so they sit behind a password,
-`RECON_PASSWORD`. Until one is set they do not open at all. A page that is
-public by accident is worse than a page that asks to be set up first.
+On the practice data anyone may look: the customers are made up. On a
+business's own books every page needs a login, and the admin pages need an
+admin. Until there is an admin at all (`RECON_ADMIN_EMAIL` and `RECON_PASSWORD`)
+the pages stay shut, because nobody could let anyone in.
 
-One shared password, and any name. The name is whatever the person types into
-the login box, and it goes on every decision they make, which is the reason for
-asking. It is not identity in the strong sense: anyone with the password can
-type a colleague's name. For a shop with three people at the till that is the
-right trade. Anything bigger wants real accounts.
-
-The webhook and the health check are never behind this. Paystack has no
-password to give, and its signature is the lock on that door.
+The webhook and the health check are never behind this. Paystack has no login
+to give, and its signature is the lock on that door.
 """
 
 from __future__ import annotations
 
-import hmac
+from dataclasses import dataclass
 
-from fastapi import Depends, HTTPException
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fastapi import Depends, Request
 
+from recon import accounts
 from recon.config import Settings, get_settings
+from recon.db import session_scope
 
-_basic = HTTPBasic(auto_error=False, realm="Reckon")
+#: The cookie a login lives in.
+COOKIE = "reckon_session"
 
-#: What a decision is signed with when nobody had to log in.
-DEMO_REVIEWER = "demo"
+
+@dataclass(frozen=True, slots=True)
+class Viewer:
+    """The person at the page, as the pages need them."""
+
+    name: str
+    email: str
+    is_admin: bool = False
+    id: int | None = None
+
+    @property
+    def signs_as(self) -> str:
+        """What goes on their decisions and in the audit log."""
+        return self.email
+
+
+#: Who is looking, on the practice data, when nobody has logged in.
+DEMO_VIEWER = Viewer(name="Demo", email="demo")
 
 
 class PagesLockedError(Exception):
-    """Own books, and no password set. Shown as a page that says what to do."""
+    """Own books, and no admin yet. Shown as a page that says what to set."""
 
 
-def reviewer(
-    credentials: HTTPBasicCredentials | None = Depends(_basic),
-    settings: Settings = Depends(get_settings),
-) -> str:
-    """The name of the person at the page, or a refusal."""
-    if not settings.password:
-        if settings.demo:
-            return DEMO_REVIEWER
-        raise PagesLockedError
+class LoginRequiredError(Exception):
+    """Nobody logged in. Pages send them to the login box; the API says 401."""
 
-    if credentials is None or not hmac.compare_digest(
-        credentials.password.encode(), settings.password.encode()
-    ):
-        raise HTTPException(
-            status_code=401,
-            detail="Wrong password. Any name will do; the password is RECON_PASSWORD.",
-            headers={"WWW-Authenticate": 'Basic realm="Reckon"'},
-        )
-    name = " ".join(credentials.username.split())[:64]
-    return name or "reviewer"
+
+class AdminOnlyError(Exception):
+    """Logged in, but this page is for admins."""
+
+
+def current_viewer(request: Request, settings: Settings = Depends(get_settings)) -> Viewer:
+    with session_scope() as session:
+        user = accounts.user_for(session, request.cookies.get(COOKIE))
+        if user is not None:
+            viewer = Viewer(name=user.name, email=user.email, is_admin=user.is_admin, id=user.id)
+        elif settings.demo:
+            viewer = DEMO_VIEWER
+        elif not accounts.an_admin_exists(session):
+            raise PagesLockedError
+        else:
+            raise LoginRequiredError
+        if viewer.is_admin:
+            request.state.people_waiting = accounts.waiting(session)
+    request.state.viewer = viewer
+    return viewer
+
+
+def reviewer(viewer: Viewer = Depends(current_viewer)) -> str:
+    """The name a decision, an upload or a pull is signed with."""
+    return viewer.signs_as
+
+
+def admin_only(viewer: Viewer = Depends(current_viewer)) -> Viewer:
+    if not viewer.is_admin:
+        raise AdminOnlyError
+    return viewer

@@ -59,18 +59,47 @@
   details { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
   code { font-size: 13px; background: #f4f6f8; padding: 1px 4px; border-radius: 4px; }
   input { font: inherit; }
+  .who { margin-left: auto; color: var(--muted); font-size: 14px; }
+  .who a { color: var(--accent); text-decoration: none; }
+  button.link { border: 0; background: none; padding: 0 0 0 10px; color: var(--accent); }
+  .badge { background: var(--risk); color: #fff; border-radius: 9px; padding: 0 7px;
+           font-size: 12px; }
+  .narrow { max-width: 420px; }
+  .narrow label { display: block; margin: 12px 0 4px; font-weight: 600; }
+  .narrow input { width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 6px; }
+  .narrow button { margin-top: 16px; }
+  .tag { font-size: 12px; padding: 1px 7px; border-radius: 10px; background: #eef2f6; }
+  .tag.pending { background: #fff6e0; color: var(--warn); }
+  .tag.active { background: #e3f4ec; color: var(--ok); }
+  .tag.disabled { background: #fdecec; color: var(--risk); }
+  .scroll { overflow-x: auto; }
+  .small { font-size: 13px; color: var(--muted); }
   footer { color: var(--muted); font-size: 13px; padding: 30px 20px; text-align: center; }
 </style>
 </head>
 <body>
+{% set viewer = request.state.viewer %}
 <header>
   <h1>Reckon</h1>
+  {% if viewer %}
   <nav>
     <a href="/review">Review queue</a>
     <a href="/report">Daily report</a>
     <a href="/setup">Your data</a>
+    {% if viewer.is_admin %}
+    <a href="/admin/people">People{% if request.state.people_waiting %} <span class="badge">{{ request.state.people_waiting }}</span>{% endif %}</a>
+    <a href="/admin/activity">Activity</a>
+    {% endif %}
   </nav>
-  <span style="color:var(--muted);font-size:13px">test mode — this service never moves money</span>
+  <span class="who">
+    {% if viewer.id %}
+    <a href="/account">{{ viewer.name }}</a>{% if viewer.is_admin %} · admin{% endif %}
+    <form method="post" action="/logout"><button type="submit" class="link">Log out</button></form>
+    {% else %}
+    <a href="/login">Log in</a>
+    {% endif %}
+  </span>
+  {% endif %}
 </header>
 {% if demo() %}
 <div class="demo">
