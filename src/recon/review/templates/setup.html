@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Your data{% endblock %}
+{% block body %}
+<p class="lede">
+  Reckon matches the money that comes in to the invoices you sent out. It needs
+  two things from you: what you are owed, and what you were paid.
+</p>
+
+{% if message %}
+<div class="{{ 'note' if message.ok else 'problem' }}">
+  <strong>{{ message.text }}</strong>
+  {% if message.details %}<ul>{% for line in message.details %}<li>{{ line }}</li>{% endfor %}</ul>{% endif %}
+</div>
+{% endif %}
+
+<div class="tiles">
+  <div class="tile"><div class="k">Invoices still owed</div><div class="n">{{ counts.invoices_owed }}</div></div>
+  <div class="tile"><div class="k">Payments</div><div class="n">{{ counts.payments }}</div></div>
+  <div class="tile"><div class="k">Waiting for you</div><div class="n">{{ waiting }}</div></div>
+  <div class="tile"><div class="k">Last from Paystack</div><div class="n" style="font-size:14px">{{ last_webhook or 'nothing yet' }}</div></div>
+</div>
+
+{% if demo() %}
+<div class="problem">
+  This is practice data, so there is nowhere to put yours. To use your own books,
+  remove <code>RECON_DEMO</code>, set <code>RECON_PASSWORD</code>, and restart.
+</div>
+{% else %}
+
+<h2>1. Your invoices</h2>
+<p>
+  A spreadsheet of what customers owe you, saved as CSV. It needs four columns:
+  <code>reference</code>, <code>customer</code>, <code>amount</code> and
+  <code>issued</code>. <a href="/setup/invoices.csv">Download an example</a>.
+</p>
+<form method="post" action="/setup/invoices" enctype="multipart/form-data" class="block">
+  <input type="file" name="file" accept=".csv,text/csv" required>
+  <button class="yes" type="submit">Upload invoices</button>
+</form>
+<details>
+  <summary>More about this file</summary>
+  <ul>
+    <li>Amounts are in naira, written however you like: <code>25000</code>, <code>25,000.50</code>, <code>₦25,000</code>.</li>
+    <li>Dates can be <code>2024-05-17</code> or <code>17/05/2024</code> (day first).</li>
+    <li>Optional columns: <code>customer_id</code>, <code>email</code>, <code>phone</code>,
+        <code>description</code>, and <code>status</code> (<code>open</code>, <code>paid</code> or <code>void</code>).</li>
+    <li>Without a <code>customer_id</code>, two customers with the same name are treated as one. If you give customers
+        dedicated accounts on Paystack, use their Paystack customer code (<code>CUS_…</code>) here, and money into those
+        accounts finds its owner by itself.</li>
+    <li>Upload the same file again whenever it changes. Nothing is doubled; changed invoices are updated.</li>
+    <li>One bad row and nothing goes in. You get every bad row back with its line number.</li>
+  </ul>
+</details>
+
+<h2>2. Payments through Paystack</h2>
+{% if not paystack_connected %}
+<div class="problem">Paystack is not connected. Set <code>PAYSTACK_SECRET_KEY</code> to your <code>sk_test_</code> key and restart.</div>
+{% endif %}
+<p>
+  <strong>New payments</strong> arrive by themselves once Paystack knows where to send them. In your Paystack
+  dashboard, open Settings, then API Keys &amp; Webhooks, and paste this as the <em>test</em> webhook URL:
+</p>
+<div class="narration">{{ webhook_url }}</div>
+{% if refused_webhooks %}
+<p class="risk">
+  {{ refused_webhooks }} {{ 'delivery was' if refused_webhooks == 1 else 'deliveries were' }} refused because the
+  signature did not match. That usually means <code>PAYSTACK_SECRET_KEY</code> is not the key from the same dashboard.
+</p>
+{% endif %}
+<p><strong>Payments from before that</strong> can be pulled in from Paystack's own list. Pulling twice is harmless.</p>
+<form method="post" action="/setup/paystack" class="block">
+  From <input type="date" name="since" value="{{ since }}">
+  <button class="yes" type="submit" {% if not paystack_connected or offline %}disabled{% endif %}>Pull from Paystack</button>
+  {% if offline %}<span class="meta">Off while <code>RECON_OFFLINE</code> is on.</span>{% endif %}
+</form>
+
+<h2>3. Payments Paystack never saw</h2>
+<p>
+  Transfers straight into your bank account, and cash. Download your bank statement as CSV and upload it as it
+  is: Reckon reads the date, the amount (or the credit column) and the narration, and skips money going out.
+  For cash, add a line with <code>channel</code> set to <code>cash</code>.
+  <a href="/setup/payments.csv">Download an example</a>.
+</p>
+<form method="post" action="/setup/payments" enctype="multipart/form-data" class="block">
+  <input type="file" name="file" accept=".csv,text/csv" required>
+  <button class="yes" type="submit">Upload payments</button>
+</form>
+
+<h2>Where your data is kept</h2>
+{% if stored_in_a_file %}
+<div class="problem">
+  In a file inside this server. On Railway and most hosts that file is wiped every time the app redeploys,
+  and everything above goes with it. Add a Postgres database and set <code>DATABASE_URL</code> so it stays.
+</div>
+{% else %}
+<p class="done">In a Postgres database. It stays through restarts and redeploys.</p>
+{% endif %}
+
+{% endif %}
+{% endblock %}

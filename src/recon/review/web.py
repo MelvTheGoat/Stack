@@ -21,6 +21,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
 from recon import state
+from recon.config import get_settings
 from recon.db import session_scope
 from recon.enums import RejectReason
 from recon.match.threshold import reviews_in_an_evening
@@ -31,6 +32,7 @@ from recon.review.access import reviewer
 from recon.state import workspace
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
+templates.env.globals["demo"] = lambda: get_settings().demo
 
 router = APIRouter(dependencies=[Depends(reviewer)])
 
@@ -70,6 +72,7 @@ def review_page(request: Request) -> Any:
             "remainder": remainder,
             "top_share": f"{share:.0%}",
             "reasons": REASON_LABELS,
+            "has_payments": bool(space.transactions),
         },
     )
 
@@ -110,7 +113,11 @@ def report_page(request: Request, day: str | None = None) -> Any:
     space = workspace()
     on = date.fromisoformat(day) if day else space.last_trading_day()
     built = settlement.build(on, space.transactions, space.matches, space.settlements)
-    return templates.TemplateResponse(request, "report.html", {"r": settlement.summarise(built)})
+    return templates.TemplateResponse(
+        request,
+        "report.html",
+        {"r": settlement.summarise(built), "has_payments": bool(space.transactions)},
+    )
 
 
 @router.get("/api/report")

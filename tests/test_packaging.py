@@ -18,11 +18,14 @@ def test_the_review_templates_are_declared_as_package_data() -> None:
 
 
 def test_every_template_the_code_renders_actually_exists() -> None:
-    templates = ROOT / "src" / "recon" / "review" / "templates"
-    web = (ROOT / "src" / "recon" / "review" / "web.py").read_text()
-    for name in ("queue.html", "report.html"):
-        assert (templates / name).exists()
-        assert name in web
+    review = ROOT / "src" / "recon" / "review"
+    for module, name in (
+        ("web.py", "queue.html"),
+        ("web.py", "report.html"),
+        ("setup.py", "setup.html"),
+    ):
+        assert (review / "templates" / name).exists()
+        assert name in (review / module).read_text()
 
 
 def test_the_dockerfile_ships_the_corpus_and_the_model() -> None:

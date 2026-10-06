@@ -5,6 +5,9 @@
   What came in on {{ r.day }}, and what reached the bank. They are different
   numbers for three reasons, and all three are shown.
 </p>
+{% if not has_payments %}
+<p class="lede">No payments yet, so every number below is zero. <a href="/setup">Bring yours in</a>.</p>
+{% endif %}
 
 <div class="tiles">
   <div class="tile"><div class="k">Taken today</div><div class="n">{{ r.taken_today.gross }}</div></div>
